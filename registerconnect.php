@@ -12,7 +12,6 @@ if(!$link)
 	die('could not connect:' .mysql_error());
 }
 $db_selected=mysql_select_db(DB_NAME,$link);
-echo "connection successful";
 $value1=$_POST['rollno'];
 $value2=$_POST['dob'];
 
@@ -21,7 +20,7 @@ if(!mysql_query($sql))
 {
 	die("error:" .mysql_error());
 }
-header('profile.html');
-mysql_close();
+header('Location:profile.php');
+
 
 ?>

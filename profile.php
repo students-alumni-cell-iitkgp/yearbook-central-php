@@ -29,42 +29,56 @@
 </head>
 <body>
 	<form method="post" action="profileconnect.php">
-		<div class="row">
-			<div class="col s12 m6 l6 z-depth-2 center" style="padding:20px;background-color:white">
-
-				<div class="offsets8" style="color:black;margin-bottom:50px">
+	<div class="container">
+				<div style="color:black;">
 					<h4>Fill up your details</h4>
 				</div>
-				<div class="input-field offset-s8 ">
+						<div class="row">
+
+				<div class="input-field col s12 l6 m12 ">
 					<i class="material-icons prefix">account_circle</i>
 					<input name="department" type="text" required>
 					<label for="department">Department</label>
-				</div>
-				<div class="input-field offset-s8 ">
+				</div></div>
+										<div class="row">
+
+				<div class="input-field col s12 l6 m12 ">
 					<i class="material-icons prefix">account_circle</i>
 					<input name="YOG" type="text"required>
 					<label for="YOG">Year of Graduation (Eg : 20XX)</label>
 				</div>
-				<div class="input-field offset-s8 ">
+				</div>
+										<div class="row">
+
+				<div class="input-field col s12 l6 m12 ">
 					<i class="material-icons prefix">home</i>
 					<input name="HOR" type="text" required>
 					<label for="HOR">Hall of Residence</label>
 				</div>
-				<div class="input-field offset-s8 ">
+				</div>
+										<div class="row">
+
+				<div class="input-field col s12 l6 m12 ">
     <i class="material-icons prefix">home</i>
 					<input name="course" type="text" required>
 					<label for="course">Course (UG / PG /RS)</label>
 				</div>
-				<div class="input-field offset-s8 ">
-					<i class="material-icons prefix">home/i>
+				</div>
+										<div class="row">
+
+				<div class="input-field col s12 l6 m12 ">
+					<i class="material-icons prefix">home</i>
 					<input name="email" type="email" >
 					<label for="email">Email</label>
 				</div>
-			
-				<div class="input-field offset-s8 ">
+</div>
+									<div class="row">
+
+				<div class="input-field col s12 l6 m12 ">
 					<i class="material-icons prefix">home</i>
-					<input name="phone" type="number" optional>
+					<input name="phone" type="text" optional>
 					<label for="phone">Phone no</label>
+				</div>
 				</div>
 				<div>
 					<button type="submit" name="submit"class="waves-effect waves-light btn"required style="background-color:red">SUBMIT</button>
@@ -73,5 +87,8 @@
 			</div>
 		</div>
 	</form>
+	<div>
+	<?php include'jQuery-File-Upload-9.11.2/index.html';?>
+	</div>
 </body>
 </html>
