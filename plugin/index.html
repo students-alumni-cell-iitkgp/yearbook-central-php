@@ -196,13 +196,12 @@
     <label class="title">
     <span>Title:</span><br>
     <input name="title[]" class="form-control">
-</label>
-</td><td>
+</label></td>
+<td>
 <label class="description">
     <span>Description:</span><br>
     <input name="description[]" class="form-control">
-</label>
-    </td>
+</label></td>
         <td>
             <span class="preview"></span>
         </td>
@@ -235,12 +234,8 @@
 <script id="template-download" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-download fade">
-    <td>
-    <p class="title"><strong>{%=file.title||''%}</strong></p>
-    </td>
-    <td>
-    <p class="description">{%=file.description||''%}</p>
-    </td>
+    <td><p class="title"><strong>{%=file.title||''%}</strong></p></td>
+<td><p class="description">{%=file.description||''%}</p></td>
         <td>
             <span class="preview">
                 {% if (file.thumbnailUrl) { %}
