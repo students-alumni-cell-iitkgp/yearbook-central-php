@@ -1,16 +1,14 @@
 <?php
-$DB_NAME = getenv('DB_NAME');
-$DB_HOST = getenv('DB_HOST');
-$DB_USER = getenv('DB_USERNAME');
-$DB_PASS = getenv('DB_PASSWORD');
+define('DB_NAME','yearbook');
+define('DB_USER','root');
+define('DB_PASSWORD','');
+define('DB_HOST','localhost');
 
-$connection = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+$link=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD);
+if(!$link)
+{
+	die('could not connect:' .mysql_error());
+}
+$db_selected=mysql_select_db(DB_NAME,$link);
 
-if ($connection->connect_error) {
-  // die("Connecton failed: ".$connection->connect_error);
-  die("It seems that we cannot talk to our DB right now. Please try again in a couple of minutes");
-}
-else {
-  echo "Connection Successful<br>";
-}
 ?>

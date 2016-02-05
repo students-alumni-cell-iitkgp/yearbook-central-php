@@ -9,7 +9,7 @@
  * Licensed under the MIT license:
  * http://www.opensource.org/licenses/MIT
  */
-
+session_start();
 class UploadHandler
 {
 
@@ -474,7 +474,9 @@ class UploadHandler
             }
             $name = $this->upcount_name($name);
         }
-        return $name;
+        $unique_hash = hash('sha256', $_SESSION['rollno'].time());
+        $unique_hash = substr($unique_hash, 0, 10);
+        return $_SESSION['rollno'].'-'.$unique_hash;
     }
 
     protected function fix_file_extension($file_path, $name, $size, $type, $error,

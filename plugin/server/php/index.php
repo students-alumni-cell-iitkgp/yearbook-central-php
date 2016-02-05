@@ -5,7 +5,7 @@ $options = array(
     'db_user' => 'root',
     'db_pass' => '',
     'db_name' => 'yearbook',
-    'db_table' => 'files'
+    'db_table' => 'department_photos'
 );
 
 error_reporting(E_ALL | E_STRICT);
