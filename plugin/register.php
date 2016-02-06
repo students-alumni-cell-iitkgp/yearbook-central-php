@@ -112,7 +112,7 @@ include 'connection.php';
 			</div></div>
 		<div class="row">
 		<div class="col s6 m6 l6">
-		<form action="index.php">
+		<form action="upload.php">
 		<button type="submit"class="waves-effect waves-light btn" >UPLOAD PHOTOS</button>
 </form>
 		</div>
