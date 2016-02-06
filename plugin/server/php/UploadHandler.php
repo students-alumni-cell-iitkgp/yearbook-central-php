@@ -476,7 +476,8 @@ class UploadHandler
         }
         $unique_hash = hash('sha256', $_SESSION['rollno'].time());
         $unique_hash = substr($unique_hash, 0, 10);
-        return $_SESSION['rollno'].'-'.$unique_hash;
+        return $_SESSION['rollno'].'-'.$unique_hash.'.'.$name;
+
     }
 
     protected function fix_file_extension($file_path, $name, $size, $type, $error,
