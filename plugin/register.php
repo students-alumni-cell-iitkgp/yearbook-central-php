@@ -17,25 +17,16 @@ include 'connection.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <style>
-	body
-	{
-		background-color: #ccc;
-
-	}
-	.hex
-	{
-		background-color: white;
-			}
 </style>
 <body>
-<div class="row hex">
-<div class="col l5 s6 m6 z-depth-2" style="margin:30px">
+<div class="row">
+<div class="col l5 s11 m6 z-depth-2" style="margin:30px">
 	<form method="post" action="registerconnect.php">
 		
 		<div style="color:white;background-color:#1a237e"><h4 style="text-align:center ">FILL UP YOUR DETAILS</h4></div>
 			<div class="row">
 
-				<div class="input-field col s12 l12 m12 ">
+				<div class="input-field col s11 l12 m12 ">
 					<i class="material-icons prefix">account_circle</i>
 					<input name="department" type="text" value="<?php echo $line['department']; ?>" required />
 					<label for="department">Department</label>
@@ -86,7 +77,7 @@ include 'connection.php';
 				</div>
 				<div class="row">
 
-					<div class="input-field col s12 l12 m12 ">
+					<div class="input-field col s11 l12 m12 ">
 						<i class="material-icons prefix">email</i>
 						<input name="email" value="<?php echo $line['email']; ?>"type="email" >
 						<label for="email">Email</label>
@@ -94,7 +85,7 @@ include 'connection.php';
 				</div>
 				<div class="row">
 
-					<div class="input-field col s12 l12 m12 ">
+					<div class="input-field col s11 l12 m12 ">
 						<i class="material-icons prefix">phone</i>
 						<input name="phone"value="<?php echo $line['phone']; ?>" type="number" size="10" optional>
 						<label for="phone">Phone no</label>
@@ -111,7 +102,7 @@ include 'connection.php';
 		
 			</div></div>
 		<div class="row">
-		<div class="col s6 m6 l6">
+		<div class="col s12 m6 l6">
 		<form action="upload.php">
 		<button type="submit"class="waves-effect waves-light btn" >UPLOAD PHOTOS</button>
 </form>
@@ -119,7 +110,7 @@ include 'connection.php';
 		
 				<form action="writeup.php">
 
-		<div class="col s6 m6 l6">
+		<div class="col s12 m6 l6">
 		<button type="button"class="waves-effect waves-light btn">UPLOAD WRITEUPS</button>
 
 		</div></form>

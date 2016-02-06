@@ -476,17 +476,17 @@ class UploadHandler
         }
         $unique_hash = hash('sha256', $_SESSION['rollno'].time());
         $unique_hash = substr($unique_hash, 0, 10);
-        return $_SESSION['rollno'].'-'.$unique_hash.'.'.$name;
+        return $_SESSION['rollno'].'-'.$_SESSION['department'].'-'.$unique_hash.'.'.$name;
 
     }
 
     protected function fix_file_extension($file_path, $name, $size, $type, $error,
             $index, $content_range) {
         // Add missing file extension for known image types:
-        if (strpos($name, '.') === false &&
-                preg_match('/^image\/(gif|jpe?g|png)/', $type, $matches)) {
-            $name .= '.'.$matches[1];
-        }
+        //if (strpos($name, '.') === false &&
+        //        preg_match('/^image\/(gif|jpe?g|png)/', $type, $matches)) {
+        //    $name .= '.'.$matches[1];
+        //}
         if ($this->options['correct_image_extensions'] &&
                 function_exists('exif_imagetype')) {
             switch(@exif_imagetype($file_path)){
@@ -513,7 +513,11 @@ class UploadHandler
         }
         return $name;
     }
-
+    protected function get_file_extension($name)
+    {
+        $name=substr($name, strpos($name, ".") + 1);
+        return $name;
+    }
     protected function trim_file_name($file_path, $name, $size, $type, $error,
             $index, $content_range) {
         // Remove path information and dots around the filename, to prevent uploading
@@ -533,7 +537,7 @@ class UploadHandler
             $index, $content_range);
         return $this->get_unique_filename(
             $file_path,
-            $this->fix_file_extension($file_path, $name, $size, $type, $error,
+            $this->fix_file_extension($file_path,$this-> get_file_extension($name), $size, $type, $error,
                 $index, $content_range),
             $size,
             $type,
