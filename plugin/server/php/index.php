@@ -2,8 +2,8 @@
 $options = array(
     'delete_type' => 'POST',
     'db_host' => 'localhost',
-    'db_user' => getenv("YEARBOOK_DB_USERNAME"),
-    'db_pass' => getenv("YEARBOOK_DB_PASSWORD"),
+    'db_user' => 'root',
+    'db_pass' => '',
     'db_name' => 'yearbook',
     'db_table' => 'photos'
 );
@@ -25,7 +25,7 @@ class CustomUploadHandler extends UploadHandler {
     }
 
     protected function handle_form_data($file, $index) {
-        $file->title = @$_REQUEST['title'][$index];
+        $file->classifier= @$_REQUEST['classifier'][$index];
         $file->description = @$_REQUEST['description'][$index];
     }
 
@@ -36,16 +36,16 @@ class CustomUploadHandler extends UploadHandler {
         );
         if (empty($file->error)) {
             $sql = 'INSERT INTO `'.$this->options['db_table']
-                .'` (`name`, `size`, `type`, `title`, `description`)'
-                .' VALUES (?, ?, ?, ?, ?)';
+                .'` (`name`, `size`, `type`, `description`,`classifier`)'
+                .' VALUES (?, ?, ?,?,?)';
             $query = $this->db->prepare($sql);
             $query->bind_param(
                 'sisss',
                 $file->name,
                 $file->size,
                 $file->type,
-                $file->title,
-                $file->description
+                $file->description,
+                $file->classifier
             );
             $query->execute();
             $file->id = $this->db->insert_id;
@@ -56,7 +56,7 @@ class CustomUploadHandler extends UploadHandler {
     protected function set_additional_file_properties($file) {
         parent::set_additional_file_properties($file);
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $sql = 'SELECT `id`, `type`, `title`, `description` FROM `'
+            $sql = 'SELECT `id`, `type`, `description`,`classifier` FROM `'
                 .$this->options['db_table'].'` WHERE `name`=?';
             $query = $this->db->prepare($sql);
             $query->bind_param('s', $file->name);
@@ -64,14 +64,14 @@ class CustomUploadHandler extends UploadHandler {
             $query->bind_result(
                 $id,
                 $type,
-                $title,
-                $description
+                $description,
+                $classifier
             );
             while ($query->fetch()) {
                 $file->id = $id;
                 $file->type = $type;
-                $file->title = $title;
                 $file->description = $description;
+                $file->classifier = $classifier;
             }
         }
     }

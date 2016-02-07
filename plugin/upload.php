@@ -24,18 +24,19 @@
             <!-- Redirect browsers with JavaScript disabled to the origin page -->
             <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
             <h2>Upload Photos</h2>
+            <div class="form-group">
+  <label for="classifier">Select Category:</label>
+  <select class="form-control" name="classifier "id="classifier">
+    <option value="dep" selected>DEPARTMENT PHOTOS</option>
+    <option value="hall">HALL PHOTOS</option>
+    <option value="fest">FEST PHOTOS</option>
+    <option value="misc">OTHER MOMENTS AT KGP</option>
+  </select>
+</div>
             <div class="row fileupload-buttonbar">
                 <div class="col-lg-7">
                     <!-- The fileinput-button span is used to style the file input field as button -->
-                    <div class="form-group">
-  <label for="classifier">Select Category:</label>
-  <select class="form-control" id="classifier">
-    <option>DEPARTMENT PHOTOS</option>
-    <option>HALL PHOTOS</option>
-    <option>FEST PHOTOS</option>
-    <option>OTHER MOMENTS AT KGP</option>
-  </select>
-</div>
+                    
                     <span class="btn btn-success fileinput-button">
                         <i class="glyphicon glyphicon-plus"></i>
                         <span>Add files...</span>
@@ -72,18 +73,15 @@
     
     <!-- The template to display files available for upload -->
     <script id="template-upload" type="text/x-tmpl">
+
         {% for (var i=0, file; file=o.files[i]; i++) { %}
         <tr class="template-upload fade">
-            <td>
-                <label class="title">
-                    <span>Title:</span><br>
-                    <input name="title[]" class="form-control">
-                </label></td>
-                <td>
+                    <td>
                     <label class="description">
-                        <span>Description:</span><br>
+                        <span>Caption:</span><br>
                         <input name="description[]" class="form-control">
-                    </label></td>
+                    </label>
+                    </td>
                     <td>
                         <span class="preview"></span>
                     </td>
@@ -116,7 +114,6 @@
             <script id="template-download" type="text/x-tmpl">
                 {% for (var i=0, file; file=o.files[i]; i++) { %}
                 <tr class="template-download fade">
-                    <td><p class="title"><strong>{%=file.title||''%}</strong></p></td>
                     <td><p class="description">{%=file.description||''%}</p></td>
                     <td>
                         <span class="preview">

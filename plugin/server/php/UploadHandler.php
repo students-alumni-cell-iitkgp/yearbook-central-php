@@ -10,6 +10,7 @@
  * http://www.opensource.org/licenses/MIT
  */
 session_start();
+
 class UploadHandler
 {
 
