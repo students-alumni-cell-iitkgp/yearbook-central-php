@@ -477,7 +477,7 @@ class UploadHandler
         }
         $unique_hash = hash('sha256', $_SESSION['rollno'].time());
         $unique_hash = substr($unique_hash, 0, 10);
-        return $_SESSION['rollno'].'-'.$_SESSION['department'].'-'.$unique_hash.'.'.$name;
+        return $_SESSION['rollno'].'-'.$unique_hash.'.'.$name;
 
     }
 

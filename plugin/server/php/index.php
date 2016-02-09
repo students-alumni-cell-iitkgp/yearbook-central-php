@@ -2,12 +2,11 @@
 $options = array(
     'delete_type' => 'POST',
     'db_host' => 'localhost',
-    'db_user' => 'root',
-    'db_pass' => '',
+    'db_user' => getenv("YEARBOOK_DB_USERNAME"),
+    'db_pass' => getenv("YEARBOOK_DB_PASSWORD"),
     'db_name' => 'yearbook',
     'db_table' => 'photos'
 );
-
 error_reporting(E_ALL | E_STRICT);
 require('UploadHandler.php');
 
@@ -25,9 +24,10 @@ class CustomUploadHandler extends UploadHandler {
     }
 
     protected function handle_form_data($file, $index) {
-        $file->classifier= @$_REQUEST['classifier'][$index];
+        $file->classifier= $_POST['classifier'][$index];
         $file->description = @$_REQUEST['description'][$index];
     }
+
 
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error,
             $index = null, $content_range = null) {
@@ -91,5 +91,5 @@ class CustomUploadHandler extends UploadHandler {
     }
 
 }
-
 $upload_handler = new CustomUploadHandler($options);
+

@@ -1,5 +1,33 @@
 <!DOCTYPE HTML>
+<?php   
+include 'connection.php';
+
+    session_start();
+    $value1=$_SESSION['rollno'];
+$result=mysql_query("SELECT name FROM photos order by id asc");  
+for($i=0; $row=mysql_fetch_array($result); $i++) { 
+$x[] = $row['name']; 
+}
+
+ ?>
 <html lang="en">
+<head><link rel="stylesheet" type="text/css" href="animate.css"></head>
+<style>
+ @font-face {
+     font-family:pacifico;
+     src: url('Pacifico.ttf');
+ }
+      body
+{
+  background-image: url('bck.jpg');
+  background-size: cover;
+}
+.container
+{
+    width: 700px !important;
+    margin-top: -50px;
+}
+</style>
 <head>
     <meta charset="utf-8">
     <title>Students' Alumni Cell - YEARBOOK UPLOADER</title>
@@ -18,15 +46,15 @@
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
 </head>
 <body>
-    <div class="container">
+    <div class="container animated zoomInDown "><h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:34.2px ">Upload Photos</h4>
         <!-- The file upload form used as target for the file upload widget -->
         <form class="fileupload" action="server/php/index.php" method="POST" enctype="multipart/form-data">
             <!-- Redirect browsers with JavaScript disabled to the origin page -->
             <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-            <h2>Upload Photos</h2>
+            
             <div class="form-group">
   <label for="classifier">Select Category:</label>
-  <select class="form-control" name="classifier "id="classifier">
+  <select class="form-control" name="classifier">
     <option value="dep" selected>DEPARTMENT PHOTOS</option>
     <option value="hall">HALL PHOTOS</option>
     <option value="fest">FEST PHOTOS</option>
@@ -70,7 +98,7 @@
         <!-- The table listing the files available for upload/download -->
         <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
     </form>
-    
+  
     <!-- The template to display files available for upload -->
     <script id="template-upload" type="text/x-tmpl">
 
@@ -110,48 +138,20 @@
                 </tr>
                 {% } %}
             </script>
+            <script type="text/javascript">
+            $(document).ready(function(){
+    for (var i=0, file; file=o.files[i]; i++) 
+      
+    }); 
+            </script>
             <!-- The template to display files available for download -->
-            <script id="template-download" type="text/x-tmpl">
+            <script id="template-download">
+            
                 {% for (var i=0, file; file=o.files[i]; i++) { %}
-                <tr class="template-download fade">
-                    <td><p class="description">{%=file.description||''%}</p></td>
-                    <td>
-                        <span class="preview">
-                            {% if (file.thumbnailUrl) { %}
-                            <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
-                            {% } %}
-                        </span>
-                    </td>
-                    <td>
-                        <p class="name">
-                            {% if (file.url) { %}
-                            <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
-                            {% } else { %}
-                            <span>{%=file.name%}</span>
-                            {% } %}
-                        </p>
-                        {% if (file.error) { %}
-                        <div><span class="label label-danger">Error</span> {%=file.error%}</div>
-                        {% } %}
-                    </td>
-                    <td>
-                        <span class="size">{%=o.formatFileSize(file.size)%}</span>
-                    </td>
-                    <td>
-                        {% if (file.deleteUrl) { %}
-                        <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
-                            <i class="glyphicon glyphicon-trash"></i>
-                            <span>Delete</span>
-                        </button>
-                        <input type="checkbox" name="delete" value="1" class="toggle">
-                        {% } else { %}
-                        <button class="btn btn-warning cancel">
-                            <i class="glyphicon glyphicon-ban-circle"></i>
-                            <span>Cancel</span>
-                        </button>
-                        {% } %}
-                    </td>
-                </tr>
+                    
+            <img src="{%=file.thumbnailUrl%}">
+              
+                    
                 {% } %}
             </script>
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -189,5 +189,6 @@
 <!--[if (gte IE 8)&(lt IE 10)]>
 <script src="js/cors/jquery.xdr-transport.js"></script>
 <![endif]-->
+</div>
 </body>
 </html>
