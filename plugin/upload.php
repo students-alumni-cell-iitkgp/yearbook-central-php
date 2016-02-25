@@ -6,7 +6,8 @@ include 'connection.php';
     $value1=$_SESSION['rollno'];
 $result=mysql_query("SELECT name FROM photos order by id asc");  
 for($i=0; $row=mysql_fetch_array($result); $i++) { 
-$x[] = $row['name']; 
+$x[] = $row['name'];
+ echo '<script>for(var i=0;i<'.sizeof($x).';i++){var name=[];name[i]=$x[i];}</script>';
 }
 
  ?>
@@ -44,9 +45,19 @@ $x[] = $row['name'];
     <!-- CSS adjustments for browsers with JavaScript disabled -->
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-noscript.css"></noscript>
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
+    <script>$('.start').hide();</script>
 </head>
 <body>
-    <div class="container animated zoomInDown "><h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:34.2px ">Upload Photos</h4>
+    <div class="container animated zoomInDown ">
+    <div class="row">
+    <div class="col-md-6">
+    <button type="button" class="btn btn-primary" onclick="location.href='register.php'">HOME </button>
+    </div>
+    <div class="col-md-6">
+    <button type="button" class="btn btn-primary" onclick="location.href='login.php'">LOGOUT </button>
+    </div>
+    </div>
+    <h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:34.2px ">Upload Photos</h4>
         <!-- The file upload form used as target for the file upload widget -->
         <form class="fileupload" action="server/php/index.php" method="POST" enctype="multipart/form-data">
             <!-- Redirect browsers with JavaScript disabled to the origin page -->
@@ -122,7 +133,7 @@ $x[] = $row['name'];
                         <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
                     </td>
                     <td>
-                        {% if (!i && !o.options.autoUpload) { %}
+                       {% if (!i && !o.options.autoUpload) { %}
                         <button class="btn btn-primary start" disabled>
                             <i class="glyphicon glyphicon-upload"></i>
                             <span>Start</span>
@@ -138,18 +149,14 @@ $x[] = $row['name'];
                 </tr>
                 {% } %}
             </script>
-            <script type="text/javascript">
-            $(document).ready(function(){
-    for (var i=0, file; file=o.files[i]; i++) 
-      
-    }); 
-            </script>
             <!-- The template to display files available for download -->
             <script id="template-download">
             
                 {% for (var i=0, file; file=o.files[i]; i++) { %}
+               
                     
             <img src="{%=file.thumbnailUrl%}">
+
               
                     
                 {% } %}
@@ -189,6 +196,7 @@ $x[] = $row['name'];
 <!--[if (gte IE 8)&(lt IE 10)]>
 <script src="js/cors/jquery.xdr-transport.js"></script>
 <![endif]-->
+
 </div>
 </body>
 </html>
