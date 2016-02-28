@@ -2,7 +2,7 @@
 $options = array(
     'delete_type' => 'POST',
     'db_host' => 'localhost',
-    'db_user' => getenv("YEARBOOK_DB_USERNAME"),
+    'db_user' =>getenv("YEARBOOK_DB_USERNAME"),
     'db_pass' => getenv("YEARBOOK_DB_PASSWORD"),
     'db_name' => 'yearbook',
     'db_table' => 'photos'
@@ -24,7 +24,7 @@ class CustomUploadHandler extends UploadHandler {
     }
 
     protected function handle_form_data($file, $index) {
-        $file->classifier= $_POST['classifier'][$index];
+        $file->classifier= @$_REQUEST['classifier'][$index];
         $file->description = @$_REQUEST['description'][$index];
     }
 

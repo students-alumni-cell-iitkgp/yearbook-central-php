@@ -25,7 +25,7 @@ function showfield(name){
 }
 .container
 {
- width: 700px;
+    width: 800px !important;
 }
 .btn
  {

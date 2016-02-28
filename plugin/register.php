@@ -49,7 +49,7 @@ body
 			</div>
 			<div class="col s3 l6 m3"><h3 class="center upload"style="font-family:pacifico;font-size:500%;color:#707070">Yearbook'16</h3>
 </div>
-<div class="col l2 s3 m3 offset-l1" >
+<div class="col l2 s3 m3 offset-l1">
     <button type="button"class="waves-effect waves-light btn" onclick="location.href='login.php'">LOGOUT </button>
 
 
