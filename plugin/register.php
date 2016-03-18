@@ -171,6 +171,14 @@ body
 </form></div></div>
 		</div>
 		</div>
+
+		<div class="col s6 m6 l6 upload">
+		<div class="row">
+		<div class="col s4 l4 m4 offset-l5" style="margin-top:50px">
+		<form action="department.php">
+		<img src='i3.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >Click if you Dare</button>
+</form></div></div>
+		</div>		
 		
 	
 <script>
