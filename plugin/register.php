@@ -176,7 +176,7 @@ body
 		<div class="row">
 		<div class="col s4 l4 m4 offset-l5" style="margin-top:50px">
 		<form action="department.php">
-		<img src='i3.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >Click if you Dare</button>
+		<img src='i3.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >Views</button>
 </form></div></div>
 		</div>		
 		
