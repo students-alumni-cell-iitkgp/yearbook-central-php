@@ -2,6 +2,11 @@
 	ob_start();
 	require 'connection.php';
 	session_start();
+	if (isset($_SESSION['rollno'])) {
+		
+	}else{
+  		echo '<script>alert("You need to Log In");window.location.href="login.php";</script>';
+	}
 	$value1=$_SESSION['rollno'];
 	$query = "select * from register where rollno = '$value1'"; 
 	$result = mysql_query($query); 
