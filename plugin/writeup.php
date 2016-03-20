@@ -1,3 +1,12 @@
+<?php
+require 'connection.php';
+session_start();
+if (isset($_SESSION['rollno'])) {
+    
+  }else{
+  echo '<script>alert("You need to Log In");window.location.href="login.php";</script>';
+  }
+?>
 <html>
 <head>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
