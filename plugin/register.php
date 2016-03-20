@@ -155,7 +155,7 @@ body
 		<div class="row">
 		<div class="col s6 m6 l6 upload">
 		<div class="row">
-		<div class="col s4 l4 m4 offset-l5" style="margin-top:50px">
+		<div class="col s4 l4 m4 offset-l5" style="margin-top:10px">
 		<form action="upload.php">
 		<img src='i1.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >UPLOAD PHOTOS</button>
 </form></div></div>
@@ -165,7 +165,7 @@ body
 
 		<div class="col s6 m6 l6 upload">
 		<div class="row">
-		<div class="col s4 l4 m4 offset-l4"style="margin-top:50px">
+		<div class="col s4 l4 m4 offset-l4"style="margin-top:10px">
 		<form action="writeup.php">
 		<img src='i2.png' width="150px"><button type="submit"class="waves-effect waves-light btn special">Upload Articles</button>
 </form></div></div>
@@ -174,7 +174,7 @@ body
 
 		<div class="col s6 m6 l6 upload">
 		<div class="row">
-		<div class="col s4 l4 m4 offset-l5" style="margin-top:50px">
+		<div class="col s4 l4 m4 offset-l5" style="margin-top:10px">
 		<form action="department.php">
 		<img src='i3.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >Views</button>
 </form></div></div>
