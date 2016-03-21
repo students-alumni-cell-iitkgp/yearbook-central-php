@@ -74,25 +74,51 @@ body
 				<div class="input-field col s11 l4 m12 ">
 					<select name="department" required>
       <option selected value="<?php echo $line['department'];?>"><?php if( $line['department']) echo $line['department'] ;else echo 'Choose your department';?></option>
-      <option value="AE">Aerospace Engineering</option>
-      <option value="AG">Agricultural & Food Engineering</option>
-      <option value="AR">Architecture & Regional Planning</option>
-      <option value="BT">Biotechnology</option>
-      <option value="CH">Chemical Engineering</option>
-      <option value="CY">Chemistry</option>
-      <option value="CE">Civil Engineering</option>
-      <option value="CS">Computer Science & Engineering</option>
-      <option value="EE">Electrical Engineering</option>
-      <option value="ECE">Electronics & Electrical Communication Engineering</option>
-      <option value="GG">Geology & Geophysics</option>
-      <option value="HS">Humanities & Social Sciences</option>
-      <option value="IM">Industrial & Systems Engineering</option>
-      <option value="MA">Mathematics</option>
-      <option value="ME">Mechanical Engineering</option>
-      <option value="MT">Metallurgical & Materials Engineering</option>
-      <option value="MI">Mining Engineering</option>
-      <option value="NA">Ocean Engineering & Naval Architecture</option>
-      <option value="PH">Physics</option>
+			<option value="AE">AE</option>
+			<option value="AG">AG</option>
+			<option value="AR">AR</option>
+			<option value="AT">AT</option>
+			<option value="BM">BM</option>
+			<option value="BT">BT</option>
+			<option value="CE">CE</option>
+
+			<option value="CH">CH</option>
+			<option value="CL">CL</option>
+			<option value="CR">CR</option>
+			<option value="CS">CS</option>
+
+			<option value="CY">CY</option>
+			<option value="EC">EC</option>
+
+			<option value="EE">EE</option>
+			<option value="ET">ET</option>
+			<option value="GG">GG</option>
+			<option value="GS">GS</option>
+
+			<option value="HS">HS</option>
+			<option value="ID">ID</option>
+			<option value="IM">IM</option>
+			<option value="IP">IP</option>
+			<option value="IT">IT</option>
+			<option value="MA">MA</option>
+			<option value="ME">ME</option>
+
+			<option value="MI">MI</option> 
+			<option value="MM">MM</option>
+			<option value="MS">MS</option>
+
+			<option value="MT">MT</option>
+			<option value="NA">NA</option>
+			<option value="PH">PH</option>
+			<option value="RD">RD</option>
+			<option value="RE">RE</option>
+			<option value="RJ">RJ</option>
+			<option value="RT">RT</option>
+			<option value="TS">TS</option>
+			<option value="WM">WM</option>
+
+
+
       </select>
 				</div>
 					<div class="input-field col s6 l4 m6 ">
@@ -108,7 +134,7 @@ body
 		<option value="LLR"> Lala Lajpat Rai Hall </option>
 		<option value="LBS"> Lalbahadur Sastry Hall </option>
 		<option value="MMM"> Madan Mohan Malviya Hall </option>
-		<option value="MMM"> Megnad Saha Hall </option>
+		<option value="MS"> Megnad Saha Hall </option>
 		<option value="MT"> Mother Teresa Hall </option>
 		<option value="NH"> Nehru Hall </option>
 		<option value="PH"> Patel Hall </option>
@@ -116,9 +142,11 @@ body
 		<option value="RP">Rajendra Prasad Hall </option>
 		<option value="RLB">Rani Laxmibai Hall </option>
 		<option value="SN/IG">Sarojini Naidu/Indira Gandhi Hall</option> 
-		<option value="SN">Sister Nivedita Hall </option>
+		<option value="NVH">Sister Nivedita Hall </option>
 		<option value="VS">Vidyasagar Hall </option>
+		<option value="VSRC">Vikram Sarabhai residential Complex </option>
 		<option value="ZH">Zakir Hussain Hall </option>
+		<option value="other">Other </option>
       </select>
 
 					</div>
@@ -181,7 +209,7 @@ body
 		<div class="row">
 		<div class="col s4 l4 m4 offset-l5" style="margin-top:10px">
 		<form action="department.php">
-		<img src='i3.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >Views</button>
+		<img src='i3.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >Batch sento</button>
 </form></div></div>
 		</div>		
 		
