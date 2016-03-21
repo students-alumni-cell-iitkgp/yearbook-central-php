@@ -43,7 +43,12 @@ body
  	text-transform: lowercase;
  	font-family: pacifico;
  }
-
+.box
+	{
+		color: #707070;
+		font-family: 'pacifico';
+		font-size: 20px;
+	}
 
 </style>
 <body>
@@ -204,15 +209,34 @@ body
 </form></div></div>
 		</div>
 		</div>
-
+		<div class="row">
 		<div class="col s6 m6 l6 upload">
 		<div class="row">
 		<div class="col s4 l4 m4 offset-l5" style="margin-top:10px">
 		<form action="department.php">
 		<img src='i3.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >Batch sento</button>
 </form></div></div>
-		</div>		
+		</div>
 		
+				
+
+		<div class="col s6 m6 l4 offset-l1 box upload">
+		<p style="margin-left: 50px;margin-top: 100px">Contact us at:<br> yearbook.iitkgp@gmail.com</p>
+		
+		</div>
+		</div>
+		<!--<div class="row">
+		<div class="col s6 m6 l6 upload">
+		
+		<div class="col s4 l4 m4 offset-l5" style="margin-top:10px">
+		<form action="department.php">
+		<img src='i3.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >Batch sento</button>
+</form>
+		</div>	</div>	
+		<div class="col l6 s6 m6 offset-l7 box">
+				<p >Contact us at:<br> yearbook.iitkgp@gmail.com</p>
+
+			</div></div>-->
 	
 <script>
  $(document).ready(function() {
@@ -230,7 +254,7 @@ body
 	</html>
 
 <?php
-	if($line['department']==NULL){
+	if($line['email']==NULL||$line['phone']==NULL){
 		echo '<script>$(".upload").hide();$(".edit_button").hide();</script>';
 
 	}else{

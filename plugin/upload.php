@@ -26,6 +26,11 @@ if (isset($_SESSION['rollno'])) {
     width: 900px !important;
     margin-top: -50px;
 }
+.btn
+{
+    font-family: 'pacifico';
+    width: 120px;
+}
 </style>
 <head>
     <meta charset="utf-8">
@@ -54,11 +59,11 @@ if (isset($_SESSION['rollno'])) {
     <div class="container animated zoomInDown ">
     <div class="row">
     <div class="col-md-2">
-    <button type="button" class="btn btn-primary" onclick="location.href='register.php'">HOME </button>
+    <button type="button" class="btn btn-primary"style="width: 100px;background-color: rgb(43,187,173) " onclick="location.href='register.php'">home </button>
     </div>
-    <div class="col-md-9"></div>
+    <div class="col-md-8"></div>
     <div class="col-md-1">
-    <button type="button" class="btn btn-primary" onclick="location.href='login.php'">LOGOUT </button>
+    <button type="button" class="btn btn-primary"style="width: 100px;margin-left: 20px;background-color: rgb(43,187,173) " onclick="location.href='login.php'">logout </button>
     </div>
     </div>
     <h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:34.2px ">Upload Photos</h4>

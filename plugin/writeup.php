@@ -59,8 +59,8 @@ function showfield(name){
        <h4 style="text-align:center;font-family:pacifico;color:#707070 ">Upload Articles</h4>
 
     </div>
-    <div class="col s6 l1 m6 offset-l1">
-    <button type="button"class="waves-effect waves-light btn" onclick="location.href='login.php'">LOGOUT </button>
+    <div class="col s6 l1 m6">
+    <button type="button"class="waves-effect waves-light btn" style="margin-left: 100px"onclick="location.href='login.php'">LOGOUT </button>
     </div>
     </div>
 	<div class="row">

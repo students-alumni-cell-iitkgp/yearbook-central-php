@@ -63,7 +63,7 @@
 
 				<div class="input-field col s12 l6 m12 ">
 					<i class="material-icons prefix" >account_circle</i>
-					<input name="rollno"pattern="[0-9]{2}[A-Za-z]{2}[0-9]{5}" type="text" required>
+					<input name="rollno" type="text" required>
 					<label for="rollno">Roll Number ( 14THXXXXX )</label>
 				</div>
 	
