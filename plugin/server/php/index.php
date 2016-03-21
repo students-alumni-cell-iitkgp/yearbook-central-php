@@ -2,8 +2,8 @@
 $options = array(
     'delete_type' => 'POST',
     'db_host' => 'localhost',
-    'db_user' =>/*getenv("YEARBOOK_DB_USERNAME")*/'root',
-    'db_pass' => /*getenv("YEARBOOK_DB_PASSWORD")*/'',
+    'db_user' =>getenv("YEARBOOK_DB_USERNAME"),
+    'db_pass' => getenv("YEARBOOK_DB_PASSWORD"),
     'db_name' => 'yearbook',
     'db_table' => 'photos'
 );
