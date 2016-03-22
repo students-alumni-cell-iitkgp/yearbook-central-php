@@ -62,15 +62,15 @@
 			<div class="row" style="height:30px;">
 
 				<div class="input-field col s12 l6 m12 ">
-					<i class="material-icons prefix" >account_circle</i>
-					<input name="rollno" type="text" required>
+					
+					<input name="rollno"placeholder="Roll Number" type="text" required>
 					<label for="rollno">Roll Number ( 14THXXXXX )</label>
 				</div>
 	
 
 				<div class="input-field col s12 l6 m12 ">
-					<i class="material-icons prefix">account_circle</i>
-					<input name="dob" pattern="\d{1,2}/\d{1,2}/\d{4}" type="text" required>
+					
+					<input name="dob"placeholder="Date of Birth" pattern="\d{1,2}/\d{1,2}/\d{4}" type="text" required>
 					<label for="dob">Date of Birth ( dd/mm/yyyy)</label>
 				</div>
 			</div>
