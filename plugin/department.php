@@ -80,9 +80,7 @@ td.views
 </div>
 		</div>
 		
-		<div class="fixed-action-btn" style="bottom: 45px; right: 260px;font-family: 'pacifico';color: #707070;">
-			<button class="btn waves-effect waves-light" type="submit">submit</button>
-		</div>
+		
 		<table class="highlight">
 	        <thead>
 	          <tr>
@@ -117,6 +115,9 @@ td.views
 						  
 	          		</td></tr>';
 	          	}
+	          	 echo ' 	<div class="fixed-action-btn" style="bottom: 45px; right: 260px;font-family: "pacifico";color: #707070;">
+			<button class="btn waves-effect waves-light" type="submit">submit</button>
+		</div>';
 		        //if(isset($_POST['views'.$i.''])){ 
 		          	for($i=0;$i<count($list_students);$i++){
 		          		//$query_save_views = "insert into views values ('', ".$line['rollno'].", ".$list_students[$i]['rollno'].", 'views".$i."')";	
