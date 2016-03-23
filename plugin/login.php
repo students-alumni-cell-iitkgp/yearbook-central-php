@@ -63,7 +63,7 @@
 
 				<div class="input-field col s12 l6 m12 ">
 					
-					<input name="rollno"placeholder="Roll Number" type="text" required>
+					<input name="rollno"autofocus placeholder="Roll Number" type="text" required>
 					<label for="rollno">Roll Number ( 14THXXXXX )</label>
 				</div>
 	
