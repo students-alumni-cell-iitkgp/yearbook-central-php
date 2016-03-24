@@ -131,11 +131,11 @@ td.views
 				          		$query_save_views = "insert into views values ('', '$rollno','$deptmate', '$views')";	
 				          		$query_save_views_run = mysql_query($query_save_views);
 				          		if ($i == count($list_students)-1) {
-				          			header('Location:register.php');
+				          			echo '<script>alert("Your Views are submitted for approval by your Deptmates.");window.location.href="register.php";</script>';
 				          		}
 				          	}else{
 				          		if ($i == count($list_students)-1) {
-				          			header('Location:register.php');
+				          			echo '<script>alert("Your Views are submitted for approval by your Deptmates.");window.location.href="register.php";</script>';
 				          		}
 				          	}	
 			          	}
