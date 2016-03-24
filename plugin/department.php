@@ -30,8 +30,9 @@
 body
 {
 	background-image: url('bck.jpg');
-  background-size: 100vw;
-  background-repeat:repeat;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
 }
 .toggle{
 	display: none;
