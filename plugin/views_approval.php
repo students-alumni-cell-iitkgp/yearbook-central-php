@@ -1,5 +1,4 @@
 <?php
-	
 	require 'connection.php';
 	session_start();
 	if (isset($_SESSION['rollno'])) {
@@ -30,7 +29,11 @@
 body
 {
 	background-image: url('bck.jpg');
+	background-repeat: no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
+
+
 }
 .toggle{
 	display: none;
@@ -50,10 +53,10 @@ body
 </head>
 <body>
 	<div class="container">
-		<div class="fixed-action-btn" style="bottom: 45px; right: 260px;">
+		<div class="fixed-action-btn" style="bottom: 45px; right: 180px;">
 			<a class="btn-floating btn-large waves-effect waves-light red" href="register.php"><i class="material-icons">home</i></a>
 		</div>
-		<table class="highlight">
+		<table class="highlight col l12 s12 m12">
 	        <thead>
 	          <tr>
 	              <th data-field="rollno">Roll No.</th>
@@ -67,55 +70,98 @@ body
 	        <tbody>
 	          <?php
 	          	$dept = $line['department'];
-	          	$query_select = "select * from register where department = '$dept'";
-	          	$query_select_run = mysql_query($query_select);
-	          	while ($list = mysql_fetch_assoc($query_select_run)) {
-	          		$list_students[] = $list;
+	          	$query_select_view = "select * from views where user = '$value1'";
+	          	$query_select_view_run = mysql_query($query_select_view);
+	          	while ($list = mysql_fetch_assoc($query_select_view_run)) {
+	          		$list_views[] = $list;
 	          	}
-	          	echo '<form method="POST" action="department.php">';
-	          	for($i=0;$i<count($list_students);$i++){
-	          		echo '<tr><td>'.$list_students[$i]['rollno'].'</td><td>'.$list_students[$i]['name'].'</td><td>
-	          			  
-						    
-						      <div class="row">
-						        <div class="input-field col s12">
-						          <input id="views" type="text" class="validate" name="views'.$i.'">
-						          <label for="views" data-error="wrong" data-success="right">Write your views here</label>
-						        </div>
-						      </div>
-						    
-						  
-	          		</td></tr>';
-	          	}
-	          	echo '<center><input type="submit" class="btn waves-light"></center> </form>';
-		        //if(isset($_POST['views'.$i.''])){ 
-		          	for($i=0;$i<count($list_students);$i++){
-		          		//$query_save_views = "insert into views values ('', ".$line['rollno'].", ".$list_students[$i]['rollno'].", 'views".$i."')";	
-		          		//$_POST['views'.$i.''] = 'default';
-		          		if(isset($_POST['views'.$i.''])){
-			          		if(!empty($_POST['views'.$i.''])){
-				          		$views = $_POST['views'.$i.''];
-				          		$rollno = $line['rollno'];
-				          		$deptmate = $list_students[$i]['rollno'];
-				          		$query_save_views = "insert into views values ('', '$rollno','$deptmate', '$views')";	
-				          		$query_save_views_run = mysql_query($query_save_views);
-				          		if ($i == count($list_students)-1) {
-				          			echo '<script>alert("Your Views are submitted for approval by your Deptmates.")</script>'
-				          			header('Location:register.php');
-				          		}
-				          	}else{
-				          		if ($i == count($list_students)-1) {
-				          			echo '<script>alert("Your Views are submitted for approval by your Deptmates.")</script>'
-				          			header('Location:register.php');
-				          		}
-				          	}	
-			          	}
+	          	for($i=0;$i<count($list_views);$i++){
+	          		if(!empty($list_views[$i]['views'])){
+		          		$rollno = $list_views[$i]['deptmate'];
+		          		$id = $list_views[$i]['id'];
+		          		$view = $list_views[$i]['views'];
+		          		$query_select_user = "select * from register where rollno = '$rollno'";
+		          		$query_select_user_run = mysql_query($query_select_user);
+		          		$list = mysql_fetch_assoc($query_select_user_run);
+		          		$name = $list['name'];
+		          		echo '<tr><td>'.$rollno.'</td><td>'.$name.'</td><td style = "max-width:200px;word-wrap: break-word; ">
+		          			  '.$view.'
+		          		</td>
+		          		<td><div class="approval"><center>';	          			
+		          		if($list_views[$i]['approval']=='approve'){
+		          			
+		          			echo '<input type="submit" class="btn waves-light disapprove app'.$i.'" value= "disapprove" data-no="'.$i.'" data-id="'.$id.'" id= "'.$rollno.'"> <div class="text_show'.$i.'" style= "padding-left = 15px;">Approved</div>';
+		          		}else{
+		          				          			
 
-		          	}
-		         //}  	
+		          			echo '<input type="submit" class="btn waves-light red approve app'.$i.'" value= "Approve" data-no="'.$i.'" data-id="'.$id.'" id= "'.$rollno.'"> <div class="text_show'.$i.'" style= "padding-left = 15px;"></div>';
+		          		}
+
+		          		echo '</center></div></td>
+		          		</tr>';
+		          	}else{
+		          		
+		          	}	
+	          	}
+		       	
+
 	          ?>
 	        </tbody>
       	</table>
 	</div>
 </body>
+<script>
+	$(document).on('click', '.approve', function(){
+		var rollno = $(this).attr('id');
+		var no = $(this).attr('data-no');
+		var id = $(this).attr('data-id');
+		var query= 'id='+id;
+		$.ajax({
+			url: 'views_approval_data.php',
+			data: query,
+			
+			type: 'POST',
+			success: function (data) {
+					console.log(data);
+					if(data){
+						console.log(data);
+						//$('.approve').remove();
+						$('.app'+no).attr('value','disapprove');
+						$('.app'+no).removeClass('approve');
+						$('.app'+no).addClass('disapprove');
+						$('.app'+no).removeClass('red');
+						$('.text_show'+no).html('Approved');
+					}else{
+						alert("Please try again");
+					}
+				}
+		});
+	});	
+	$(document).on('click', '.disapprove',function(){
+		var rollno = $(this).attr('id');
+		var no = $(this).attr('data-no');
+		var id = $(this).attr('data-id');
+		var query= 'id='+id;
+		$.ajax({
+			url: 'views_disproval_data.php',
+			data: query,
+			
+			type: 'POST',
+			success: function (data) {
+					console.log(data);
+					if(data){
+						console.log(data);
+						$('.app'+no).attr('value','approve');
+						$('.app'+no).removeClass('disapprove');
+						$('.app'+no).addClass('approve');
+						$('.app'+no).addClass('red');
+						$('.text_show'+no).html('');
+					}else{
+						alert("Please try again");
+
+					}
+				}
+		});
+	});		
+</script>
 </html>
