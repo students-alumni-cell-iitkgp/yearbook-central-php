@@ -1,5 +1,5 @@
 <?php
-	ob_start();
+	
 	require 'connection.php';
 	session_start();
 	if (isset($_SESSION['rollno'])) {
