@@ -29,7 +29,9 @@ include 'connection.php';
 body
 {
 	background-image: url('khb.jpg');
+	background-repeat: no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 }
 .toggle{
 	display: none;
@@ -219,7 +221,10 @@ body
 		</div>
 		
 				
-
+		<div >		
+		<form action="views_approval.php">
+		<button type="submit"class="waves-effect waves-light btn special" style="margin-left:240px;margin-top:150px;">Approve Views</button>
+		</form></div>
 		<div class="col s6 m6 l4 offset-l1 box upload">
 		<p style="margin-left: 50px;margin-top: 100px">Contact us at:<br> yearbook.iitkgp@gmail.com</p>
 		
