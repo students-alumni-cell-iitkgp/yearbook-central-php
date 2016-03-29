@@ -62,6 +62,10 @@ td.views
 		font-family: 'pacifico';
 		font-size: 30px;
 	}
+.box4
+	{
+		margin-left: -60px;
+	}
 </style>
 </head>
 <body>
@@ -71,7 +75,34 @@ td.views
 			    <button type="button"class="waves-effect waves-light btn" onclick="location.href='register.php'">HOME</button>
 
 			</div>
-			<div class="col s3 l6 m3"><h3 class="upload"style="font-family:pacifico;font-size:500%;color:#707070">Yearbook'16</h3><br>		<p class="box2">Write about your classmates!</p> 
+			<div class="col s3 l6 m3"><h3 class="upload"style="font-family:pacifico;font-size:500%;color:#707070">Yearbook'16</h3><br>
+			<p class="box2">Write about your friends!</p> 
+				<form action="viewsfriend.php"onSubmit="alert('Your views will be added in his yearbook after his registration and approval');" method="POST">
+				<div class="box4">
+					<div class="row">
+						<div class="col l6 m6 s12">
+							<label for="froll">Roll Number</label>
+							<input name="froll" autofocus placeholder="Your friend's Roll Number" type="text" required>
+
+						</div>
+						<div class="col l6 m6 s12">
+							<label for="fname">Name</label>
+							<input name="fname" id="fname" autofocus placeholder="Your friend's name" type="text" required>
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col l12 m12 s12">
+							<label for="textarea2">Write Here!</label>
+
+							<textarea id="textarea2" name="viewf" placeholder="Write Here!" class="materialize-textarea"></textarea>
+						</div>
+					</div>
+					<center>
+					<button class="btn waves-effect waves-light" type="submit">submit</button></center>
+				</div>
+			</form>
+				<p class="box2">Write about your depmates!</p> 
 
 </div>
 <div class="col l2 s3 m3 ">
