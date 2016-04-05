@@ -52,6 +52,9 @@ body
 		font-size: 20px;
 	}
 
+.cursor_change{
+	cursor:pointer;
+}
 </style>
 <body>
 <div class="container">
@@ -197,7 +200,7 @@ body
 		<div class="row">
 		<div class="col s4 l4 m4 offset-l5" style="margin-top:10px">
 		<form id="photo" action="upload.php">
-		<img id="photo" src='i1.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >UPLOAD PHOTOS</button>
+		<img id="photo" class="cursor_change" src='i1.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >UPLOAD PHOTOS</button>
 </form></div></div>
 		</div>
 		
@@ -207,7 +210,7 @@ body
 		<div class="row">
 		<div class="col s4 l4 m4 offset-l4"style="margin-top:10px">
 		<form id="writeup" action="writeup.php">
-		<img id="writeup" src='i2.png' width="150px"><button type="submit"class="waves-effect waves-light btn special">Upload Articles</button>
+		<img id="writeup" class="cursor_change" src='i2.png' width="150px"><button type="submit"class="waves-effect waves-light btn special">Upload Articles</button>
 </form></div></div>
 		</div>
 		</div>
@@ -216,7 +219,7 @@ body
 		<div class="row">
 		<div class="col s4 l4 m4 offset-l5" style="margin-top:10px">
 		<form id="views" action="department.php">
-		<img id="views" src='i3.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >Batch sento</button>
+		<img id="views" class="cursor_change" src='i3.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >Batch sento</button>
 </form></div></div>
 		</div>
 		
