@@ -66,7 +66,7 @@ body
 </div>
 <div class="animated slideInDown row" style="position:relative;top:-110px;left:140px;">
 <div class="col l6 s3 m3 offset-l6">
-   <button type="button" value="Edit" class="waves-effect waves-light btn" style="font-family: 'pacifico'"onclick="update();">Edit Your Details</button>
+   <button type="button" value="Edit" class="waves-effect waves-light btn edit_button" style="font-family: 'pacifico'" onclick="update();">Edit Your Details</button>
 
     <button type="button"class="waves-effect waves-light btn" onclick="location.href='login.php'">LOGOUT </button>
 
@@ -77,7 +77,7 @@ body
 				
 
 <div class="animated slideInDown row"><center>
-    <button type="button"class="waves-effect waves-light btn" ><a href="http://www.webteam.iitkgp.ernet.in/scg/" target="_blank" style="color:white;">MyImprint Website</button>
+    <button type="button"class="waves-effect waves-light btn" ><a href="http://www.webteam.iitkgp.ernet.in/scg/" target="_blank" style="color:white;">MyImprint Website</a></button>
 
 </center><div class="col l6 s11 m6 offset-l3 z-depth-2 edit" >
 
