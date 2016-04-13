@@ -64,16 +64,21 @@ body
 			</div>
 			<div class="col s3 l6 m3"><h3 class="center upload"style="font-family:pacifico;font-size:500%;color:#707070">Yearbook'16</h3>
 </div>
-<div class="col l2 s3 m3 offset-l1">
+<div class="animated slideInDown row" style="position:relative;top:-110px;left:140px;">
+<div class="col l6 s3 m3 offset-l6">
+   <button type="button" value="Edit" class="waves-effect waves-light btn" style="font-family: 'pacifico'"onclick="update();">Edit Your Details</button>
+
     <button type="button"class="waves-effect waves-light btn" onclick="location.href='login.php'">LOGOUT </button>
 
 
+</div>
 </div>
 		</div></div>
 				
 
 <div class="animated slideInDown row"><center>
-<button type="button" value="Edit" class="edit_button btn btn-large special" style="padding:20px;line-height:0px;height:40px;font-family: 'pacifico'"onclick="update();">Edit Your Details</button>
+    <button type="button"class="waves-effect waves-light btn" ><a href="http://www.webteam.iitkgp.ernet.in/scg/" target="_blank" style="color:white;">MyImprint Website</button>
+
 </center><div class="col l6 s11 m6 offset-l3 z-depth-2 edit" >
 
 	<form method="post" action="registerconnect.php">
