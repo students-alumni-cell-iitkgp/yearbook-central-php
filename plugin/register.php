@@ -62,7 +62,7 @@ body
 			<div class="col s3 l3 m3">
 			<img width="200px"class="upload"src="Logo.png">
 			</div>
-			<div class="col s3 l6 m3"><h3 class="center upload"style="font-family:pacifico;font-size:500%;color:#707070">Yearbook'16</h3>
+			<div class="col s3 l6 m3"><h3 class="center upload"style="position:relative;top:30px;font-family:pacifico;font-size:500%;color:#707070">Yearbook'16</h3>
 </div>
 <div class="animated slideInDown row" style="position:relative;top:-110px;left:140px;">
 <div class="col l6 s3 m3 offset-l6">
