@@ -71,111 +71,42 @@ td.views
 <body>
 	<div class="container">
 <div class="row">
-			<div class="col s3 l3 m3 offset-l1">
-			    <button type="button"class="waves-effect waves-light btn" onclick="location.href='register.php'">HOME</button>
+			<div class="col s3 l3 m3  " >
+			    <button type="button" class="waves-effect waves-light btn" style="position:relative;left:30px;" onclick="location.href='register.php'">HOME</button>
 
 			</div>
-			<div class="col s3 l6 m3"><h3 class="upload"style="font-family:pacifico;font-size:500%;color:#707070">Yearbook'16</h3><br>
-			<p class="box2">Write about your friends!</p> 
-				<form action="viewsfriend.php"onSubmit="alert('Your views will be added in his yearbook after his registration and approval');" method="POST">
-				<div class="box4">
-					<div class="row">
-						<div class="col l6 m6 s12">
-							<label for="froll">Roll Number</label>
-							<input name="froll" autofocus placeholder="Your friend's Roll Number" type="text" required>
+			<div class="col s3 l6 m3"><h3 class="upload"style="position:relative;left:50px;font-family:pacifico;font-size:500%;color:#707070">Yearbook'16</h3><br></div>
+			<div class="col s3 l3 m3">
+    <button type="button"class="waves-effect waves-light btn" style="position:relative;left:90px;" onclick="location.href='login.php'">LOGOUT </button>
 
-						</div>
-						<div class="col l6 m6 s12">
-							<label for="fname">Name</label>
-							<input name="fname" id="fname" autofocus placeholder="Your friend's name" type="text" required>
 
-						</div>
-					</div>
-					<div class="row">
-						<div class="col l12 m12 s12">
-							<label for="textarea2">Write Here!</label>
+</div>
+</div>
+<div class="row">			
+		<div class="col s6 l6 m6" style="position:relative;left:20px;">
+				<form action="department1.php" method="POST">
+							<p class="box2" style="text-align:center;">Write about your friends!</p> 
 
-							<textarea id="textarea2" name="viewf" placeholder="Write Here!" class="materialize-textarea"></textarea>
-						</div>
-					</div>
-					<center>
-					<button class="btn waves-effect waves-light" type="submit">submit</button></center>
+				<div class="box4" >
+					
+					
+					<center><br/><br/>
+					<button class="btn waves-effect waves-light" type="submit">Write</button></center>
 				</div>
 			</form>
-				<p class="box2">Write about your depmates!</p> 
-
-</div>
-<div class="col l2 s3 m3 ">
-    <button type="button"class="waves-effect waves-light btn" onclick="location.href='login.php'">LOGOUT </button>
-
-
-</div>
 		</div>
+		<div class="col s6 l6 m6" style="position:relative;left:8px;">
+			<form action="views_approval.php">
+										<p class="box2" style="position:relative;left:-30px;text-align:center;">Approve what your friends have written!</p> 
+	<div class="box4" >
+		<center><button type="submit"class="waves-effect waves-light btn special" >Approve </button></center>
+		</div>
+		</form>
+		</div>		
+</div>
+
 		
-		
-		<table class="highlight">
-	        <thead>
-	          <tr>
-	              <th class="roll" data-field="rollno">Roll No.</th>
-	              <th  class="name" data-field="name">Name</th>
-	          </tr>
-
-
-	        </thead>
-
-	        <tbody>
-	          <?php
-	          	$dept = $line['department'];
-	          	$course=$line['course'];
-	          	$query_select = "select * from register where department = '$dept' and course='$course'";
-	          	$query_select_run = mysql_query($query_select);
-	          	while ($list = mysql_fetch_assoc($query_select_run)) {
-	          		$list_students[] = $list;
-	          	}
-	          	echo '<form method="POST" action="department.php">';
-	          	for($i=0;$i<count($list_students);$i++){
-	          		echo '<tr><td class="roll">'.$list_students[$i]['rollno'].'</td><td class="name">'.$list_students[$i]['name'].'</td><td class="view">
-	          			  
-						    
-						      <div class="row">
-						        <div class="input-field col s12">
-						          <input id="views" type="text" class="validate" name="views'.$i.'">
-						          <label for="views" data-error="wrong" data-success="right">Write here!</label>
-						        </div>
-						      </div>
-						    
-						  
-	          		</td></tr>';
-	          	}
-	          	 echo ' 	<div class="fixed-action-btn" style="bottom: 45px; right: 260px;font-family: "pacifico";color: #707070;">
-			<button class="btn waves-effect waves-light" type="submit">submit</button>
-		</div>';
-		        //if(isset($_POST['views'.$i.''])){ 
-		          	for($i=0;$i<count($list_students);$i++){
-		          		//$query_save_views = "insert into views values ('', ".$line['rollno'].", ".$list_students[$i]['rollno'].", 'views".$i."')";	
-		          		//$_POST['views'.$i.''] = 'default';
-		          		if(isset($_POST['views'.$i.''])){
-			          		if(!empty($_POST['views'.$i.''])){
-				          		$views = $_POST['views'.$i.''];
-				          		$rollno = $line['rollno'];
-				          		$deptmate = $list_students[$i]['rollno'];
-				          		$query_save_views = "insert into views values ('', '$rollno','$deptmate', '$views')";	
-				          		$query_save_views_run = mysql_query($query_save_views);
-				          		if ($i == count($list_students)-1) {
-				          			echo '<script>alert("Your Views are submitted for approval by your Deptmates.");window.location.href="register.php";</script>';
-				          		}
-				          	}else{
-				          		if ($i == count($list_students)-1) {
-				          			echo '<script>alert("Your Views are submitted for approval by your Deptmates.");window.location.href="register.php";</script>';
-				          		}
-				          	}	
-			          	}
-
-		          	}
-		         //}  	
-	          ?>
-	        </tbody>
-      	</table>
+	
 	</div>
 </body>
 </html>

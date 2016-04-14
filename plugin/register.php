@@ -229,10 +229,10 @@ body
 		</div>
 		
 				
-		<div >		
+		<!--div >		
 		<form action="views_approval.php">
 		<button type="submit"class="waves-effect waves-light btn special" style="margin-left:240px;margin-top:150px;">Approve Views</button>
-		</form></div>
+		</form></div-->
 		<div class="col s6 m6 l4 offset-l1 box upload">
 		<p style="margin-left: 50px;margin-top: 100px">Contact us at:<br> yearbook.iitkgp@gmail.com</p>
 		
