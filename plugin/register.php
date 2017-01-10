@@ -11,8 +11,8 @@ include 'connection.php';
 	}
 	$value1=$_SESSION['rollno'];
 	$query = "select * from register where rollno = '$value1'"; 
-	$result = mysql_query($query); 
-	$line = mysql_fetch_array($result, MYSQL_ASSOC);
+	$result =  $connection->query($query); 
+	$line = mysqli_fetch_array($result);
 
  ?>
 
@@ -187,13 +187,13 @@ body
 
 					<div class="input-field col s11 l6 m12 ">
 						<i class="material-icons prefix">phone</i>
-						<input name="phone"value="<?php echo $line['phone']; ?>" type="number" size="10" required>
+						<input name="phone" value="<?php echo $line['phone']; ?>" type="number" size="10" required>
 						<label for="phone">Phone no</label>
 					</div>
 				</div>
 				<div class="row">
 				<div class="col s12 l4 m4 offset-l5">
-				<button type="submit" id="submit"name="submit"class="waves-effect waves-light btn" required >Update</button>
+				<button type="submit" id="submit" name="submit" class="waves-effect waves-light btn" required >Update</button>
 			</div>
 			
 			
@@ -205,7 +205,7 @@ body
 		<div class="row">
 		<div class="col s4 l4 m4 offset-l5" style="margin-top:10px">
 		<form id="photo" action="upload.php">
-		<img id="photo" class="cursor_change" src='i1.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >UPLOAD PHOTOS</button>
+		<img id="photo" class="cursor_change" src='i1.png' width="150px"><button type="submit" class="waves-effect waves-light btn special" >UPLOAD PHOTOS</button>
 </form></div></div>
 		</div>
 		
@@ -215,7 +215,7 @@ body
 		<div class="row">
 		<div class="col s4 l4 m4 offset-l4"style="margin-top:10px">
 		<form id="writeup" action="writeup.php">
-		<img id="writeup" class="cursor_change" src='i2.png' width="150px"><button type="submit"class="waves-effect waves-light btn special">Upload Articles</button>
+		<img id="writeup" class="cursor_change" src='i2.png' width="150px"><button type="submit" class="waves-effect waves-light btn special">Upload Articles</button>
 </form></div></div>
 		</div>
 		</div>
@@ -225,7 +225,8 @@ body
 		<div class="col s4 l4 m4 offset-l5" style="margin-top:10px">
 		<form id="views" action="department.php">
 		<img id="views" class="cursor_change" src='i3.png' width="150px"><button type="submit"class="waves-effect waves-light btn special" >Batch sento</button>
-</form></div></div>
+		
+		</form></div></div>
 		</div>
 		
 				
@@ -280,6 +281,7 @@ body
 
 <?php
 	if($line['email']==NULL||$line['phone']==NULL){
+		echo "heeeeeeeeeeeeeeeeeeeeelllllllllllllllllllllllllllllllllooooooooooooooooooooooooo";
 		echo '<script>$(".upload").hide();$(".edit_button").hide();</script>';
 
 	}else{
