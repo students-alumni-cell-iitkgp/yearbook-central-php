@@ -8,8 +8,8 @@
 	}
 	$value1=$_SESSION['rollno'];
 	$query = "select * from register where rollno = '$value1'"; 
-	$result = mysql_query($query); 
-	$line = mysql_fetch_array($result, MYSQL_ASSOC);
+	$result = $connection->query($query); 
+	$line = mysqli_fetch_array($result);
 
 ?>
 
@@ -71,8 +71,8 @@ body
 	          <?php
 	          	$dept = $line['department'];
 	          	$query_select_view = "select * from views where user = '$value1'";
-	          	$query_select_view_run = mysql_query($query_select_view);
-	          	while ($list = mysql_fetch_assoc($query_select_view_run)) {
+	          	$query_select_view_run = $connection->query($query_select_view);
+	          	while ($list = mysqli_fetch_assoc($query_select_view_run)) {
 	          		$list_views[] = $list;
 	          	}
 	          	for($i=0;$i<count($list_views);$i++){
@@ -81,8 +81,8 @@ body
 		          		$id = $list_views[$i]['id'];
 		          		$view = $list_views[$i]['views'];
 		          		$query_select_user = "select * from register where rollno = '$rollno'";
-		          		$query_select_user_run = mysql_query($query_select_user);
-		          		$list = mysql_fetch_assoc($query_select_user_run);
+		          		$query_select_user_run =$connection->query($query_select_user);
+		          		$list = mysqli_fetch_assoc($query_select_user_run);
 		          		$name = $list['name'];
 		          		echo '<tr><td>'.$rollno.'</td><td>'.$name.'</td><td style = "max-width:200px;word-wrap: break-word; ">
 		          			  '.$view.'

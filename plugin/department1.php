@@ -9,8 +9,8 @@
 	}
 	$value1=$_SESSION['rollno'];
 	$query = "select * from register where rollno = '$value1'"; 
-	$result = mysql_query($query); 
-	$line = mysql_fetch_array($result, MYSQL_ASSOC);
+	$result = $connection-> query($query); 
+	$line = mysqli_fetch_array($result);
 
 ?>
 
