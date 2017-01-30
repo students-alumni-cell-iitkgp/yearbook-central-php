@@ -77,7 +77,7 @@ td.views
 			</div>
 			<div class="col s3 l6 m3"><h3 class="upload"style="font-family:pacifico;font-size:500%;color:#707070">Yearbook'16</h3><br>
 			<p class="box2">Write about your friends!</p> 
-				<form action="viewsfriend.php"onSubmit="alert('Your views will be added in his yearbook after his registration and approval');" method="POST">
+				<form action="viewsfriend.php" onSubmit="alert('Your views will be added in his yearbook after his registration and approval');" method="POST">
 				<div class="box4">
 					<div class="row">
 						<div class="col l6 m6 s12">

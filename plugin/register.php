@@ -55,6 +55,9 @@ body
 .cursor_change{
 	cursor:pointer;
 }
+.edit{
+	background-color: white;
+}
 </style>
 <body>
 <div class="container">

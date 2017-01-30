@@ -70,14 +70,14 @@ body
 	        <tbody>
 	          <?php
 	          	$dept = $line['department'];
-	          	$query_select_view = "select * from views where user = '$value1'";
+	          	$query_select_view = "select * from views where deptmate = '$value1'";
 	          	$query_select_view_run = $connection->query($query_select_view);
 	          	while ($list = mysqli_fetch_assoc($query_select_view_run)) {
-	          		$list_views[] = $list;
+	          		@$list_views[] = $list;
 	          	}
 	          	for($i=0;$i<count($list_views);$i++){
 	          		if(!empty($list_views[$i]['views'])){
-		          		$rollno = $list_views[$i]['deptmate'];
+		          		$rollno = $list_views[$i]['user'];
 		          		$id = $list_views[$i]['id'];
 		          		$view = $list_views[$i]['views'];
 		          		$query_select_user = "select * from register where rollno = '$rollno'";

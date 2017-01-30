@@ -16,7 +16,7 @@ if (isset($_SESSION['rollno'])) {
      src: url('Pacifico.ttf');
  }
       body
-{
+{`
   background-image: url('bck.jpg');
   background-size: 100vw;
   background-repeat:repeat;
