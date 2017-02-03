@@ -16,7 +16,7 @@ if (isset($_SESSION['rollno'])) {
      src: url('Pacifico.ttf');
  }
       body
-{
+{`
   background-image: url('bck.jpg');
   background-size: 100vw;
   background-repeat:repeat;
@@ -121,8 +121,8 @@ if (isset($_SESSION['rollno'])) {
     </form>
   <?php   
     $value1=$_SESSION['rollno'];
-$result=mysql_query("SELECT name FROM photos order by id asc");  
-while ($row=mysql_fetch_array($result)) {
+$result=$connection->query("SELECT name FROM photos order by id asc");  
+while ($row=mysqli_fetch_array($result)) {
     if(substr($row['name'], 0,9)==$value1)
     # code...
     echo "<img src='server/php/files/".$row['name'] ."' height='100px'>";

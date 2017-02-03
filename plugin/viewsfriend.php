@@ -10,7 +10,7 @@ $_SESSION['viewf'] = $view;
 
 $sql="INSERT INTO views (user,deptmate,views)
 VALUES ('$rollno','$depmate','$view')";
-$success = mysql_query($sql);
+$success = $connection->query($sql);
 if ($success) 
  header('Location:department.php');
 else
