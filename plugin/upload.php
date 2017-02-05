@@ -15,9 +15,9 @@ if (isset($_SESSION['rollno'])) {
      font-family:pacifico;
      src: url('Pacifico.ttf');
  }
-      body
+body
 {
-  background-image: url('bck.jpg');
+  background-color: #333;
   background-size: 100vw;
   background-repeat:repeat;
 }
@@ -55,8 +55,8 @@ if (isset($_SESSION['rollno'])) {
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
     <script>$('.start').hide();</script>
 </head>
-<body>
-    <div class="container animated zoomInDown ">
+<body style="background-color: #333;color: #fff">
+    <div class="container animated zoomInDown " >
     <div class="row">
     <div class="col-md-2">
     <button type="button" class="btn btn-primary"style="width: 100px;background-color: rgb(43,187,173) " onclick="location.href='register.php'">home </button>

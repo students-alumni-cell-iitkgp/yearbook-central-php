@@ -29,7 +29,7 @@
 
 body
 {
-	background-image: url('bck.jpg');
+	background-color: #333;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;

@@ -28,7 +28,7 @@
 
 body
 {
-	background-image: url('bck.jpg');
+	background-color: #333;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -62,6 +62,8 @@ body
 	              <th data-field="rollno">Roll No.</th>
 	              <th data-field="name">Name</th>
 	              <th data-field="views">Views</th>
+	              <th data-field="views">Approve for Yearbook</th>
+	              <th data-field="views">Show on your timeline</th>
 	          </tr>
 
 
@@ -70,14 +72,14 @@ body
 	        <tbody>
 	          <?php
 	          	$dept = $line['department'];
-	          	$query_select_view = "select * from views where user = '$value1'";
+	          	$query_select_view = "select * from views where deptmate = '$value1'";
 	          	$query_select_view_run = $connection->query($query_select_view);
 	          	while ($list = mysqli_fetch_assoc($query_select_view_run)) {
-	          		$list_views[] = $list;
+	          		@$list_views[] = $list;
 	          	}
 	          	for($i=0;$i<count($list_views);$i++){
 	          		if(!empty($list_views[$i]['views'])){
-		          		$rollno = $list_views[$i]['deptmate'];
+		          		$rollno = $list_views[$i]['user'];
 		          		$id = $list_views[$i]['id'];
 		          		$view = $list_views[$i]['views'];
 		          		$query_select_user = "select * from register where rollno = '$rollno'";
@@ -87,18 +89,27 @@ body
 		          		echo '<tr><td>'.$rollno.'</td><td>'.$name.'</td><td style = "max-width:200px;word-wrap: break-word; ">
 		          			  '.$view.'
 		          		</td>
-		          		<td><div class="approval"><center>';	          			
+		          		<td><div class="approval">';	          			
 		          		if($list_views[$i]['approval']=='approve'){
 		          			
-		          			echo '<input type="submit" class="btn waves-light disapprove app'.$i.'" value= "disapprove" data-no="'.$i.'" data-id="'.$id.'" id= "'.$rollno.'"> <div class="text_show'.$i.'" style= "padding-left = 15px;">Approved</div>';
+		          			echo '<input type="submit" class="btn waves-light disapprove app'.$i.'" value= "disapprove" data-no="'.$i.'" data-id="'.$id.'" id= "'.$rollno.'"> ';
 		          		}else{
 		          				          			
 
 		          			echo '<input type="submit" class="btn waves-light red approve app'.$i.'" value= "Approve" data-no="'.$i.'" data-id="'.$id.'" id= "'.$rollno.'"> <div class="text_show'.$i.'" style= "padding-left = 15px;"></div>';
 		          		}
 
-		          		echo '</center></div></td>
-		          		</tr>';
+		          		echo '</div></td><td>';
+		          		$pass= $list_views[$i]['deptmate'];
+		          		if ($list_views[$i]['timeline']!='yes') {
+		          			echo '<a href="switch.php?id='.$pass.'"><div class="btn waves-light ">Yes</div></a> ';
+		          		} else {
+		          			echo '<a href="switch.php?id='.$pass.'"><div class="btn waves-light ">No</div></a> ';
+
+		          		}
+		          		
+
+		          		echo '</td></tr>';
 		          	}else{
 		          		
 		          	}	

@@ -11,6 +11,12 @@
 	$query = "select * from register where rollno = '$value1'"; 
 	$result = $connection-> query($query); 
 	$line = mysqli_fetch_array($result);
+	@$roll=$_GET['roll'];
+	if (isset($roll)) {
+	$query_1 = "select * from register where rollno = '$roll'"; 
+	$result_1 = $connection-> query($query_1);
+	$line_1 = mysqli_fetch_array($result_1);
+	}
 
 ?>
 
@@ -29,7 +35,7 @@
 
 body
 {
-	background-image: url('bck.jpg');
+	background-color: #333;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -75,19 +81,19 @@ td.views
 			    <button type="button"class="waves-effect waves-light btn" onclick="location.href='register.php'">HOME</button>
 
 			</div>
-			<div class="col s3 l6 m3"><h3 class="upload"style="font-family:pacifico;font-size:500%;color:#707070">Yearbook'16</h3><br>
+			<div class="col s3 l6 m3"><h3 class="upload" style="font-family:pacifico;font-size:500%;color:#707070">Yearbook'16</h3><br>
 			<p class="box2">Write about your friends!</p> 
-				<form action="viewsfriend.php"onSubmit="alert('Your views will be added in his yearbook after his registration and approval');" method="POST">
+				<form action="viewsfriend.php" onSubmit="alert('Your views will be added in his yearbook after his registration and approval');" method="POST">
 				<div class="box4">
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<label for="froll">Roll Number</label>
-							<input name="froll" autofocus placeholder="Your friend's Roll Number" type="text" required>
+							<input name="froll" autofocus placeholder="Your friend's Roll Number" type="text" required value="<?php  echo @$line_1['rollno']; ?>">
 
 						</div>
 						<div class="col l6 m6 s12">
 							<label for="fname">Name</label>
-							<input name="fname" id="fname" autofocus placeholder="Your friend's name" type="text" required>
+							<input name="fname" id="fname" autofocus placeholder="Your friend's name" type="text" required value="<?php  echo @$line_1['name']; ?>">
 
 						</div>
 					</div>
@@ -102,7 +108,6 @@ td.views
 					<button class="btn waves-effect waves-light" type="submit">submit</button></center>
 				</div>
 			</form>
-				<p class="box2">Write about your depmates!</p> 
 
 </div>
 <div class="col l2 s3 m3 ">
@@ -112,70 +117,6 @@ td.views
 </div>
 		</div>
 		
-		
-		<table class="highlight">
-	        <thead>
-	          <tr>
-	              <th class="roll" data-field="rollno">Roll No.</th>
-	              <th  class="name" data-field="name">Name</th>
-	          </tr>
-
-
-	        </thead>
-
-	        <tbody>
-	          <?php
-	          	$dept = $line['department'];
-	          	$course=$line['course'];
-	          	$query_select = "select * from register where department = '$dept' and course='$course'";
-	          	$query_select_run = mysql_query($query_select);
-	          	while ($list = mysql_fetch_assoc($query_select_run)) {
-	          		$list_students[] = $list;
-	          	}
-	          	echo '<form method="POST" action="department.php">';
-	          	for($i=0;$i<count($list_students);$i++){
-	          		echo '<tr><td class="roll">'.$list_students[$i]['rollno'].'</td><td class="name">'.$list_students[$i]['name'].'</td><td class="view">
-	          			  
-						    
-						      <div class="row">
-						        <div class="input-field col s12">
-						          <input id="views" type="text" class="validate" name="views'.$i.'">
-						          <label for="views" data-error="wrong" data-success="right">Write here!</label>
-						        </div>
-						      </div>
-						    
-						  
-	          		</td></tr>';
-	          	}
-	          	 echo ' 	<div class="fixed-action-btn" style="bottom: 45px; right: 260px;font-family: "pacifico";color: #707070;">
-			<button class="btn waves-effect waves-light" type="submit">submit</button>
-		</div>';
-		        //if(isset($_POST['views'.$i.''])){ 
-		          	for($i=0;$i<count($list_students);$i++){
-		          		//$query_save_views = "insert into views values ('', ".$line['rollno'].", ".$list_students[$i]['rollno'].", 'views".$i."')";	
-		          		//$_POST['views'.$i.''] = 'default';
-		          		if(isset($_POST['views'.$i.''])){
-			          		if(!empty($_POST['views'.$i.''])){
-				          		$views = $_POST['views'.$i.''];
-				          		$rollno = $line['rollno'];
-				          		$deptmate = $list_students[$i]['rollno'];
-				          		$query_save_views = "insert into views values ('', '$rollno','$deptmate', '$views')";	
-				          		$query_save_views_run = mysql_query($query_save_views);
-				          		if ($i == count($list_students)-1) {
-				          			echo '<script>alert("Your Views are submitted for approval by your Deptmates.");window.location.href="register.php";</script>';
-				          		}
-				          	}else{
-				          		if ($i == count($list_students)-1) {
-				          			echo '<script>alert("Your Views are submitted for approval by your Deptmates.");window.location.href="register.php";</script>';
-				          		}
-				          	}	
-			          	}
-
-		          	}
-		         //}  	
-	          ?>
-	        </tbody>
-      	</table>
 	</div>
 </body>
 </html>

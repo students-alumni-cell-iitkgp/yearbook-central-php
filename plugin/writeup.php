@@ -29,7 +29,8 @@ function showfield(name){
 <style>
   body
 {
-  background-image: url('bck.jpg');
+  background-color: #333;
+  color: white;
   background-size: cover;
 }
 .container

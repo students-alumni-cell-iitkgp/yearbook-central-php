@@ -57,7 +57,7 @@
 			</div>
 			</div>
 			<div class="row">
-			<div class=" animated zoomIn container1 col s12 l6 m6 offset-l3">
+			<div class=" animated bounceIn container1 col s12 l6 m6 offset-l3">
 
 			<div class="row" style="height:30px;">
 

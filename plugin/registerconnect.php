@@ -26,8 +26,6 @@ $num_rows =  $result->num_rows;
 	$res = $connection->query($sql);
 	if(!$res)
 	{
-
-	header('Location:www.fb.com');
 		die("error:" .mysql_error());
 	}
 	header('Location:register.php');
