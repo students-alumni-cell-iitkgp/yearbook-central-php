@@ -198,7 +198,7 @@ a.icon{
                     <h3>User</h3>
                     <ul>
                         <li><a href="profile/">My Profile</a></li>
-                        <li><a onclick="update();">Edit Details</a></li>
+                        <li><a href="Details.php?flag=1">Edit Details</a></li>
                         <li><a href="index.php">Logout</a></li>
                     </ul>
                 </div>
@@ -285,7 +285,6 @@ $(document).ready(function() {
   if ( back == 'What Is Your Life Motto?') {
   	$("#modal1").openModal();
   } else {
-  	$("#modal1").openModal();
   }
 });
 

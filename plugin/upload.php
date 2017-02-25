@@ -55,18 +55,22 @@ body
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
     <script>$('.start').hide();</script>
 </head>
-<body style="background-color: #333;color: #fff">
-    <div class="container animated zoomInDown " >
+<body style="background-color: #333;">
+    <div class="container-fluid animated zoomInLeft " >
     <div class="row">
     <div class="col-md-2">
     <button type="button" class="btn btn-primary"style="width: 100px;background-color: rgb(43,187,173) " onclick="location.href='register.php'">home </button>
     </div>
-    <div class="col-md-8"></div>
+    <div class="col-md-8">
+    <h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:40px ">Upload Photos</h4></div>
     <div class="col-md-1">
     <button type="button" class="btn btn-primary"style="width: 100px;margin-left: 20px;background-color: rgb(43,187,173) " onclick="location.href='login.php'">logout </button>
     </div>
     </div>
-    <h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:34.2px ">Upload Photos</h4>
+
+
+    <div class="row">    
+    <div class="col-lg-6">
         <!-- The file upload form used as target for the file upload widget -->
         
         <form class="fileupload" action="server/php/index.php" method="POST" enctype="multipart/form-data">
@@ -119,17 +123,6 @@ body
         <!-- The table listing the files available for upload/download -->
         <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
     </form>
-  <?php   
-    $value1=$_SESSION['rollno'];
-$result=$connection->query("SELECT name FROM photos order by id asc");  
-while ($row=mysqli_fetch_array($result)) {
-    if(substr($row['name'], 0,9)==$value1)
-    # code...
-    echo "<img src='server/php/files/".$row['name'] ."' height='100px'>";
-}
-
-
- ?>
     <!-- The template to display files available for upload -->
     <script id="template-upload" type="text/x-tmpl">
         {% for (var i=0, file; file=o.files[i]; i++) { %}
@@ -141,7 +134,11 @@ while ($row=mysqli_fetch_array($result)) {
                     </label> 
                     <label class="classifier">
                         <span>Category</span><br>
-                        <input name="classifier[]" class="form-control classifier2">
+                        <select name="classifier[]" class="form-control classifier2">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Public">Public</option>
+                            <option value="Private">Private</option>
+                        </select>
                     </label>
                     </td>
                     <td>
@@ -224,6 +221,19 @@ while ($row=mysqli_fetch_array($result)) {
        }
     }
 </script>
-</div>
+</div><div class="col-lg-6 animated bounce" style="padding: 20px;color: #fff">
+<h3>Uploads</h3>
+      <?php   
+    $value1=$_SESSION['rollno'];
+$result=$connection->query("SELECT name FROM photos order by id asc");  
+while ($row=mysqli_fetch_array($result)) {
+    if(substr($row['name'], 0,9)==$value1)
+    # code...
+    echo "<img src='server/php/files/".$row['name'] ."' height='100px' style='margin :10px;'>";
+}
+
+
+ ?>
+</div></div></div>
 </body>
 </html>

@@ -17,7 +17,7 @@ if( $result->num_rows == 0)
 {
 	$sql="UPDATE register
 	SET rollno='$value1',dob='$value2' WHERE rollno='$value1' AND dob='$value2'";
-	header('Location:register.php');
+	header('Location:Details.php');
 
 }
 

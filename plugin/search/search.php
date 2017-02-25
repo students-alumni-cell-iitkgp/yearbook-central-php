@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include 'connection.php';
+include '../connection.php';
 //get search term
 $searchTerm = $_GET['term'];
 //get matched data from skills table

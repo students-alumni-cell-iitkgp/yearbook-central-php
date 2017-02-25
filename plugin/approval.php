@@ -57,17 +57,6 @@ body
 			<a class="btn-floating btn-large waves-effect waves-light red" href="register.php"><i class="material-icons">home</i></a>
 		</div>
 		<table class="highlight col l12 s12 m12">
-	        <thead>
-	          <tr>
-	              <th data-field="rollno">Roll No.</th>
-	              <th data-field="name">Name</th>
-	              <th data-field="views">Views</th>
-	              <th data-field="views">Approve for Yearbook</th>
-	              <th data-field="views">Show on your timeline</th>
-	          </tr>
-
-
-	        </thead>
 
 	        <tbody>
 	          <?php
@@ -86,10 +75,10 @@ body
 		          		$query_select_user_run =$connection->query($query_select_user);
 		          		$list = mysqli_fetch_assoc($query_select_user_run);
 		          		$name = $list['name'];
-		          		echo '<tr><td>'.$rollno.'</td><td>'.$name.'</td><td style = "max-width:200px;word-wrap: break-word; ">
+		          		echo '<tr><td style = "word-wrap: break-word;padding:20px; "> <b>'.$name.' said:</b><br>
 		          			  '.$view.'
 		          		</td>
-		          		<td><div class="approval">';	          			
+		          		<td><div class="approval" style="padding:20px">';	          			
 		          		if($list_views[$i]['approval']=='approve'){
 		          			
 		          			echo '<input type="submit" class="btn waves-light disapprove app'.$i.'" value= "disapprove" data-no="'.$i.'" data-id="'.$id.'" id= "'.$rollno.'"> ';
@@ -99,17 +88,8 @@ body
 		          			echo '<input type="submit" class="btn waves-light red approve app'.$i.'" value= "Approve" data-no="'.$i.'" data-id="'.$id.'" id= "'.$rollno.'"> <div class="text_show'.$i.'" style= "padding-left = 15px;"></div>';
 		          		}
 
-		          		echo '</div></td><td>';
+		          		echo '</div></td>';
 		          		$pass= $list_views[$i]['deptmate'];
-		          		if ($list_views[$i]['timeline']!='yes') {
-		          			echo '<a href="switch.php?id='.$pass.'"><div class="btn waves-light ">Yes</div></a> ';
-		          		} else {
-		          			echo '<a href="switch.php?id='.$pass.'"><div class="btn waves-light ">No</div></a> ';
-
-		          		}
-		          		
-
-		          		echo '</td></tr>';
 		          	}else{
 		          		
 		          	}	

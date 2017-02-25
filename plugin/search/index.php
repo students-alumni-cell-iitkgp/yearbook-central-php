@@ -1,7 +1,7 @@
 <?php  
 
 session_start();
-include 'connection.php';
+include '../connection.php';
 $roll= $_SESSION['rollno'];
 
 $recommend=substr($roll,0,4);
@@ -24,6 +24,19 @@ if (isset($_POST['search'])) {
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" type="text/css" href="../animate.css">
+  <style type="text/css">
+    body{
+      background-color: #333;
+      color: #333;
+    }
+    .row{
+      padding: 20px;
+    }
+  </style>
   <script>
   $(function() {
     $( "#name" ).autocomplete({
@@ -33,16 +46,25 @@ if (isset($_POST['search'])) {
   </script>
 </head>
 <body>
- 
-<div class="ui-widget">
-  <form action="" method="post">
-  <label for="name">Name: </label>
-  <input id="name" name="search">
-  <input type="submit" name="submit">
+  <div class="container">
+            <div class="col s12 m6">
+          <div class="card grey darken-1 animated zoomInDown">
+            <div class="card-content " style="text-align: center;">
+              <span class="card-title ">Yearbook'17</span>
+              <h5>"Make the Yearbook yours"</h5>
+<div class="ui-widget " >
+  <form action="" method="post" style="padding: 30px;">
+  <label for="name" style="font-size: 15px;color: #333">Enter Name: </label>
+  <input id="name" name="search" >
+  <input type="submit" name="submit" class="waves-effect waves-light btn">
 </form>
-</div><hr>
-<table><?php 
-$query = $connection->query("SELECT * FROM register WHERE rollno LIKE '".$recommend."%' ORDER BY RAND() ASC LIMIT 10");
+</div></div></div>
+<div class="card grey darken-1 center animated zoomInUp">
+<div class="row " style="max-height: 300px;overflow: auto;">
+
+<h5>People you may know</h5>
+<?php 
+$query = $connection->query("SELECT * FROM register WHERE rollno LIKE '".$recommend."%' ORDER BY RAND() ASC LIMIT 8");
 if(($query)){
   if(mysqli_num_rows($query)==NULL)
     echo "No Recomendations";
@@ -50,11 +72,12 @@ if(($query)){
   while ($query_row = mysqli_fetch_assoc($query)) {
     if ($query_row['rollno']!=$_SESSION['rollno']) {
     $friend = $query_row['name'];
-    echo ' You might know <a href="../department1.php?roll='.$query_row['rollno'].'">'.$friend.' </a> <br>';
+    echo '  <div class="col l3"  style="padding-bottom:20px;"><a href="../department1.php?roll='.$query_row['rollno'].'" style="color:#333;"><img src="../ind/your-shot.jpg">'.$friend.' </a></div> ';
     }
   }}}
-?>
-<tr></tr>
-</table>
+?></div>
+            </div>
+          </div>
+        </div>
 </body>
 </html>

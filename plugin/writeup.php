@@ -1,19 +1,29 @@
-<?php
-require 'connection.php';
-session_start();
-if (isset($_SESSION['rollno'])) {
+
+
+<?php   
+include 'connection.php';
+
+  session_start();
+  if (isset($_SESSION['rollno'])) {
     
   }else{
   echo '<script>alert("You need to Log In");window.location.href="login.php";</script>';
   }
+  $value1=$_SESSION['rollno'];
+  $query = "select * from writeup where rollno = '$value1'"; 
+  $result =  $connection->query($query); 
+  $line = mysqli_fetch_array($result);
+  $views=$line['writeup'];
+
 ?>
+
 <html>
 <head>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="../js/materialize.min.js"></script>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="../js/materialize.min.js"></script>
   <link rel="stylesheet" type="text/css" href="animate.css">
   <script type="text/javascript">
 function showfield(name){
@@ -32,6 +42,8 @@ function showfield(name){
   background-color: #333;
   color: white;
   background-size: cover;
+  font-family: pacifico;
+  font-size: 20px;
 }
 .container
 {
@@ -39,7 +51,6 @@ function showfield(name){
 }
 .btn
  {
-  text-transform: lowercase;
   font-family: pacifico;
  }
 
@@ -49,6 +60,7 @@ function showfield(name){
  }
 </style>
 </head>
+<body>
 	<div class="container animated zoomInDown">
 
 	 <form action="writeupconnect.php" method="POST">
@@ -88,5 +100,57 @@ function showfield(name){
       </div>
     <button type"submit" class="waves-effect waves-light btn" id="submit" required>SUBMIT</button>
   </div>
-  </form></div>
+  </form>
+<div class="row center white" style="margin-top: 20px;color: #333;">
+<h4 style="color: #707070;padding-top: 20px">Your WriteUp</h4><hr>
+  <?php 
+              $rollno=$_SESSION['rollno'];
+              $query_select_view = "select * from writeup where rollno = '$rollno'";
+              $query_select_view_run = $connection->query($query_select_view);
+              while ($list = mysqli_fetch_assoc($query_select_view_run)) {
+                echo '<hr><div class="row"><div class="col l10 s10 " style="padding:10px;"><b style="float:left;margin-left:20px;">'.$list['topic'].'</b><br>'.$list['writeup'].'</div><div class="col l2 s2 " style=""><a class="modal-trigger" href="#modal1"><i class="material-icons">mode_edit</i></a><a href="writeupdelete.php?id='.$list['id'].'"><i class="material-icons">delete</i></a></div></div>';
+              }
+   ?><hr>
+</div>
+  </div>
+</form>
+</div>
+<div id="modal1" class="modal">
+  <div class="modal-content" style="color: black">
+    <form >
+
+    <div class="row">
+<div class="col l4 ">
+  <select name="topic" id="topic" required onchange="showfield(this.options[this.selectedIndex].value)">
+      <option selected disabled>Choose your topic</option>
+      <option  value="spring fest">Spring Fest</option>
+      <option value="kshitij">Kshitij</option>
+      <option value="aam">Annual Alumni Meet</option>
+      <option value="life at kgp">Life at Kgp</option>
+      <option value="illumination">Illumination</option>
+      <option value="hall">Hall</option>
+      <option value="other">Other</option>
+    </select></div></div>
+  <div id="div1"></div>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12 l12 m12">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea name="writeup"id="icon_prefix2" required class="materialize-textarea"></textarea>
+          <label for="icon_prefix2">Your Article here</label>
+        </div>
+      </div>
+    <button type"submit" class="waves-effect waves-light btn" id="submit" required>SUBMIT</button>
+  </div>
+    </form>
+  </div>
+</div>
+<script type="text/javascript">  
+$(document).ready(function(){
+    $('.modal-trigger').leanModal();
+  });
+
+</script>
+</body>
 </html>
