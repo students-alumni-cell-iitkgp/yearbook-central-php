@@ -1,5 +1,3 @@
-
-<html>
 <?php 	
 include 'connection.php';
 
@@ -14,12 +12,14 @@ include 'connection.php';
 	$result =  $connection->query($query); 
 	$line = mysqli_fetch_array($result);
 	$views=$line['view_self'];
+	$path=$line['pro_pic'];
 
  ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>YB|Home</title>
+    <link rel="icon" href="ind/fav.png" type="image/png" >
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="../js/materialize.min.js"></script>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -129,17 +129,16 @@ a.icon{
                 padding:0;
             }
             body{
-                font-family:Arial;
                 background:#333 url(img/bg.png) no-repeat top left;
+                 font-family: Century gothic;
             }
             .title{
-                width:548px;
+                width:600px;
                 height:119px;
                 position:absolute;
                 top:20px;
                 right: 20px;
-                font-family: "Trebuchet MS", sans-serif;
-                font-size: 50px;
+                font-size: 45px;
                 color: grey;
             }
             a.back{
@@ -157,38 +156,30 @@ a.icon{
             h3{
                 color: black;
             }
-
+            ::-webkit-input-placeholder {
+              font-size: 20px;
+              color: black;
+			}
 
         </style>
     </head>
 
     <body>
-  <div id="modal1" class="modal modal-fixed-footer show ">
-    <div class="modal-content"> 
-    <div class="col s12 m8 offset-m2 l6 offset-l3">
-        <div class="card-panel grey lighten-5 z-depth-1">
-          <div class="row valign-wrapper">
-            <div class="col s4 offset-l4" >
-              <img src="ind/your-shot.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            </div>
-            <div class="row center">
-            <div class="col s12">
-                <span class="black-text">
-                <form method="post" action="motosave.php">
-				<input type="text" name="motto" style="text-align: center;font-size: 30px;font-weight: bold;" id="textsave" value="<?php echo $views ?>">
-				<input type="submit" name="save" value="Save" class="waves-effect waves-light btn" style="padding: 10px;width: 150px;">
-				</form>
-              </span>
-            </div>
-          </div>
+      <div id="modal1" class="modal">
+    <div class="modal-content center">
+    	<form action="motosave.php" method="post" enctype="multipart/form-data">
+    	<input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
+        <img src="ind/your-shot.jpg" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
+        <div class="input-field col s12 l12 m12">
+          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here" style="text-align: center;color: black;"></textarea>
         </div>
-      </div>
+				<input type="submit" name="save" value="Save" class="waves-effect waves-light btn" style="width: 150px;" id="imgsave">
+				</form>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Skip</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
-  </div>	
+  </div>
         <div id="content">
             <div class="title">Welcome to Yearbook'17</div>
 
@@ -197,8 +188,8 @@ a.icon{
                     <img src="img/bg_sm.png" alt="" width="199" height="199" class="circle"/>
                     <h3>User</h3>
                     <ul>
-                        <li><a href="profile/">My Profile</a></li>
-                        <li><a href="Details.php?flag=1">Edit Details</a></li>
+                        <li><a href="profile/index.php?roll=<?php echo $value1; ?>">My Profile</a></li>
+                        <li><a href="details.php?flag=1">Edit Details</a></li>
                         <li><a href="index.php">Logout</a></li>
                     </ul>
                 </div>
@@ -206,9 +197,7 @@ a.icon{
                     <img src="img/bg_sm.png" alt="" width="199" height="199" class="circle"/>
                     <h3>Batch Sento</h3>
                     <ul>
-                        <li><a href="department.php">Home</a></li>
                         <li><a href="search/">Find friend</a></li>
-                        <li><a href="search/">Recommended</a></li>
                     </ul>
                 </div>
                 <div class="item shop">
@@ -216,7 +205,6 @@ a.icon{
                     <h3>Write Article</h3>
                     <ul>
                         <li><a href="writeup.php">About Event</a></li>
-                        <li><a href="department1.php">About Friend</a></li>
                     </ul>
                 </div>
                 <div class="item camera">
@@ -240,7 +228,7 @@ a.icon{
 		<div class="col s6 m6 l4 offset-l1 box upload">
 		<p style="position: absolute;bottom: 20px;right: 20px; color: grey;font-size: 15px;text-align: right;">Contact us at:<br> yearbook.iitkgp@gmail.com</p>
 		
-		</div>
+		</div><div id="load"></div>
         <!-- The JavaScript -->
         <script type="text/javascript" src="jquery.easing.1.3.js"></script>
         <script type="text/javascript">  
@@ -275,14 +263,13 @@ a.icon{
                 }
             );
             });
-        </script>
-        <script>
 var back = "<?php echo $views; ?>" ;
+var back2 = "<?php echo $path; ?>" ;
 //script for modal only
 $(document).ready(function() {
   $('.modal-trigger').leanModal();
   
-  if ( back == 'What Is Your Life Motto?') {
+  if ( (!back)||!(back2) ) {
   	$("#modal1").openModal();
   } else {
   }
@@ -299,10 +286,21 @@ $(document).ready(function() {
       $('#views').submit();
    });
 
-</script>	
-<script>
- $(document).ready(function() {
+ 	$('#OpenImgUpload').click(function(){ $('#fileToUpload').trigger('click'); });
+ 	function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                $('#OpenImgUpload')
+                    .attr('src', e.target.result)
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+ $(document).ready(function() {
     $('select').material_select();
   });
 

@@ -12,7 +12,7 @@ $sql="INSERT INTO views (user,deptmate,views)
 VALUES ('$rollno','$depmate','$view')";
 $success = $connection->query($sql);
 if ($success) 
- header('Location:department.php');
+ header('Location:department1.php');
 else
 	echo mysql_error();
 ?>

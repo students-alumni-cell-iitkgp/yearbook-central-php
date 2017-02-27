@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <?php 
 session_start();
 include 'connection.php';
@@ -9,32 +8,11 @@ if (isset($_SESSION['rollno'])) {
     }
 ?>
 <html lang="en">
-<head><link rel="stylesheet" type="text/css" href="animate.css"></head>
-<style>
- @font-face {
-     font-family:pacifico;
-     src: url('Pacifico.ttf');
- }
-body
-{
-  background-color: #333;
-  background-size: 100vw;
-  background-repeat:repeat;
-}
-.container
-{
-    width: 900px !important;
-    margin-top: -50px;
-}
-.btn
-{
-    font-family: 'pacifico';
-    width: 120px;
-}
-</style>
 <head>
+<link rel="stylesheet" type="text/css" href="animate.css">
+    <link rel="icon" href="ind/fav.png" type="image/png" >
     <meta charset="utf-8">
-    <title>Students' Alumni Cell - YEARBOOK UPLOADER</title>
+    <title>YB|Upload</title>
     <meta name="description" content="Photo uploader for Yearbook 2016, IIT Kharagpur. Designed and maintained by Students' Alumni Cell IIT Kharagpur.">
     <!--material styles
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -54,12 +32,50 @@ body
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-noscript.css"></noscript>
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
     <script>$('.start').hide();</script>
+<style>
+ @font-face {
+     font-family:pacifico;
+     src: url('Pacifico.ttf');
+ }
+body
+{
+  background-color: #333;
+  background-repeat:repeat;
+  padding-top: 0;
+  min-height: 100% !important;
+      font-family: Century gothic;
+}
+.container
+{
+    background-color: silver;
+    color: #333;
+    min-height: 100% !important;
+
+}
+.btn
+{
+    font-family: 'pacifico';
+    width: 120px;
+}
+.img-wrap {
+    position: relative;
+}
+.img-wrap .close {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    z-index: 100;
+    color: white;
+    background-color: black;
+    opacity: 1;
+}
+</style>
 </head>
-<body style="background-color: #333;">
-    <div class="container-fluid animated zoomInLeft " >
+<body style="background-color: #333;height: 100%">
+    <div class="container animated zoomInLeft " style="height: 100%" >
     <div class="row">
     <div class="col-md-2">
-    <button type="button" class="btn btn-primary"style="width: 100px;background-color: rgb(43,187,173) " onclick="location.href='register.php'">home </button>
+    <button type="button" class="btn btn-primary" style="width: 100px;background-color: rgb(43,187,173) " onclick="location.href='register.php'">home </button>
     </div>
     <div class="col-md-8">
     <h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:40px ">Upload Photos</h4></div>
@@ -67,7 +83,9 @@ body
     <button type="button" class="btn btn-primary"style="width: 100px;margin-left: 20px;background-color: rgb(43,187,173) " onclick="location.href='login.php'">logout </button>
     </div>
     </div>
-
+    <div class="row" style="padding: 30px;text-align: center;">
+        What better way to capture a memory than printing it in your yearbook? Share with us the pictures of your most memorable times at KGP and we’ll make it a part of your memoir. Select the category for your picture/s and upload them using the option below.
+    </div>
 
     <div class="row">    
     <div class="col-lg-6">
@@ -130,11 +148,11 @@ body
                     <td>
                     <label class="description">
                         <span>Caption:</span><br>
-                        <input name="description[]" class="form-control">
+                        <input name="description[]" class="form-control" required>
                     </label> 
                     <label class="classifier">
                         <span>Category</span><br>
-                        <select name="classifier[]" class="form-control classifier2">
+                        <select name="classifier[]" class="form-control classifier2" required>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="Public">Public</option>
                             <option value="Private">Private</option>
@@ -143,10 +161,6 @@ body
                     </td>
                     <td>
                         <span class="preview"></span>
-                    </td>
-                    <td>
-                        <p class="name">{%=file.name%}</p>
-                        <strong class="error text-danger"></strong>
                     </td>
                     <td>
                         <p class="size">Processing...</p>
@@ -225,15 +239,22 @@ body
 <h3>Uploads</h3>
       <?php   
     $value1=$_SESSION['rollno'];
-$result=$connection->query("SELECT name FROM photos order by id asc");  
-while ($row=mysqli_fetch_array($result)) {
-    if(substr($row['name'], 0,9)==$value1)
-    # code...
-    echo "<img src='server/php/files/".$row['name'] ."' height='100px' style='margin :10px;'>";
+$result=$connection->query("SELECT * FROM photos WHERE name LIKE '$value1%' order by id desc LIMIT 9");
+  $rowcount=mysqli_num_rows($result); 
+if (!$rowcount) {
+	echo "You have not uploaded any photos";
 }
 
+while ($row=mysqli_fetch_array($result)) {
+    if(substr($row['name'], 0,9)==$value1){
+    	$imgname=$row['name'];
+    echo '<div class="img-wrap col-lg-4 center"><span class="close"><a href="del_img.php?id='.$row["name"] .'">&times;</a></span>'."<img src='server/php/files/".$row['name'] ."' height='100px' width='160px' style='margin :10px;'><br><div style='width:100%;text-align:center'><b>".$row['description'] ."</b></div></div>";
+}
 
+}
  ?>
+ <?php  ?>
 </div></div></div>
+
 </body>
 </html>

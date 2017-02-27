@@ -4,6 +4,7 @@ session_destroy();
  ?>
 <html>
 <head>
+    <link rel="icon" href="../ind/fav.png" type="image/png" >
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="../js/materialize.min.js"></script>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,15 +14,7 @@ session_destroy();
 		<title>Yearbook</title>
 </head>
 <style>
-@font-face {
-     font-family:pristine;
-     src: url('PRISTINA.TTF');
- }
- @font-face {
-     font-family:pacifico;
-     src: url('Pacifico.ttf');
- }
-	.container-fluid
+ 	.container-fluid
 	{
 		background-image: url('ind/4.jpg');
 		background-size: 100% 100%;
@@ -30,6 +23,7 @@ session_destroy();
 		position: absolute;
 		top: 0;
 		text-align: center;
+      font-family: Century gothic;
 
 	}
 	.container1
@@ -47,7 +41,6 @@ session_destroy();
 	{
 		margin-top: 300px;
 		color: #707070;
-		font-family: 'pacifico';
 		font-size: 20px;
 	}
 	#heading{
@@ -74,7 +67,6 @@ session_destroy();
 	color: #f9f1e9;
 	text-align: center;
 	font-size: 40px;
-	font-family:pacifico;
 	top: 15%;
 	left: 50%;
 	-webkit-transform: translate3d(-50%,-50%,0);
@@ -88,7 +80,6 @@ session_destroy();
 .form{
 	position: absolute;
 	top: 35%;
-	font-family:arial;
 }
 
 </style>

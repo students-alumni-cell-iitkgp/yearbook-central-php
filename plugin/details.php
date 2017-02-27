@@ -34,6 +34,8 @@ include 'connection.php';
 	
 <html>
 <head>
+<title>YB|Details</title>
+    <link rel="icon" href="ind/fav.png" type="image/png" >
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="../js/materialize.min.js"></script>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -42,17 +44,10 @@ include 'connection.php';
 	<link rel="stylesheet" type="text/css" href="animate.css">
 </head>
 <style>
-@font-face {
-     font-family:pristine;
-     src: url('PRISTINA.TTF');
- }
- @font-face {
-     font-family:pacifico;
-     src: url('Pacifico.ttf');
- }
 	body{
 		background-color:#333;
 		color: white;
+      font-family: Century gothic;
 	}
 </style>
 <body>
@@ -62,7 +57,7 @@ include 'connection.php';
 	<div class="col l12">
 		<form method="post" action="registerconnect.php">
 		
-		<h4 style="text-align:center;font-family:pacifico;color:#707070 ">Fill up your details to continue</h4>
+		<h4 style="text-align:center;color:#707070 ">Fill up your details to continue</h4>
 			<div class="row">
 				<div class="input-field col s11 l4 m12 ">
 					<select name="department" required>

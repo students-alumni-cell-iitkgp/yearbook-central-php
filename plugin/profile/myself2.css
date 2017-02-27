@@ -1,0 +1,194 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arvo', serif;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+
+/* Header */
+.header {
+  background-image: url("https://www.w3schools.com/css/trolltunga.jpg");
+  height: 220px;
+}
+
+.header h1{
+  margin-top: 140px;
+  text-decoration: bold;
+  font-size: 40px;
+}
+
+.header img{
+  width: 45%;
+  margin-top: 30px;
+  border-radius: 100px;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 6px;
+
+}
+.header h3 {
+
+}
+
+.header a{
+  
+}
+
+.header a:hover {
+ 
+}
+
+.header p {
+
+}
+
+.header .row h3{
+  
+}
+
+/* Jumbotron */
+.jumbotron {
+  position: relative;
+  height: 0px;
+}
+
+.jumbotron h2{
+  font-size: 48px;
+  text-align: center;
+  padding-top: 0px;
+}
+
+.jumbotron h3{
+  font-size: 20px;
+  text-align: center;
+}
+
+.jumbotron h4{
+  text-align: center;
+}
+/* Banner */
+.about{
+  color: #fff;
+  background-color: #005580;  
+}
+
+.about h2{
+  text-align: center;
+  color: #fff;
+}
+
+.about .row{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.about .row img{
+  width: 20%;
+  height: 20%;
+  float: right;
+  clear: left;
+  opacity: 0.7;
+}
+
+.about .row p{
+  color: #ffffff;
+}
+
+.about .row a{
+  color: #ffffff;
+  text-decoration: none;
+}
+.about .row a:hover{
+  color: #333;
+  transition : .3s;
+}
+
+.about .row img:hover{
+  opacity: 1;
+  transition:.5s;
+}
+
+.sites{
+  padding-top: 50px;
+  color: #fff;
+  background-color: #005580;  
+  padding-bottom: 10px;
+}
+
+.sites h2{
+  text-align: center;
+  color: #fff;
+}
+
+.sites .row{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.sites .row img{
+  border-radius: 50px;
+  width: 20%;
+  height: 20%;
+  display: block;
+  margin: auto;
+}
+
+.sites .row p{
+  color: #ffffff;
+}
+
+.sites .row a{
+  color: #ffffff;
+  text-decoration: none;
+}
+.sites .row a:hover{
+  color: #333;
+  transition : .3s;
+}
+
+.sites .row img:hover{
+  opacity: 0.5;
+  transition:.5s;
+}
+
+/* Media Queries */
+@media (max-width: 500px) {
+  @-ms-viewport{
+    width: 320px;
+  }
+  .header h1 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .nav {
+    float: none;
+    margin: 0 auto;
+  }
+  .banner {
+    height: 220px;
+  }
+
+  .nav-pills li:first-child a  {
+    margin-left: 0;
+  }
+}
+
+.section .container {
+    
+  }
+
+.section .row a{
+    
+  }
+
+.footer {
+    height: 300px;
+    background-color: #333;
+  }
