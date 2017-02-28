@@ -15,7 +15,7 @@
 	          	$query = "select * from views where deptmate = '$value1'";
 	          	$query_run = $connection->query($query);
   				if(mysqli_num_rows($query_run)==NULL)
-    				echo "<h1>No Views YET</h1>";
+    				echo "<h1>No Testimonials YET</h1>";
   				else{
   					$i=0;
   				while ($query_row = mysqli_fetch_assoc($query_run)){

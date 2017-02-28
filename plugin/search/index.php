@@ -31,7 +31,7 @@ if (isset($_POST['search'])) {
   <link rel="stylesheet" type="text/css" href="../animate.css">
   <style type="text/css">
     body{
-      background-color:#4CB2D4;
+      background-color:#333;
       color: #fff;
       font-family: Century gothic;
     }
@@ -39,7 +39,7 @@ if (isset($_POST['search'])) {
       padding: 20px;
     }
     .card,.back{
-      background-color: #30499B;
+      background-color: grey;
     }
   </style>
   <script>
@@ -52,6 +52,8 @@ if (isset($_POST['search'])) {
 </head>
 <body>
   <div class="container">
+            <button type="button"class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
+            <button type="button"class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../login.php'">LOGOUT </button>
             <div class="col s12 m6">
           <div class="card darken-1 animated zoomInDown">
             <div class="card-content " style="text-align: center;">
