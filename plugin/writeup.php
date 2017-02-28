@@ -78,7 +78,7 @@ function showfield(name){
 
     </div>
     <div class="col s6 l1 m6">
-    <button type="button"class="waves-effect waves-light btn" style="margin-left: 100px"onclick="location.href='login.php'">LOGOUT </button>
+    <button type="button"class="waves-effect waves-light btn" style="margin-left: 100px"onclick="location.href='index.php'">LOGOUT </button>
     </div>
     </div>
   <div class="row"><hr>

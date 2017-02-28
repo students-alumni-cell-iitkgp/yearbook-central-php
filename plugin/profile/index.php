@@ -54,7 +54,7 @@ include '../connection.php';
     <div class="header">
       <div class="container">
             <button type="button"class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
-            <button type="button"class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../login.php'">LOGOUT </button>
+            <button type="button"class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button>
         <div class="row">
           <div class="col l6 m6 s6" style="padding: 20px;"><img src="<?php if ($line['pro_pic']) { echo '../'.$line['pro_pic']; } else { echo 'your-shot.jpg'; } ?>"></div>
           <div class="col l6 m6 s6" ><h1 style="font-size: 30px;"><?php echo $line['name']; ?></h1></div>

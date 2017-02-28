@@ -53,7 +53,7 @@ if (isset($_POST['search'])) {
 <body>
   <div class="container">
             <button type="button"class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
-            <button type="button"class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../login.php'">LOGOUT </button>
+            <button type="button"class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button>
             <div class="col s12 m6">
           <div class="card darken-1 animated zoomInDown">
             <div class="card-content " style="text-align: center;">

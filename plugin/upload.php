@@ -71,8 +71,8 @@ body
 }
 </style>
 </head>
-<body style="background-color: #333;height: 100%">
-    <div class="container animated zoomInLeft " style="height: 100%" >
+<body style="background-color: #333;">
+    <div class="container animated zoomInLeft " style="" >
     <div class="row">
     <div class="col-md-2">
     <button type="button" class="btn btn-primary" style="width: 100px;background-color: rgb(43,187,173) " onclick="location.href='register.php'">home </button>
@@ -80,7 +80,7 @@ body
     <div class="col-md-8">
     <h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:40px ">Upload Photos</h4></div>
     <div class="col-md-1">
-    <button type="button" class="btn btn-primary"style="width: 100px;margin-left: 20px;background-color: rgb(43,187,173) " onclick="location.href='login.php'">logout </button>
+    <button type="button" class="btn btn-primary"style="width: 100px;margin-left: 20px;background-color: rgb(43,187,173) " onclick="location.href='index.php'">logout </button>
     </div>
     </div>
     <div class="row" style="padding: 30px;text-align: center;">
