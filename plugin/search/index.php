@@ -68,10 +68,10 @@ if (isset($_POST['search'])) {
   <input type="submit" name="submit" class="waves-effect waves-light btn" style="background-color: #4CB2D4">
 </form>
 </div></div></div>
-<div class="card grey darken-1 center animated zoomInUp">
-<div class="row back" style="max-height: 300px;">
+<div class="card grey darken-1 center animated zoomInUp" style="">
+<div class="row back" style="">
 <h5>People you may know<div id="reload" style="color: #fff;cursor: pointer;"><i class="material-icons">cached</i></div></h5>
-  <div id="load" class="center row" style="padding-left: 0">
+  <div id="load" class="center row" style="padding-left: 0;">
   <?php 
       include "recommend.php";
    ?>
