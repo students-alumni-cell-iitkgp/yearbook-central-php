@@ -1,4 +1,14 @@
 <?php
+if (getenv("YEARBOOK_DB_USERNAME")) {
+$options = array(
+    'delete_type' => 'POST',
+    'db_host' => 'localhost',
+    'db_user' =>getenv("YEARBOOK_DB_USERNAME"),
+    'db_pass' => getenv("YEARBOOK_DB_PASSWORD"),
+    'db_name' => 'yearbook',
+    'db_table' => 'photos'
+);
+} else {
 $options = array(
     'delete_type' => 'POST',
     'db_host' => 'localhost',
@@ -7,6 +17,9 @@ $options = array(
     'db_name' => 'yearbook',
     'db_table' => 'photos'
 );
+}
+
+
 error_reporting(E_ALL | E_STRICT);
 require('UploadHandler.php');
 
