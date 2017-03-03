@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <?php 
 session_start();
 include 'connection.php';
@@ -9,32 +8,11 @@ if (isset($_SESSION['rollno'])) {
     }
 ?>
 <html lang="en">
-<head><link rel="stylesheet" type="text/css" href="animate.css"></head>
-<style>
- @font-face {
-     font-family:pacifico;
-     src: url('Pacifico.ttf');
- }
-      body
-{
-  background-image: url('bck.jpg');
-  background-size: 100vw;
-  background-repeat:repeat;
-}
-.container
-{
-    width: 900px !important;
-    margin-top: -50px;
-}
-.btn
-{
-    font-family: 'pacifico';
-    width: 120px;
-}
-</style>
 <head>
+<link rel="stylesheet" type="text/css" href="animate.css">
+    <link rel="icon" href="ind/fav.png" type="image/png" >
     <meta charset="utf-8">
-    <title>Students' Alumni Cell - YEARBOOK UPLOADER</title>
+    <title>YB|Upload</title>
     <meta name="description" content="Photo uploader for Yearbook 2016, IIT Kharagpur. Designed and maintained by Students' Alumni Cell IIT Kharagpur.">
     <!--material styles
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -54,19 +32,63 @@ if (isset($_SESSION['rollno'])) {
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-noscript.css"></noscript>
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
     <script>$('.start').hide();</script>
+<style>
+ @font-face {
+     font-family:pacifico;
+     src: url('Pacifico.ttf');
+ }
+body
+{
+  background-color: #333;
+  background-repeat:repeat;
+  padding-top: 0;
+  min-height: 100% !important;
+      font-family: Century gothic;
+}
+.container
+{
+    background-color: silver;
+    color: #333;
+    min-height: 100% !important;
+
+}
+.btn
+{
+    font-family: 'pacifico';
+    width: 120px;
+}
+.img-wrap {
+    position: relative;
+}
+.img-wrap .close {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    z-index: 100;
+    color: white;
+    background-color: black;
+    opacity: 1;
+}
+</style>
 </head>
-<body>
-    <div class="container animated zoomInDown ">
+<body style="background-color: #333;">
+    <div class="container animated zoomInLeft " style="" >
     <div class="row">
     <div class="col-md-2">
-    <button type="button" class="btn btn-primary"style="width: 100px;background-color: rgb(43,187,173) " onclick="location.href='register.php'">home </button>
+    <button type="button" class="btn btn-primary" style="width: 100px;background-color: rgb(43,187,173) " onclick="location.href='register.php'">home </button>
     </div>
-    <div class="col-md-8"></div>
+    <div class="col-md-8">
+    <h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:40px ">Upload Photos</h4></div>
     <div class="col-md-1">
-    <button type="button" class="btn btn-primary"style="width: 100px;margin-left: 20px;background-color: rgb(43,187,173) " onclick="location.href='login.php'">logout </button>
+    <button type="button" class="btn btn-primary"style="width: 100px;margin-left: 20px;background-color: rgb(43,187,173) " onclick="location.href='index.php'">logout </button>
     </div>
     </div>
-    <h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:34.2px ">Upload Photos</h4>
+    <div class="row" style="padding: 30px;text-align: center;">
+        What better way to capture a memory than printing it in your yearbook? Share with us the pictures of your most memorable times at KGP and we’ll make it a part of your memoir. Select the category for your picture/s and upload them using the option below.
+    </div>
+
+    <div class="row">    
+    <div class="col-lg-6">
         <!-- The file upload form used as target for the file upload widget -->
         
         <form class="fileupload" action="server/php/index.php" method="POST" enctype="multipart/form-data">
@@ -119,17 +141,6 @@ if (isset($_SESSION['rollno'])) {
         <!-- The table listing the files available for upload/download -->
         <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
     </form>
-  <?php   
-    $value1=$_SESSION['rollno'];
-$result=mysql_query("SELECT name FROM photos order by id asc");  
-while ($row=mysql_fetch_array($result)) {
-    if(substr($row['name'], 0,9)==$value1)
-    # code...
-    echo "<img src='server/php/files/".$row['name'] ."' height='100px'>";
-}
-
-
- ?>
     <!-- The template to display files available for upload -->
     <script id="template-upload" type="text/x-tmpl">
         {% for (var i=0, file; file=o.files[i]; i++) { %}
@@ -137,19 +148,19 @@ while ($row=mysql_fetch_array($result)) {
                     <td>
                     <label class="description">
                         <span>Caption:</span><br>
-                        <input name="description[]" class="form-control">
+                        <input name="description[]" class="form-control" required>
                     </label> 
                     <label class="classifier">
                         <span>Category</span><br>
-                        <input name="classifier[]" class="form-control classifier2">
+                        <select name="classifier[]" class="form-control classifier2" required>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Public">Public</option>
+                            <option value="Private">Private</option>
+                        </select>
                     </label>
                     </td>
                     <td>
                         <span class="preview"></span>
-                    </td>
-                    <td>
-                        <p class="name">{%=file.name%}</p>
-                        <strong class="error text-danger"></strong>
                     </td>
                     <td>
                         <p class="size">Processing...</p>
@@ -224,6 +235,26 @@ while ($row=mysql_fetch_array($result)) {
        }
     }
 </script>
-</div>
+</div><div class="col-lg-6 animated bounce" style="padding: 20px;color: #fff">
+<h3>Uploads</h3>
+      <?php   
+    $value1=$_SESSION['rollno'];
+$result=$connection->query("SELECT * FROM photos WHERE name LIKE '$value1%' order by id desc LIMIT 9");
+  $rowcount=mysqli_num_rows($result); 
+if (!$rowcount) {
+	echo "You have not uploaded any photos";
+}
+
+while ($row=mysqli_fetch_array($result)) {
+    if(substr($row['name'], 0,9)==$value1){
+    	$imgname=$row['name'];
+    echo '<div class="img-wrap col-lg-4 center"><span class="close"><a href="del_img.php?id='.$row["name"] .'">&times;</a></span>'."<img src='server/php/files/".$row['name'] ."' height='100px' width='160px' style='margin :10px;'><br><div style='width:100%;text-align:center'><b>".$row['description'] ."</b></div></div>";
+}
+
+}
+ ?>
+ <?php  ?>
+</div></div></div>
+
 </body>
 </html>

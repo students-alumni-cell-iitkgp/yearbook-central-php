@@ -16,14 +16,15 @@ $_SESSION['HOR'] = $value4;
 $_SESSION['course'] = $value6;
 $_SESSION['email'] = $value7;
 $_SESSION['phone'] = $value8;
-$result = mysql_query("SELECT * FROM register WHERE rollno='$value1' AND dob='$value2'");
-$num_rows = mysql_num_rows($result);
+$result = $connection->query("SELECT * FROM register WHERE rollno='$value1' AND dob='$value2'");
+$num_rows =  $result->num_rows;
 
 
 	$sql="UPDATE register
 	SET department='$value3', HOR='$value4',course='$value6',email='$value7',phone='$value8'
 	WHERE rollno='$value1' AND dob='$value2'"; 
-	if(!mysql_query($sql))
+	$res = $connection->query($sql);
+	if(!$res)
 	{
 		die("error:" .mysql_error());
 	}

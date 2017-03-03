@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'connection.php';
+include '../connection.php';
 $rollno=$_SESSION['rollno'];
 echo "$rollno";
 $depmate=$_POST['froll'];
@@ -10,9 +10,9 @@ $_SESSION['viewf'] = $view;
 
 $sql="INSERT INTO views (user,deptmate,views)
 VALUES ('$rollno','$depmate','$view')";
-$success = mysql_query($sql);
+$success = $connection->query($sql);
 if ($success) 
- header('Location:department.php');
+ header('Location:../search/index.php');
 else
 	echo mysql_error();
 ?>
