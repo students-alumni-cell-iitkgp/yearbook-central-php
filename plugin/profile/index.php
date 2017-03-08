@@ -31,7 +31,6 @@ include '../connection.php';
         width: 180px;
       }
       body{
-        
       font-family: Century gothic;
       }
 .caption{
@@ -45,14 +44,20 @@ include '../connection.php';
   color: #fff;
   padding-top:20px;
 }
+.header{
+
+  background-image: url("../ind/1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
     </style>
   </head>
   
-  <body>
+  <body class="container">
 
     <div class="header">
-      <div class="container">
+      <div class="">
             <button type="button"class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
             <button type="button"class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button>
         <div class="row">
@@ -63,7 +68,7 @@ include '../connection.php';
     </div>
 
     <div class="caption">
-      <div class="container">
+      <div class="">
       <div class="row">
         <div class="l8 m6 s6 l6">
           <h2>
@@ -79,7 +84,7 @@ include '../connection.php';
       </div>
       </div>
     </div>            
-      <div class="container">
+      <div class="">
         <div class="row">
         <div class="col l3 m3 s3">
           <h6 style="font-weight:bolder">Roll No.</h6>
@@ -106,7 +111,7 @@ include '../connection.php';
         </div>
       </div>
       </div>
-      <div class="container center">
+      <div class=" center" style="padding: 20px;">
       <?php if ($value1==$_SESSION['rollno']) {
         echo "Here’s what your friends written about you! Your testimonials are displayed below. You can approve or disapprove them by selecting the option shown beside each testimonial. The approved ones shall be a part of your yearbook.";
        include 'approval.php';

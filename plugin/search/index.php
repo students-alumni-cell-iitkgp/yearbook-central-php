@@ -2,6 +2,12 @@
 
 session_start();
 include '../connection.php';
+  if (isset($_SESSION['rollno'])) {
+    
+  }else{
+      echo '<script>alert("You need to Log In");window.location.href="index.php";</script>';
+  }
+
 $roll= $_SESSION['rollno'];
 
 $recommend=substr($roll,0,4);

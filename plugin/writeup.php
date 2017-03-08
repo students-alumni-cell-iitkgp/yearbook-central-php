@@ -6,7 +6,7 @@ include 'connection.php';
   if (isset($_SESSION['rollno'])) {
     
   }else{
-  echo '<script>alert("You need to Log In");window.location.href="login.php";</script>';
+  echo '<script>alert("You need to Log In");window.location.href="index.php";</script>';
   }
   $value1=$_SESSION['rollno'];
   $query = "select * from writeup where rollno = '$value1'"; 
@@ -51,6 +51,11 @@ function showfield(name){
        });
     }
     </script>
+    <style type="text/css">
+      table{
+        table-layout: fixed;
+      }
+    </style>
 <style>
   body
 {
@@ -114,10 +119,10 @@ function showfield(name){
 <table class="tbl-qa" style="color: #333;">
       <thead>
         <tr>
-        <th class="table-header" width="10%" >SL-No.</th>
-        <th class="table-header" width="150px">Topic</th>
-        <th class="table-header" style="float: left;">Writeup<i class="material-icons" style="font-size: 20px;padding-left: 10px; ">mode_edit</i></th>
-        <th class="table-header center"  width="50px"></th>
+        <th class="table-header l2" width="10%" >SL-No.</th>
+        <th class="table-header l3" width="150px">Topic</th>
+        <th class="table-header l6" style="float: left;">Writeup<i class="material-icons" style="font-size: 20px;padding-left: 10px;width: 100%; ">mode_edit</i></th>
+        <th class="table-header center l1"  width="50px"></th>
         </tr>
       </thead>
       <tbody>

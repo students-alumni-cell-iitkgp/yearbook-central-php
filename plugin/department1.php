@@ -11,12 +11,12 @@
 				<form action="viewsfriend.php" onSubmit="alert('Your views will be added in his yearbook after his registration and approval');" method="POST" style="padding-top: 0;">
 				<div class="box4">
 					<div class="row">
-						<div class="col l6 m6 s12">
+						<div class="col l6 m6 s12" style="display: none;">
 							<label for="froll">Roll Number</label>
 							<input name="froll" autofocus placeholder="Your friend's Roll Number" type="text" required value="<?php  echo @$line['rollno']; ?>">
 
 						</div>
-						<div class="col l6 m6 s12">
+						<div class="col l6 m6 s12" style="display: none;">
 							<label for="fname">Name</label>
 							<input name="fname" id="fname" autofocus placeholder="Your friend's name" type="text" required value="<?php  echo @$line['name']; ?>">
 

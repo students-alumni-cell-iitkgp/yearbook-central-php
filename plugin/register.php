@@ -129,7 +129,7 @@ a.icon{
                 padding:0;
             }
             body{
-                background:#333 url(img/bg.png) no-repeat top left;
+                background:#113545 url(img/bg.png) no-repeat top left;
                  font-family: Century gothic;
             }
             .title{
