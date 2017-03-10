@@ -27,6 +27,9 @@ include '../connection.php';
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <meta name=viewport content='width=700'>
     <style type="text/css">
+    table{
+    	table-layout: fixed;
+    }
       .btn{
         width: 180px;
       }
@@ -42,7 +45,8 @@ include '../connection.php';
   text-align: left;
   font-size: 20px;
   color: #fff;
-  padding-top:20px;
+  padding:10px;
+
 }
 .header{
 
@@ -50,6 +54,11 @@ include '../connection.php';
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media only screen and (min-width: 1000px) {
+    #capt {
+        padding-left: 0px;
+        margin-left: -200px;
+    }
 
     </style>
   </head>
@@ -71,7 +80,7 @@ include '../connection.php';
       <div class="">
       <div class="row">
         <div class="l8 m6 s6 l6">
-          <h2>
+          <h2 id="capt">
           "<?php 
           if ($line['view_self']) {
           echo $line['view_self'];
@@ -86,19 +95,15 @@ include '../connection.php';
     </div>            
       <div class="">
         <div class="row">
-        <div class="col l3 m3 s3">
+        <div class="col l3 m3 s3 center">
           <h6 style="font-weight:bolder">Roll No.</h6>
           <h6><?php echo $line['rollno']; ?></h6>
         </div>
-        <div class="col l3 m3 s3">
+        <div class="col l3 m3 s3 center">
           <h6 style="font-weight:bolder">Hall</h6>
           <h6><?php echo $line['HOR']; ?></h6>
         </div>
-        <div class="col l3 m3 s3">
-          <h6 style="font-weight:bolder">Department</h6>
-          <h6><?php echo $line['department']; ?></h6>
-        </div>
-        <div class="col l3 m3 s3">
+        <div class="col l3 m3 s3 center">
           <h6 style="font-weight:bolder">Email</h6>
           <h6>
           <?php 
@@ -109,6 +114,18 @@ include '../connection.php';
            }
           ?></h6>
         </div>
+        <div class="col l3 m3 s3 center">
+          <h6 style="font-weight:bolder">Contact No.</h6>
+          <h6>
+          <?php 
+          if ($line['phone']) {
+          echo $line['phone'];
+           }else{
+            echo "No Contact No. Provided";
+           }
+          ?></h6>
+        </div>
+     
       </div>
       </div>
       <div class=" center" style="padding: 20px;">

@@ -19,9 +19,9 @@ if(($query)){
     if (strtoupper($query_row['rollno'])!=strtoupper($_SESSION['rollno'])) {
     $friend = $query_row['name'];
     if ($query_row['pro_pic']) {
-    echo '  <div class="col l2 m4 s3"  style=""><a href="../profile/index.php?roll='.$query_row['rollno'].'" style="color:#fff;"><img src="../'.$query_row["pro_pic"].'" height="150px;"><br>'.$friend.' </a></div> ';
+    echo '  <div class="col l2 m4 s6"  style=""><a href="../profile/index.php?roll='.$query_row['rollno'].'" style="color:#fff;"><img src="../'.$query_row["pro_pic"].'" height="150px;"><br>'.$friend.' </a></div> ';
     } else {
-    echo '  <div class="col l2 m4 s3"  style=""><a href="../profile/index.php?roll='.$query_row['rollno'].'" style="color:#fff;"><img src="../ind/your-shot.jpg" height="150px;"><br>'.$friend.' </a></div> ';
+    echo '  <div class="col l2 m4 s6"  style=""><a href="../profile/index.php?roll='.$query_row['rollno'].'" style="color:#fff;"><img src="../ind/your-shot.jpg" height="150px;"><br>'.$friend.' </a></div> ';
     }
     
     }

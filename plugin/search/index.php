@@ -36,6 +36,10 @@ if (isset($_POST['search'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" type="text/css" href="../animate.css">
   <style type="text/css">
+  body,html{
+    max-width: 100%;
+    overflow-x: hidden;
+  }
     body{
       background-color:#333;
       color: #fff;
@@ -58,13 +62,13 @@ if (isset($_POST['search'])) {
 </head>
 <body>
   <div class="container">
-            <button type="button"class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
-            <button type="button"class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button>
+            <button type="button" class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
+            <button type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button>
             <div class="col s12 m6">
           <div class="card darken-1 animated zoomInDown">
             <div class="card-content " style="text-align: center;">
               <span class="card-title ">Yearbook'17</span>
-              <h5>"Make the Yearbook yours"</h5>
+              <h5 style="cursor: default;">"Make the Yearbook yours"</h5>
               The most valued possession you take away from KGP: your friends. Search for your friend below to visit his/her profile and write a testimonial for them. This would be an amazing look back at your friendship several years from now.
 
 <div class="ui-widget " >
@@ -74,7 +78,7 @@ if (isset($_POST['search'])) {
   <input type="submit" name="submit" class="waves-effect waves-light btn" style="background-color: #4CB2D4">
 </form>
 </div></div></div>
-<div class="card grey darken-1 center animated zoomInUp" style="">
+<div class="card grey darken-1 center animated zoomInUp" style="overflow-x: hidden;">
 <div class="row back" style="">
 <h5>People you may know<div id="reload" style="color: #fff;cursor: pointer;"><i class="material-icons">cached</i></div></h5>
   <div id="load" class="center row" style="padding-left: 0;">

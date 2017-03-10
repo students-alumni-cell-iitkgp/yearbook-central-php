@@ -17,7 +17,6 @@ if (isset($_SESSION['rollno'])) {
     <!--material styles
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>-->
     <!-- Bootstrap styles-->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -25,6 +24,7 @@ if (isset($_SESSION['rollno'])) {
     <link rel="stylesheet" href="css/style.css">
     <!-- blueimp Gallery styles -->
     <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
     <link rel="stylesheet" href="css/jquery.fileupload.css">
     <link rel="stylesheet" href="css/jquery.fileupload-ui.css">
@@ -78,9 +78,9 @@ body
     <button type="button" class="btn btn-primary" style="width: 100px;background-color: rgb(43,187,173) " onclick="location.href='register.php'">home </button>
     </div>
     <div class="col-md-8">
-    <h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:40px ">Upload Photos</h4></div>
+    <h4 style="text-align:center;color:#707070;font-size:40px ">Upload Photos</h4></div>
     <div class="col-md-1">
-    <button type="button" class="btn btn-primary"style="width: 100px;margin-left: 20px;background-color: rgb(43,187,173) " onclick="location.href='index.php'">logout </button>
+    <button type="button" class="btn btn-primary" style="width: 100px;margin-left: 20px;background-color: rgb(43,187,173) " onclick="location.href='index.php'">logout </button>
     </div>
     </div>
     <div class="row" style="padding: 30px;text-align: center;">
@@ -91,7 +91,7 @@ body
     <div class="col-lg-6">
         <!-- The file upload form used as target for the file upload widget -->
         
-        <form class="fileupload" action="server/php/index.php" method="POST" enctype="multipart/form-data">
+        <form class="fileupload" action="server/php/index.php" method="POST" enctype="multipart/form-data" onsubmit="refres()">
             <!-- Redirect browsers with JavaScript disabled to the origin page -->
             <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
             <div class="form-group">
@@ -234,9 +234,15 @@ body
         x[j].value=cat;
        }
     }
+    $(document).ready(function(){
+    $(".reload").click(function(){
+    $("#load").load("pictures.php");
+	});
+});
 </script>
 </div><div class="col-lg-6 animated bounce" style="padding: 20px;color: #fff">
- <?php  include 'pictures.php' ?>
+<h3>Uploads<i class="material-icons reload" style="cursor: pointer;">autorenew</i></h3>
+<div id="load"> <?php  include 'pictures.php' ?></div>
 </div></div></div>
 
 </body>

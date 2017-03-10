@@ -52,11 +52,10 @@ function showfield(name){
     }
     </script>
     <style type="text/css">
-      table{
-        table-layout: fixed;
-      }
-    </style>
-<style>
+html,body{
+    max-width: 100%;
+    overflow-x: hidden;
+  }
   body
 {
   background-color: #333;
@@ -65,32 +64,32 @@ function showfield(name){
   font-size: 15px;
   font-family: Century gothic;
 }
-.container
-{
-    width: 800px !important;
-}
+
+      table{
+        table-layout: fixed !important;
+      }
 </style>
 </head>
 <body>
-  <div class="container animated zoomInDown">
+  <div class="container animated zoomInDown" style="display: table;">
 
-   <div class="row">
-    <div class="col s6 l3 m6">
+   <div class="row" style="display: table-row;">
+    <div class="col s3 l3 m3" style="padding: 0px; margin-left: 0px;">
     <button type="button"class="waves-effect waves-light btn" onclick="location.href='register.php'">HOME </button>
     </div>
-    <div class="col s6 l6 m6">
+    <div class="col s6 l6 m6 center">
        <h4 style="text-align:center;font-family:pacifico;color:#707070 ">Upload Articles</h4>
 
     </div>
-    <div class="col s6 l1 m6">
-    <button type="button"class="waves-effect waves-light btn" style="margin-left: 100px"onclick="location.href='index.php'">LOGOUT </button>
+    <div class="col s3 l3 m3" style="display: table-row;text-align: right;">
+    <button type="button"class="waves-effect waves-light btn" onclick="location.href='index.php'">LOGOUT </button>
     </div>
     </div>
   <div class="row"><hr>
-  <div class="col l12 center">How have all these years in KGP transformed you? What’s your funniest experience in the campus? Share with us your stories to make it a part of the yearbook that you carry along. Choose the topic below and send us your articles.</div><br><br><hr>
+  <div class="col l12 s12 m12 center">How have all these years in KGP transformed you? What’s your funniest experience in the campus? Share with us your stories to make it a part of the yearbook that you carry along. Choose the topic below and send us your articles.</div><br><br><hr>
 
    <form action="writeupconnect.php" method="POST">
-<div class="col l4 ">
+<div class="col l4 s6 m6 ">
   <select name="topic" id="topic" required onchange="showfield(this.options[this.selectedIndex].value)">
       <option selected disabled>Choose your topic</option>
       <option  value="Spring Fest">Spring Fest</option>
@@ -103,7 +102,6 @@ function showfield(name){
     </select></div></div>
   <div id="div1"></div>
   <div class="row">
-    <form class="col s12">
       <div class="row">
         <div class="input-field col s12 l12 m12">
           <i class="material-icons prefix">mode_edit</i>
@@ -137,7 +135,7 @@ function showfield(name){
         <td style="text-align: center;"><?php echo $k; ?></td>
         <td ><?php echo $list["topic"]; ?></td>
         <td contenteditable="true" onBlur="saveToDatabase(this,'writeup','<?php echo $list["id"]; ?>')" onClick="showEdit(this);"><?php echo $list["writeup"]; ?></td>
-        <td><a href='writeupdelete.php?id=<?php echo $list["id"]; ?>'><i class="material-icons">delete</i></a></td>
+        <td style="width: 50px"><a href='writeupdelete.php?id=<?php echo $list["id"]; ?>'><i class="material-icons">delete</i></a></td>
         </tr>
     <?php
     $k++;
@@ -149,7 +147,6 @@ function showfield(name){
 <hr>
 </div>
   </div>
-</form>
-</div>
+  </div>
 </body>
 </html>
