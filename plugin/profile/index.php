@@ -71,7 +71,7 @@ include '../connection.php';
             <button type="button"class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button>
         <div class="row">
           <div class="col l6 m6 s6" style="padding: 20px;"><img src="<?php if ($line['pro_pic']) { echo '../'.$line['pro_pic']; } else { echo 'your-shot.jpg'; } ?>"></div>
-          <div class="col l6 m6 s6" ><h1 style="font-size: 30px;"><?php echo $line['name']; ?></h1></div>
+          <div class="col l6 m6 s6" style=""><h1 style="font-size: 30px; color: #fff;background-color: black;opacity: 0.6;padding: 10px;"><?php echo $line['name']; ?></h1></div>
         </div> 
       </div>
     </div>
@@ -79,7 +79,7 @@ include '../connection.php';
     <div class="caption">
       <div class="">
       <div class="row">
-        <div class="l8 m6 s6 l6">
+        <div class="l8 m6 s6 l6 offset-l3">
           <h2 id="capt">
           "<?php 
           if ($line['view_self']) {

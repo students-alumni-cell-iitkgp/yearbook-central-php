@@ -52,7 +52,7 @@ include 'connection.php';
       <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
         <img src="ind/your-shot.jpg" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
         <div class="input-field col s12 l12 m12">
-          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here" style="text-align: center;color: black;"></textarea>
+          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here (Max 50 characters)" style="text-align: center;color: black;" maxlength="50"></textarea>
         </div>
         <input type="submit" name="save" value="Save" class="waves-effect waves-light btn" style="padding-top: 0;width: 150px;"  id="imgsave" >
         </form>
@@ -71,7 +71,7 @@ include 'connection.php';
           if ($line['view_self']) {
           echo $line['view_self'];
            }else{
-            echo "No Caption Provided";
+            echo "Upload your Caption for the Yearbook";
            }
           ?> "
   <h5>
@@ -84,7 +84,6 @@ include 'connection.php';
   <ul id='dropdown1' class='dropdown-content' style="margin-top:55px;">
         <li><a href="profile/index.php?roll=<?php echo $value1; ?>">My Profile</a></li>
         <li><a href="details.php?flag=1">Edit Details</a></li>
-        <li><a href="index.php">Logout</a></li>
   </ul>
    </div>
        <div class="col l4 s3">
