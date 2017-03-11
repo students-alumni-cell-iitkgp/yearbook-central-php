@@ -1,5 +1,4 @@
 <?php  
-<<<<<<< HEAD
 session_start();
 include '../connection.php';
   if (isset($_SESSION['rollno'])) {
@@ -8,11 +7,7 @@ include '../connection.php';
       echo '<script>alert("You need to Log In");window.location.href="index.php";</script>';
   }
 
-=======
 
-session_start();
-include '../connection.php';
->>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
 $roll= $_SESSION['rollno'];
 
 $recommend=substr($roll,0,4);
@@ -36,22 +31,17 @@ if (isset($_POST['search'])) {
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<<<<<<< HEAD
   <script type="text/javascript" src="../../js/materialize.min.js"></script>
-=======
->>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" type="text/css" href="../animate.css">
   <style type="text/css">
-<<<<<<< HEAD
   body,html{
     max-width: 100%;
     overflow-x: hidden;
   }
-=======
->>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
+
     body{
       background-color:#333;
       color: #fff;
@@ -65,7 +55,6 @@ if (isset($_POST['search'])) {
     }
   </style>
   <script>
-<<<<<<< HEAD
    $(document).ready(function(){
    if ($(window).width()>770) {
     (function($){ $('#nav').show();
@@ -76,9 +65,6 @@ if (isset($_POST['search'])) {
     $(".button-collapse").sideNav();
   });
 
-
-=======
->>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
   $(function() {
     $( "#name" ).autocomplete({
       source: 'search.php'
@@ -87,7 +73,6 @@ if (isset($_POST['search'])) {
   </script>
 </head>
 <body>
-<<<<<<< HEAD
 
 <!-- navbar -->
 <div id="nav" class="row" style="background-color: black; display: none;">
@@ -117,20 +102,13 @@ if (isset($_POST['search'])) {
 
 
   <div class="container">
-=======
-  <div class="container">
-            <button type="button"class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
-            <button type="button"class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button>
->>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
+
             <div class="col s12 m6">
           <div class="card darken-1 animated zoomInDown">
             <div class="card-content " style="text-align: center;">
               <span class="card-title ">Yearbook'17</span>
-<<<<<<< HEAD
               <h5 style="cursor: default;">"Make the Yearbook yours"</h5>
-=======
-              <h5>"Make the Yearbook yours"</h5>
->>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
+
               The most valued possession you take away from KGP: your friends. Search for your friend below to visit his/her profile and write a testimonial for them. This would be an amazing look back at your friendship several years from now.
 
 <div class="ui-widget " >
@@ -140,11 +118,8 @@ if (isset($_POST['search'])) {
   <input type="submit" name="submit" class="waves-effect waves-light btn" style="background-color: #4CB2D4">
 </form>
 </div></div></div>
-<<<<<<< HEAD
 <div class="card grey darken-1 center animated zoomInUp" style="overflow-x: hidden;">
-=======
-<div class="card grey darken-1 center animated zoomInUp" style="">
->>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
+
 <div class="row back" style="">
 <h5>People you may know<div id="reload" style="color: #fff;cursor: pointer;"><i class="material-icons">cached</i></div></h5>
   <div id="load" class="center row" style="padding-left: 0;">
