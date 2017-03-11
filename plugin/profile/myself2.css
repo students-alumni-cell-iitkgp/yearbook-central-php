@@ -13,6 +13,10 @@ html, body {
 
 /* Header */
 .header {
+<<<<<<< HEAD
+=======
+  background-image: url("https://www.w3schools.com/css/trolltunga.jpg");
+>>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
   height: 220px;
 }
 

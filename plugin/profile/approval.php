@@ -25,10 +25,17 @@
 	          	$query_row1 = mysqli_fetch_assoc($query_run1);
 
 	          	$id=$query_row['id'];
+<<<<<<< HEAD
 		          		echo '<tr class="row"><td style = "word-wrap: break-word;padding:20px; " class="col l9"> <b>'.$query_row1["name"].' said:</b><br>
 		          			  '.$query_row["views"].'
 		          		</td>
 		          		<td class="col l3"><div class="approval" style="padding:20px">';	          			
+=======
+		          		echo '<tr><td style = "word-wrap: break-word;padding:20px; "> <b>'.$query_row1["name"].' said:</b><br>
+		          			  '.$query_row["views"].'
+		          		</td>
+		          		<td><div class="approval" style="padding:20px">';	          			
+>>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
 		          		if($query_row['approval']=='approve'){
 		          			
 		          			echo '<input type="submit" class="btn waves-light disapprove app'.$i.'" value= "disapprove" data-no="'.$i.'" data-id="'.$id.'" id= "'.$rollno.'"> ';

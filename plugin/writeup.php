@@ -51,11 +51,15 @@ function showfield(name){
        });
     }
     </script>
+<<<<<<< HEAD
     <style type="text/css">
 html,body{
     max-width: 100%;
     overflow-x: hidden;
   }
+=======
+<style>
+>>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
   body
 {
   background-color: #333;
@@ -64,6 +68,7 @@ html,body{
   font-size: 15px;
   font-family: Century gothic;
 }
+<<<<<<< HEAD
 
       table{
         table-layout: fixed !important;
@@ -86,6 +91,34 @@ html,body{
 
    <form action="writeupconnect.php" method="POST">
 <div class="col l4 s6 m6 ">
+=======
+.container
+{
+    width: 800px !important;
+}
+</style>
+</head>
+<body>
+  <div class="container animated zoomInDown">
+
+   <div class="row">
+    <div class="col s6 l3 m6">
+    <button type="button"class="waves-effect waves-light btn" onclick="location.href='register.php'">HOME </button>
+    </div>
+    <div class="col s6 l6 m6">
+       <h4 style="text-align:center;font-family:pacifico;color:#707070 ">Upload Articles</h4>
+
+    </div>
+    <div class="col s6 l1 m6">
+    <button type="button"class="waves-effect waves-light btn" style="margin-left: 100px"onclick="location.href='index.php'">LOGOUT </button>
+    </div>
+    </div>
+  <div class="row"><hr>
+  <div class="col l12 center">How have all these years in KGP transformed you? What’s your funniest experience in the campus? Share with us your stories to make it a part of the yearbook that you carry along. Choose the topic below and send us your articles.</div><br><br><hr>
+
+   <form action="writeupconnect.php" method="POST">
+<div class="col l4 ">
+>>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
   <select name="topic" id="topic" required onchange="showfield(this.options[this.selectedIndex].value)">
       <option selected disabled>Choose your topic</option>
       <option  value="Spring Fest">Spring Fest</option>
@@ -98,6 +131,10 @@ html,body{
     </select></div></div>
   <div id="div1"></div>
   <div class="row">
+<<<<<<< HEAD
+=======
+    <form class="col s12">
+>>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
       <div class="row">
         <div class="input-field col s12 l12 m12">
           <i class="material-icons prefix">mode_edit</i>
@@ -113,10 +150,17 @@ html,body{
 <table class="tbl-qa" style="color: #333;">
       <thead>
         <tr>
+<<<<<<< HEAD
         <th class="table-header l2" width="10%" >SL-No.</th>
         <th class="table-header l3" width="150px">Topic</th>
         <th class="table-header l6" style="float: left;">Writeup<i class="material-icons" style="font-size: 20px;padding-left: 10px;width: 100%; ">mode_edit</i></th>
         <th class="table-header center l1"  width="50px"></th>
+=======
+        <th class="table-header" width="10%" >SL-No.</th>
+        <th class="table-header" width="150px">Topic</th>
+        <th class="table-header" style="float: left;">Writeup<i class="material-icons" style="font-size: 20px;padding-left: 10px; ">mode_edit</i></th>
+        <th class="table-header center"  width="50px"></th>
+>>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
         </tr>
       </thead>
       <tbody>
@@ -131,7 +175,11 @@ html,body{
         <td style="text-align: center;"><?php echo $k; ?></td>
         <td ><?php echo $list["topic"]; ?></td>
         <td contenteditable="true" onBlur="saveToDatabase(this,'writeup','<?php echo $list["id"]; ?>')" onClick="showEdit(this);"><?php echo $list["writeup"]; ?></td>
+<<<<<<< HEAD
         <td style="width: 50px"><a href='writeupdelete.php?id=<?php echo $list["id"]; ?>'><i class="material-icons">delete</i></a></td>
+=======
+        <td><a href='writeupdelete.php?id=<?php echo $list["id"]; ?>'><i class="material-icons">delete</i></a></td>
+>>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
         </tr>
     <?php
     $k++;
@@ -143,6 +191,11 @@ html,body{
 <hr>
 </div>
   </div>
+<<<<<<< HEAD
   </div>
+=======
+</form>
+</div>
+>>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
 </body>
 </html>

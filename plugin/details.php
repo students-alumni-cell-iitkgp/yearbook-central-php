@@ -51,7 +51,10 @@ include 'connection.php';
 	}
 </style>
 <body>
+<<<<<<< HEAD
 <div class="container-fluid"><?php  include "nav.php" ?><div>
+=======
+>>>>>>> 17e8e2fe0aa058087aa9934db68ed3929b533936
 <div class="container center">
 <h1>Welcome to Yearbook'17 </h1>
 <div class="row">
