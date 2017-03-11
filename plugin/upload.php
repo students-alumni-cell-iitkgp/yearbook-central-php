@@ -31,7 +31,6 @@ if (isset($_SESSION['rollno'])) {
     <!-- CSS adjustments for browsers with JavaScript disabled -->
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-noscript.css"></noscript>
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
-    <script>$('.start').hide();</script>
 <style>
  @font-face {
      font-family:pacifico;
@@ -220,6 +219,7 @@ body
 <!--[if (gte IE 8)&(lt IE 10)]>
 <script src="js/cors/jquery.xdr-transport.js"></script>
 <![endif]-->
+<script>$('.start').hide();</script>
 <script type="text/javascript">
     function showcat(cat) {
        
