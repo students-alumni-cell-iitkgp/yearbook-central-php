@@ -116,7 +116,7 @@ include '../connection.php';
       <div class="">
 
         <div class="row">
-          <div class="col l6 m6 s6" style="padding: 20px;"><img class="circle" width="180px"; height= "180px";  src="<?php if ($line['pro_pic']) { echo '../'.$line['pro_pic']; } else { echo 'your-shot.jpg'; } ?>"></div>
+          <div class="col l6 m6 s6" style="padding: 20px;"><img class="circle" width="180px"; height= "180px";  src="<?php if ($line['pro_pic']&&$line['pro_pic']!='NULL') { echo '../'.$line['pro_pic']; } else { echo 'your_shot.jpg'; } ?>"></div>
           <div class="col l6 m6 s6" style=""><h1 style="font-size: 30px; color: #fff;background-color: black;opacity: 0.6;padding: 10px;"><?php echo $line['name']; ?></h1></div>
 
         </div> 
@@ -130,7 +130,7 @@ include '../connection.php';
           <h2 id="capt">
 
           "<?php 
-          if ($line['view_self']) {
+          if ($line['view_self']&&$line['view_self']!='NULL') {
           echo $line['view_self'];
            }else{
             echo "No Caption Uploaded";

@@ -120,12 +120,12 @@ include 'connection.php';
 <br/>
 <div align="center" class="row">
 <div class=""><a class="modal-trigger" href="#modal1">
-<img src="<?php if ($line['pro_pic']) { echo $line['pro_pic']; } else { echo 'ind/your-shot.jpg'; } ?>" class="circle" width="200px" height="200px"> </a>
+<img src="<?php if ($line['pro_pic']&&$line['pro_pic']!='NULL') { echo $line['pro_pic']; } else { echo 'ind/your.jpg'; } ?>" class="circle" width="200px" height="200px"> </a>
 </div>
  <h4> <?php echo $line['name'] ?> </h4>
  <h5>"
           <?php 
-          if ($line['view_self']) {
+          if ($line['view_self']&&$line['view_self']!='NULL') {
           echo $line['view_self'];
            }else{
             echo "Upload your Caption for the Yearbook";
@@ -182,45 +182,13 @@ $(document).ready(function() {
 });
 
  
-   $('#photo').click(function(){
-      $('#photo').submit();
-   });
-     $('#writeup').click(function(){
-      $('#writeup').submit();
-   });
-     $('#views').click(function(){
-      $('#views').submit();
-   });
-
-  $('#OpenImgUpload').click(function(){ $('#fileToUpload').trigger('click'); });
-  function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#OpenImgUpload')
-                    .attr('src', e.target.result)
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
- $(document).ready(function() {
-    $('select').material_select();
-  });
-
+  
   function update(){
     $('.edit_button').click(function(){
       $('.edit').show();$(".upload").hide();$(".edit_button").hide();
     });
   }
 </script>
-
-
-
-
-
-
 
 
 <script type="text/javascript">
