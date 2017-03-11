@@ -31,9 +31,11 @@ include '../connection.php';
  $(document).ready(function(){
    if ($(window).width()<770) {
     (function($){ $('body').addClass('container-fluid');
+      $('#logo_mob').show();
      
     })(jQuery, undefined); }
-    else{$('body').addClass('container');}
+    else{$('body').addClass('container');
+    $('.logo_desk').show();}
     
   });
 </script>
@@ -76,6 +78,9 @@ include '../connection.php';
         padding-left: 0px;
         margin-left: -200px;
     }
+    @media only screen and (min-width: 770px){
+      #
+    }
 
     </style>
   </head>
@@ -83,7 +88,9 @@ include '../connection.php';
   <body>
   <div class="row" style="background-color: black;">
  <button type="button" class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
-            <div class="center-align"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="200" src="../year.png" alt="someimg"/></a> </div>
+            <div id="logo_mob" align="center" style="display: none;"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="250" src="../year.png" alt="someimg"/></a> </div>
+            <div class="logo_desk col l6 m6 center-align" style="display: none;"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="270" src="../sac.png" alt="someimg"/></a> </div>
+            <div class="logo_desk col l6 m6 center-align" style="display: none;"><a href="#"><img height="90" width="250" src="../yearbook.png" alt="someimg"/></a> </div>  
             <button type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button> </div>
 
             <div id="modal1" class="modal">

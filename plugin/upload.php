@@ -68,10 +68,11 @@ body
 </head>
 <body>
 <div class="container-fluid" style="background-color: black;">
-<div class="col-md-4 col-sm-3 col-lg-2">
+<div class="col-md-2 col-sm-2 col-lg-2">
  <button type="button" class="waves-effect waves-light btn" style="padding: 10px;" onclick="location.href='register.php'" ">HOME </button> </div>
-            <div class="col-md-8 col-sm-6 col-lg-8"  align="center"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="200" src="year.png" alt="someimg"/></a> </div>
-           <div class="col-md-2 col-sm-3 col-lg-2"> <button style="padding: 10px;" type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button> </div> </div>
+            <div class="col-md-4 col-sm-4 col-lg-4"  align="center"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="250" src="sac.png" alt="someimg"/></a> </div>
+            <div class="col-md-4 col-sm-4 col-lg-4"  align="center"><a href="#"><img height="90" width="250" src="yearbook.png" alt="someimg"/></a> </div>
+           <div class="col-md-2 col-sm-2 col-lg-2"> <button style="padding: 10px;" type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button> </div> </div>
     <div class="container animated zoomInLeft ">
     <div class="row">
     
