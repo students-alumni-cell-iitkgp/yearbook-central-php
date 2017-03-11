@@ -27,6 +27,19 @@ include 'connection.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="stylesheet" type="text/css" href="animate.css">
     <title>Yearbook</title>
+<script>
+   $(document).ready(function(){
+   if ($(window).width()>770) {
+    (function($){ $('#nav').show();
+     
+    })(jQuery, undefined); }
+    else{$('#nav').remove(); $('#mob_nav').show();
+    }
+    $(".button-collapse").sideNav();
+  });
+
+</script>
+
     <style type="text/css">
     	li{
     		text-align: center !important;
@@ -42,7 +55,40 @@ include 'connection.php';
           </style>
 	</head>
 	<body>
-  <?php  include "nav.php" ?>
+
+<div id="nav" class="row" style="background-color: black; display: none;">
+
+    <div align="left" class="col l2 s2 m2"><a style="margin-top:1.3em" class="waves-effect waves-light btn-large" href="register.php"><i class="material-icons right"></i>Home</a></div>
+    <div  class="col l5 m4 s3 right-align"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="200" src="year.png" alt="someimg"/></a></div>
+    <div align="right" class="col l3 m4 s4"><a href="https://erp.iitkgp.ernet.in" style="margin-top:1.3em" class="waves-effect waves-light btn-large">Edit erp picture<i class="material-icons right"></i></a></div>
+    <div align="right" class="col l2 m2 s2"><a href="index.php" style="margin-top:1.3em" class="waves-effect waves-light btn-large"><i class="material-icons right"></i>Logout</a></div>
+
+
+</div>
+
+      <nav id="mob_nav" style="display: none; background-color: black; color: black;" >
+      <div class="nav-wrapper">
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#!" class="brand-logo"><img width="180" height="50" src="http://localhost/yearbook1/plugin/year.png" alt="someimg"/></a>
+        <ul class="side-nav" id="mobile-demo">
+        <li><a href="register.php" style="color: black;">Home</a></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li>
+              <a class="collapsible-header" style="color: black;">User<i class="mdi-navigation-arrow-drop-down right"></i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a style="color: black;" href="profile/index.php?roll=<?php echo $value1; ?>">My Profile</a></li>
+        <li><a href="details.php?flag=1" style="color: black;">Edit Details</a></li>
+                </ul>
+    </div></li></ul></li>
+        <li><a href="index.php" style="color: black;">Update Erp Profile Picture</a></li>
+        <li><a href="index.php" style="color: black;">Logout</a></li>
+      </ul>
+      </div>
+    </nav>
+
+
 <div class="container">
 <br/>
 
@@ -50,7 +96,7 @@ include 'connection.php';
     <div class="modal-content center">
       <form action="motosave.php" method="post" enctype="multipart/form-data">
       <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
-        <img src="ind/your-shot.jpg" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
+        <img src="ind/shot.jpg" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
         <div class="input-field col s12 l12 m12">
           <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here (Max 50 characters)" style="text-align: center;color: black;" maxlength="50"></textarea>
         </div>
@@ -63,7 +109,7 @@ include 'connection.php';
   </div>
 <div align="center" class="row">
 <div class="">
-<img src="<?php if ($line['pro_pic']) { echo $line['pro_pic']; } else { echo 'ind/your-shot.jpg'; } ?>" class="circle responsive-img" width="200px" height="200">
+<img src="<?php if ($line['pro_pic']) { echo $line['pro_pic']; } else { echo 'ind/shot.jpg'; } ?>" class="circle responsive-img" width="200px" height="200">
 </div>
  <h4> <?php echo $line['name'] ?> </h4>
  <h5>"
@@ -79,25 +125,25 @@ include 'connection.php';
 
 <br/>
 <div align="center" class="row">
-   <center><div class="col l4 s3">
-  <a class='dropdown-button btn' href='#' data-activates='dropdown1' style="width: 100%;height: 100%;font-size: 2px;">User</a>
+  <div class="col l4 m4 s6">
+  <a class='dropdown-button btn' data-activates='dropdown1' style="width: 100%;height: 100%;font-size: 2px;">User</a>
   <ul id='dropdown1' class='dropdown-content' style="margin-top:55px;">
         <li><a href="profile/index.php?roll=<?php echo $value1; ?>">My Profile</a></li>
         <li><a href="details.php?flag=1">Edit Details</a></li>
   </ul>
    </div>
-       <div class="col l4 s3">
-           	<a class='dropdown-button btn' href='search/' style="width: 100%;height: 100%;">Batch Sento</a>
+       <div class="col l4 m4 s6">
+           	<a class='btn' href='search/' style="width: 100%;height: 100%;">Batch Sento</a>
            </div>
-       <div class="col l4 s3">
-           	<a class='dropdown-button btn' href='writeup.php' style="width: 100%;height: 100%;">Write Article</a>
+       <div class="col l4 m4 s6">
+           	<a class='btn' href='writeup.php' style="width: 100%;height: 100%;">Write Article</a>
            </div>
-       <div class="col l4 s3">
-           	<a class='dropdown-button btn' href='upload.php' style="width: 100%;height: 100%;">Upload Photo</a>
+       <div class="col l4 m4 s6">
+           	<a class='btn' href='upload.php' style="width: 100%;height: 100%;">Upload Photo</a>
            </div>
 
-       <div class="col l4 s2 offset-l4">
-  		<a class='dropdown-button btn' style="width: 100%;height: 100%;font-size: 2px;" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a>
+       <div class="col l4 m4 s6 offset-l4">
+  		<a class='btn' style="width: 100%;height: 100%;font-size: 2px;" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a>
 </div>
 <div class="row">
 <div  class="col s12 l6 card-panel grey lighten-5 z-depth-1" align="center" style="height: 400px;"><h5>Yearbook</h5><p> The yearbook is an opus of memories that you would carry along graduating from the institute. The wonderful years spent in the campus are engraved and expressed via photographs and writeups in this departing souvenir from IIT KGP. 
@@ -113,7 +159,7 @@ With an assortment of your thoughts and snaps from various experiences through t
 <script type="text/javascript">
 	  $('.dropdown-button').dropdown({
       inDuration: 300,
-      outDuration: 225,
+      outDuration: 350,
       constrainWidth: false, // Does not change width of dropdown to that of the activator
       hover: true, // Activate on hover
       gutter: 0, // Spacing from edge

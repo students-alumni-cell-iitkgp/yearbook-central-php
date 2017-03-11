@@ -42,20 +42,16 @@ body
   background-color: #333;
   background-repeat:repeat;
   padding-top: 0;
-  min-height: 100% !important;
-      font-family: Century gothic;
+      
 }
 .container
-{
+{font-family: Century gothic;
     background-color: silver;
     color: #333;
-    min-height: 100% !important;
 
 }
 .btn
-{
-    font-family: 'pacifico';
-    width: 120px;
+{    width: 120px;
 }
 .img-wrap {
     position: relative;
@@ -71,20 +67,21 @@ body
 }
 </style>
 </head>
-<body style="background-color: #333;">
-    <div class="container animated zoomInLeft " style="" >
+<body>
+<div class="container-fluid" style="background-color: black;">
+<div class="col-md-4 col-sm-3 col-lg-2">
+ <button type="button" class="waves-effect waves-light btn" style="padding: 10px;" onclick="location.href='register.php'" ">HOME </button> </div>
+            <div class="col-md-8 col-sm-6 col-lg-8"  align="center"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="200" src="year.png" alt="someimg"/></a> </div>
+           <div class="col-md-2 col-sm-3 col-lg-2"> <button style="padding: 10px;" type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button> </div> </div>
+
+    <div class="container animated zoomInLeft ">
     <div class="row">
-    <div class="col-md-2">
-    <button type="button" class="btn btn-primary" style="width: 100px;background-color: rgb(43,187,173) " onclick="location.href='register.php'">home </button>
+    
+    <div class="col-md-12 col-sm-12 col-lg-12" align="center">
+    <h2 style="color:#707070;">Upload Photos</h2></div>
     </div>
-    <div class="col-md-8">
-    <h4 style="text-align:center;color:#707070;font-size:40px ">Upload Photos</h4></div>
-    <div class="col-md-1">
-    <button type="button" class="btn btn-primary" style="width: 100px;margin-left: 20px;background-color: rgb(43,187,173) " onclick="location.href='index.php'">logout </button>
-    </div>
-    </div>
-    <div class="row" style="padding: 30px;text-align: center;">
-        What better way to capture a memory than printing it in your yearbook? Share with us the pictures of your most memorable times at KGP and we’ll make it a part of your memoir. Select the category for your picture/s and upload them using the option below.
+    <div class="row" align="center" style="padding: 30px;">
+        <h4>What better way to capture a memory than printing it in your yearbook? Share with us the pictures of your most memorable times at KGP and we’ll make it a part of your memoir. Select the category for your picture/s and upload them using the option below.</h4>
     </div>
 
     <div class="row">    

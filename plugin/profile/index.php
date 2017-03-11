@@ -26,6 +26,17 @@ include '../connection.php';
     <link rel="stylesheet" href="myself2.css">
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <meta name=viewport content='width=700'>
+   <script>
+ $(document).ready(function(){
+   if ($(window).width()<770) {
+    (function($){ $('body').addClass('container-fluid');
+     
+    })(jQuery, undefined); }
+    else{$('body').addClass('container');}
+    
+  });
+</script>
+
     <style type="text/css">
     table{
     	table-layout: fixed;
@@ -63,12 +74,14 @@ include '../connection.php';
     </style>
   </head>
   
-  <body class="container">
-
+  <body>
+  <div class="row" style="background-color: black;">
+ <button type="button" class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
+            <div class="center-align"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="200" src="../year.png" alt="someimg"/></a> </div>
+            <button type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button> </div> </div>
     <div class="header">
       <div class="">
-            <button type="button"class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
-            <button type="button"class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button>
+
         <div class="row">
           <div class="col l6 m6 s6" style="padding: 20px;"><img src="<?php if ($line['pro_pic']) { echo '../'.$line['pro_pic']; } else { echo 'your-shot.jpg'; } ?>"></div>
           <div class="col l6 m6 s6" style=""><h1 style="font-size: 30px; color: #fff;background-color: black;opacity: 0.6;padding: 10px;"><?php echo $line['name']; ?></h1></div>

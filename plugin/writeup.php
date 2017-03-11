@@ -71,18 +71,14 @@ html,body{
 </style>
 </head>
 <body>
+<?php  include "nav.php" ?>
   <div class="container animated zoomInDown" style="display: table;">
 
    <div class="row" style="display: table-row;">
-    <div class="col s3 l3 m3" style="padding: 0px; margin-left: 0px;">
-    <button type="button"class="waves-effect waves-light btn" onclick="location.href='register.php'">HOME </button>
-    </div>
-    <div class="col s6 l6 m6 center">
+    
+    <div class="col s12 l12 m12 center">
        <h4 style="text-align:center;font-family:pacifico;color:#707070 ">Upload Articles</h4>
 
-    </div>
-    <div class="col s3 l3 m3" style="display: table-row;text-align: right;">
-    <button type="button"class="waves-effect waves-light btn" onclick="location.href='index.php'">LOGOUT </button>
     </div>
     </div>
   <div class="row"><hr>
