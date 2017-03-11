@@ -1,18 +1,18 @@
-<?php 	
+<?php   
 include 'connection.php';
 
-	session_start();
-	if (isset($_SESSION['rollno'])) {
-		
-	}else{
-	echo '<script>alert("You need to Log In");window.location.href="index.php";</script>';
-	}
-	$value1=$_SESSION['rollno'];
-	$query = "select * from register where rollno = '$value1'"; 
-	$result =  $connection->query($query); 
-	$line = mysqli_fetch_array($result);
-	$views=$line['view_self'];
-	$path=$line['pro_pic'];
+  session_start();
+  if (isset($_SESSION['rollno'])) {
+    
+  }else{
+  echo '<script>alert("You need to Log In");window.location.href="index.php";</script>';
+  }
+  $value1=$_SESSION['rollno'];
+  $query = "select * from register where rollno = '$value1'"; 
+  $result =  $connection->query($query); 
+  $line = mysqli_fetch_array($result);
+  $views=$line['view_self'];
+  $path=$line['pro_pic'];
 
  ?>
 <!DOCTYPE html>
@@ -66,12 +66,29 @@ include 'connection.php';
 	</head>
 	<body>
 
+  <div id="modal1" class="modal">
+    <div class="modal-content center">
+      <form action="motosave.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
+        <img src="ind/shot.jpg" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
+        <div class="input-field col s12 l12 m12">
+          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here" style="text-align: center;color: black;"></textarea>
+        </div>
+        <input type="submit" name="save" value="Save" class="waves-effect waves-light btn" style="width: 150px;" id="imgsave">
+        </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
 <div id="nav" class="row" style="background-color: black; display: none;">
 
-    <div align="left" class="col l2 s2 m2"><a style="margin-top:1.3em" class="waves-effect waves-light btn-large" href="register.php"><i class="material-icons right"></i>Home</a></div>
-    <div  class="col l5 m4 s3 right-align"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="200" src="year.png" alt="someimg"/></a></div>
+    <div align="left" class="col l1 s2 m2"><a style="margin-top:1.3em" class="waves-effect waves-light btn-large" href="register.php"><i class="material-icons right"></i>Home</a></div>
+    <div  class="col l3 m4 s3 right-align"><a href="http://www.sac.iitkgp.ac.in"><img style="padding-top: 7px;" height="90" width="250" src="sac.png" alt="someimg"/></a></div>
+    <div  class="col l3 m4 s3 right-align"><a href="#"><img height="90" width="200" src="yearbook.png" alt="someimg"/></a></div>
     <div align="right" class="col l3 m4 s4"><a href="https://erp.iitkgp.ernet.in" style="margin-top:1.3em" class="waves-effect waves-light btn-large">Edit erp Profile pic<i class="material-icons right"></i></a></div>
-    <div align="right" class="col l2 m2 s2"><a href="index.php" style="margin-top:1.3em" class="waves-effect waves-light btn-large"><i class="material-icons right"></i>Logout</a></div>
+    <div class="col l2 m2 s2"><a href="index.php" style="margin-top:1.3em" class="waves-effect waves-light btn-large"><i class="material-icons right"></i>Logout</a></div>
 
 
 </div>
@@ -79,7 +96,7 @@ include 'connection.php';
       <nav id="mob_nav" style="display: none; background-color: black; color: black;" >
       <div class="nav-wrapper">
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <a href="#!" class="brand-logo"><img width="140" height="50" src="http://localhost/yearbook1/plugin/year.png" alt="someimg"/></a>
+        <a href="#!" class="brand-logo"><img width="140" height="50" src="year.png" alt="someimg"/></a>
         <ul class="side-nav" id="mobile-demo">
         <li><a href="register.php" style="color: black;">Home</a></li>
         <li class="no-padding">
@@ -101,25 +118,9 @@ include 'connection.php';
 
 <div class="container">
 <br/>
-
- <div id="modal1" class="modal">
-    <div class="modal-content center">
-      <form action="motosave.php" method="post" enctype="multipart/form-data">
-      <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
-        <img src="ind/shot.jpg" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
-        <div class="input-field col s12 l12 m12">
-          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here (Max 50 characters)" style="text-align: center;color: black;" maxlength="50"></textarea>
-        </div>
-        <input type="submit" name="save" value="Save" class="waves-effect waves-light btn" style="padding-top: 0;width: 150px;"  id="imgsave" >
-        </form>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
-  </div>
 <div align="center" class="row">
-<div class="">
-<img src="<?php if ($line['pro_pic']) { echo $line['pro_pic']; } else { echo 'ind/shot.jpg'; } ?>" class="circle responsive-img" width="200px" height="200">
+<div class=""><a class="modal-trigger" href="#modal1">
+<img src="<?php if ($line['pro_pic']) { echo $line['pro_pic']; } else { echo 'ind/your-shot.jpg'; } ?>" class="circle" width="200px" height="200px"> </a>
 </div>
  <h4> <?php echo $line['name'] ?> </h4>
  <h5>"
@@ -166,6 +167,62 @@ With an assortment of your thoughts and snaps from various experiences through t
     </div>
 
 </div>
+<script type="text/javascript">
+  // Script for modal
+var back = "<?php echo $views; ?>" ;
+var back2 = "<?php echo $path; ?>" ;
+$(document).ready(function() {
+  $('.modal-trigger').leanModal();
+  
+  if ( (!back)||!(back2) ) {
+    $("#modal1").openModal();
+  } else {
+  }
+
+});
+
+ 
+   $('#photo').click(function(){
+      $('#photo').submit();
+   });
+     $('#writeup').click(function(){
+      $('#writeup').submit();
+   });
+     $('#views').click(function(){
+      $('#views').submit();
+   });
+
+  $('#OpenImgUpload').click(function(){ $('#fileToUpload').trigger('click'); });
+  function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#OpenImgUpload')
+                    .attr('src', e.target.result)
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+ $(document).ready(function() {
+    $('select').material_select();
+  });
+
+  function update(){
+    $('.edit_button').click(function(){
+      $('.edit').show();$(".upload").hide();$(".edit_button").hide();
+    });
+  }
+</script>
+
+
+
+
+
+
+
+
 <script type="text/javascript">
 	  $('.dropdown-button').dropdown({
       inDuration: 300,

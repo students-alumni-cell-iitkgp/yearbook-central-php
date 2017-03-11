@@ -31,14 +31,20 @@ include '../connection.php';
  $(document).ready(function(){
    if ($(window).width()<770) {
     (function($){ $('body').addClass('container-fluid');
+      $('#logo_mob').show();
      
     })(jQuery, undefined); }
-    else{$('body').addClass('container');}
+    else{$('body').addClass('container');
+    $('.logo_desk').show();}
     
   });
 </script>
 
     <style type="text/css">
+ #modal1{
+        overflow: hidden;
+      }
+
     table{
     	table-layout: fixed;
     }
@@ -72,6 +78,9 @@ include '../connection.php';
         padding-left: 0px;
         margin-left: -200px;
     }
+    @media only screen and (min-width: 770px){
+      #
+    }
 
     </style>
   </head>
@@ -79,8 +88,26 @@ include '../connection.php';
   <body>
   <div class="row" style="background-color: black;">
  <button type="button" class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
-            <div class="center-align"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="200" src="../year.png" alt="someimg"/></a> </div>
-            <button type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button> </div> </div>
+            <div id="logo_mob" align="center" style="display: none;"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="250" src="../year.png" alt="someimg"/></a> </div>
+            <div class="logo_desk col l6 m6 center-align" style="display: none;"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="270" src="../sac.png" alt="someimg"/></a> </div>
+            <div class="logo_desk col l6 m6 center-align" style="display: none;"><a href="#"><img height="90" width="250" src="../yearbook.png" alt="someimg"/></a> </div>  
+            <button type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button> </div>
+
+            <div id="modal1" class="modal">
+    <div class="modal-content center">
+      <form action="motosave.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
+        <img src="ind/your-shot.jpg" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
+        <div class="input-field col s12 l12 m12">
+          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here (Max 50 characters)" style="text-align: center;color: black;" maxlength="50"></textarea>
+        </div>
+        <input type="submit" name="save" value="Save" class="waves-effect waves-light btn" style="padding-top: 0;width: 150px;"  id="imgsave" >
+        </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
     <div class="header">
       <div class="">
 
@@ -159,4 +186,75 @@ include '../connection.php';
        ?>
     </div>    
   </body>
+
+<script type="text/javascript">
+    $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+  );
+var back = "<?php echo $views; ?>" ;
+var back2 = "<?php echo $path; ?>" ;
+//script for modal only
+$(document).ready(function() {
+  $('.modal-trigger').leanModal();
+  
+  if ( (!back)||!(back2) ) {
+    $("#modal1").openModal();
+  } else {
+  }
+});
+ 
+   $('#photo').click(function(){
+      $('#photo').submit();
+   });
+     $('#writeup').click(function(){
+      $('#writeup').submit();
+   });
+     $('#views').click(function(){
+      $('#views').submit();
+   });
+  $('#OpenImgUpload').click(function(){ $('#fileToUpload').trigger('click'); });
+  function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#OpenImgUpload')
+                    .attr('src', e.target.result)
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+ $(document).ready(function() {
+    $('select').material_select();
+  });
+  function update(){
+    $('.edit_button').click(function(){
+      $('.edit').show();$(".upload").hide();$(".edit_button").hide();
+    });
+  }
+</script>
+
 </html>
+<?php
+  if($line['email']==NULL||$line['phone']==NULL){
+    echo '<script>$(".upload").hide();$(".edit_button").hide();</script>';
+  }else{
+    echo '<script>$(".edit").hide();</script>';
+  }
+if (isset($_GET['motto'])&&!empty($_GET['motto'])){
+   $motto=$_GET['motto'];
+}
+?>
+
+
+
+
+
+

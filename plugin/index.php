@@ -100,8 +100,8 @@ session_destroy();
 					<label for="rollno">Roll Number ( 14THXXXXX )</label>
 				</div>
 				<div class="input-field col s12 l6 m12 ">					
-					<input name="dob" placeholder="Date of Birth" pattern="\d{1,2}/\d{1,2}/\d{4}" type="text" style="margin-top: 5px;" required>
-					<label for="dob">Date of Birth ( dd/mm/yyyy)</label>
+					<input name="dob" placeholder="Date of Birth" pattern="\d{1,2}-\d{1,2}-\d{4}" type="text" style="margin-top: 5px;" required>
+					<label for="dob">Date of Birth ( dd-mm-yyyy)</label>
 				</div>
 			</div>
 			<div class="row">
