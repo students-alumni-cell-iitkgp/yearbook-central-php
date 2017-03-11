@@ -181,13 +181,6 @@ $(document).ready(function() {
 
 });
 
- 
-  
-  function update(){
-    $('.edit_button').click(function(){
-      $('.edit').show();$(".upload").hide();$(".edit_button").hide();
-    });
-  }
 </script>
 
 
