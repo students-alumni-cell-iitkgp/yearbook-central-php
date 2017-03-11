@@ -42,18 +42,15 @@ body
   background-color: #333;
   background-repeat:repeat;
   padding-top: 0;
-
       
 }
 .container
 {font-family: Century gothic;
     background-color: silver;
     color: #333;
-
 }
 .btn
 {    width: 120px;
-
 }
 .img-wrap {
     position: relative;
@@ -75,19 +72,15 @@ body
  <button type="button" class="waves-effect waves-light btn" style="padding: 10px;" onclick="location.href='register.php'" ">HOME </button> </div>
             <div class="col-md-8 col-sm-6 col-lg-8"  align="center"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="200" src="year.png" alt="someimg"/></a> </div>
            <div class="col-md-2 col-sm-3 col-lg-2"> <button style="padding: 10px;" type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button> </div> </div>
-
     <div class="container animated zoomInLeft ">
     <div class="row">
     
     <div class="col-md-12 col-sm-12 col-lg-12" align="center">
     <h2 style="color:#707070;">Upload Photos</h2></div>
-
     </div>
     <div class="row" align="center" style="padding: 30px;">
         <h4>What better way to capture a memory than printing it in your yearbook? Share with us the pictures of your most memorable times at KGP and we’ll make it a part of your memoir. Select the category for your picture/s and upload them using the option below.</h4>
     </div>
-
-
     <div class="row">    
     <div class="col-lg-6">
         <!-- The file upload form used as target for the file upload widget -->
@@ -144,7 +137,7 @@ body
     </form>
     <!-- The template to display files available for upload -->
     <script id="template-upload" type="text/x-tmpl">
-        {% for (var i=0, file; file=o.files[i]; i++) {%}
+        {% for (var i=0, file; file=o.files[i]; i++) { %}
         <tr class="template-upload fade">
                     <td>
                     <label class="description">
@@ -238,15 +231,12 @@ body
     $(document).ready(function(){
     $(".reload").click(function(){
     $("#load").load("pictures.php");
-	});
+    });
 });
 </script>
 </div><div class="col-lg-6 animated bounce" style="padding: 20px;color: #fff">
-
 <h3>Uploads<i class="material-icons reload" style="cursor: pointer;">autorenew</i></h3>
 <div id="load"> <?php  include 'pictures.php' ?></div>
-
 </div></div></div>
-
 </body>
 </html>

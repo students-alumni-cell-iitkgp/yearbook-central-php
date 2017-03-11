@@ -84,10 +84,11 @@ include 'connection.php';
 
 <div id="nav" class="row" style="background-color: black; display: none;">
 
-    <div align="left" class="col l2 s2 m2"><a style="margin-top:1.3em" class="waves-effect waves-light btn-large" href="register.php"><i class="material-icons right"></i>Home</a></div>
-    <div  class="col l5 m4 s3 right-align"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="200" src="year.png" alt="someimg"/></a></div>
+    <div align="left" class="col l1 s2 m2"><a style="margin-top:1.3em" class="waves-effect waves-light btn-large" href="register.php"><i class="material-icons right"></i>Home</a></div>
+    <div  class="col l3 m4 s3 right-align"><a href="http://www.sac.iitkgp.ac.in"><img style="padding-top: 7px;" height="90" width="250" src="sac.png" alt="someimg"/></a></div>
+    <div  class="col l3 m4 s3 right-align"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="200" src="yearbook.png" alt="someimg"/></a></div>
     <div align="right" class="col l3 m4 s4"><a href="https://erp.iitkgp.ernet.in" style="margin-top:1.3em" class="waves-effect waves-light btn-large">Edit erp Profile pic<i class="material-icons right"></i></a></div>
-    <div align="right" class="col l2 m2 s2"><a href="index.php" style="margin-top:1.3em" class="waves-effect waves-light btn-large"><i class="material-icons right"></i>Logout</a></div>
+    <div class="col l2 m2 s2"><a href="index.php" style="margin-top:1.3em" class="waves-effect waves-light btn-large"><i class="material-icons right"></i>Logout</a></div>
 
 
 </div>
@@ -118,8 +119,8 @@ include 'connection.php';
 <div class="container">
 <br/>
 <div align="center" class="row">
-<div class="">
-<img src="<?php if ($line['pro_pic']) { echo $line['pro_pic']; } else { echo 'ind/your-shot.jpg'; } ?>" class="circle responsive-img" width="200px" height="200">
+<div class=""><a class="modal-trigger" href="#modal1">
+<img src="<?php if ($line['pro_pic']) { echo $line['pro_pic']; } else { echo 'ind/your-shot.jpg'; } ?>" class="circle" width="200px" height="200px"> </a>
 </div>
  <h4> <?php echo $line['name'] ?> </h4>
  <h5>"
@@ -177,6 +178,7 @@ $(document).ready(function() {
     $("#modal1").openModal();
   } else {
   }
+
 });
 
  
@@ -194,7 +196,6 @@ $(document).ready(function() {
   function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function (e) {
                 $('#OpenImgUpload')
                     .attr('src', e.target.result)
