@@ -13,6 +13,7 @@ session_destroy();
 	<link rel="stylesheet" type="text/css" href="animate.css">
 		<title>Yearbook</title>
 </head>
+
 <style>
  	.container-fluid
 	{
@@ -88,10 +89,12 @@ session_destroy();
 	<div id="large-header" class="large-header" style="height: 613px; z-index: 100">
 			<canvas id="demo-canvas" width="1366" height="613"></canvas>
 
-			<h2 class="center main-title animated zoomIn">Welcome to<b> Yearbook</b>'17 Portal </h2>
+			<h2 class="center main-title animated zoomIn">Welcome to<b> Yearbook'17</b> Portal </h2>
 
 			<form method="post" action="loginconnect.php" class="form main-title center">
-			<div class="row" style="height:30px;">
+
+			<div class="row"> <br> <br> <br>
+
 				<div class="input-field col s12 l6 m12 ">					
 					<input name="rollno" autofocus placeholder="Roll Number" type="text" style="margin-top: 5px;" required>
 					<label for="rollno">Roll Number ( 14THXXXXX )</label>
@@ -107,7 +110,7 @@ session_destroy();
 				</div>
 			</div>
 			</form>
-			<p class=" center sub-title main-title" >Contact us at:<br> yearbook.iitkgp@gmail.com</p>
+			<p class=" center sub-title main-title" >Contact us at:<br> yearbook2k17.kgp@gmail.com</p>
 
 	</div>
 

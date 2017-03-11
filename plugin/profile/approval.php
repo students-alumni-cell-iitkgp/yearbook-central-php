@@ -15,7 +15,7 @@
 	          	$query = "select * from views where deptmate = '$value1'";
 	          	$query_run = $connection->query($query);
   				if(mysqli_num_rows($query_run)==NULL)
-    				echo "<h1>No Testimonials YET</h1>";
+    				echo "<h5>No Testimonials Given</h5>";
   				else{
   					$i=0;
   				while ($query_row = mysqli_fetch_assoc($query_run)){
@@ -25,10 +25,12 @@
 	          	$query_row1 = mysqli_fetch_assoc($query_run1);
 
 	          	$id=$query_row['id'];
-		          		echo '<tr><td style = "word-wrap: break-word;padding:20px; "> <b>'.$query_row1["name"].' said:</b><br>
+
+		          		echo '<tr class="row"><td style = "word-wrap: break-word;padding:20px; " class="col l9"> <b>'.$query_row1["name"].' said:</b><br>
 		          			  '.$query_row["views"].'
 		          		</td>
-		          		<td><div class="approval" style="padding:20px">';	          			
+		          		<td class="col l3"><div class="approval" style="padding:20px">';	          			
+
 		          		if($query_row['approval']=='approve'){
 		          			
 		          			echo '<input type="submit" class="btn waves-light disapprove app'.$i.'" value= "disapprove" data-no="'.$i.'" data-id="'.$id.'" id= "'.$rollno.'"> ';

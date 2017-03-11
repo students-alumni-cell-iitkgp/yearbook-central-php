@@ -4,7 +4,7 @@ include 'connection.php';
 if (isset($_SESSION['rollno'])) {
         
     }else{
-  echo '<script>alert("You need to Log In");window.location.href="login.php";</script>';
+  echo '<script>alert("You need to Log In");window.location.href="index.php";</script>';
     }
 ?>
 <html lang="en">
@@ -17,7 +17,6 @@ if (isset($_SESSION['rollno'])) {
     <!--material styles
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>-->
     <!-- Bootstrap styles-->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -25,6 +24,7 @@ if (isset($_SESSION['rollno'])) {
     <link rel="stylesheet" href="css/style.css">
     <!-- blueimp Gallery styles -->
     <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
     <link rel="stylesheet" href="css/jquery.fileupload.css">
     <link rel="stylesheet" href="css/jquery.fileupload-ui.css">
@@ -42,20 +42,18 @@ body
   background-color: #333;
   background-repeat:repeat;
   padding-top: 0;
-  min-height: 100% !important;
-      font-family: Century gothic;
+
+      
 }
 .container
-{
+{font-family: Century gothic;
     background-color: silver;
     color: #333;
-    min-height: 100% !important;
 
 }
 .btn
-{
-    font-family: 'pacifico';
-    width: 120px;
+{    width: 120px;
+
 }
 .img-wrap {
     position: relative;
@@ -71,27 +69,30 @@ body
 }
 </style>
 </head>
-<body style="background-color: #333;">
-    <div class="container animated zoomInLeft " style="" >
+<body>
+<div class="container-fluid" style="background-color: black;">
+<div class="col-md-4 col-sm-3 col-lg-2">
+ <button type="button" class="waves-effect waves-light btn" style="padding: 10px;" onclick="location.href='register.php'" ">HOME </button> </div>
+            <div class="col-md-8 col-sm-6 col-lg-8"  align="center"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="200" src="year.png" alt="someimg"/></a> </div>
+           <div class="col-md-2 col-sm-3 col-lg-2"> <button style="padding: 10px;" type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button> </div> </div>
+
+    <div class="container animated zoomInLeft ">
     <div class="row">
-    <div class="col-md-2">
-    <button type="button" class="btn btn-primary" style="width: 100px;background-color: rgb(43,187,173) " onclick="location.href='register.php'">home </button>
+    
+    <div class="col-md-12 col-sm-12 col-lg-12" align="center">
+    <h2 style="color:#707070;">Upload Photos</h2></div>
+
     </div>
-    <div class="col-md-8">
-    <h4 style="text-align:center;font-family:pacifico;color:#707070;font-size:40px ">Upload Photos</h4></div>
-    <div class="col-md-1">
-    <button type="button" class="btn btn-primary"style="width: 100px;margin-left: 20px;background-color: rgb(43,187,173) " onclick="location.href='index.php'">logout </button>
+    <div class="row" align="center" style="padding: 30px;">
+        <h4>What better way to capture a memory than printing it in your yearbook? Share with us the pictures of your most memorable times at KGP and we’ll make it a part of your memoir. Select the category for your picture/s and upload them using the option below.</h4>
     </div>
-    </div>
-    <div class="row" style="padding: 30px;text-align: center;">
-        What better way to capture a memory than printing it in your yearbook? Share with us the pictures of your most memorable times at KGP and we’ll make it a part of your memoir. Select the category for your picture/s and upload them using the option below.
-    </div>
+
 
     <div class="row">    
     <div class="col-lg-6">
         <!-- The file upload form used as target for the file upload widget -->
         
-        <form class="fileupload" action="server/php/index.php" method="POST" enctype="multipart/form-data">
+        <form class="fileupload" action="server/php/index.php" method="POST" enctype="multipart/form-data" onsubmit="refres()">
             <!-- Redirect browsers with JavaScript disabled to the origin page -->
             <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
             <div class="form-group">
@@ -234,26 +235,17 @@ body
         x[j].value=cat;
        }
     }
+    $(document).ready(function(){
+    $(".reload").click(function(){
+    $("#load").load("pictures.php");
+	});
+});
 </script>
 </div><div class="col-lg-6 animated bounce" style="padding: 20px;color: #fff">
-<h3>Uploads</h3>
-      <?php   
-    $value1=$_SESSION['rollno'];
-$result=$connection->query("SELECT * FROM photos WHERE name LIKE '$value1%' order by id desc LIMIT 9");
-  $rowcount=mysqli_num_rows($result); 
-if (!$rowcount) {
-	echo "You have not uploaded any photos";
-}
 
-while ($row=mysqli_fetch_array($result)) {
-    if(substr($row['name'], 0,9)==$value1){
-    	$imgname=$row['name'];
-    echo '<div class="img-wrap col-lg-4 center"><span class="close"><a href="del_img.php?id='.$row["name"] .'">&times;</a></span>'."<img src='server/php/files/".$row['name'] ."' height='100px' width='160px' style='margin :10px;'><br><div style='width:100%;text-align:center'><b>".$row['description'] ."</b></div></div>";
-}
+<h3>Uploads<i class="material-icons reload" style="cursor: pointer;">autorenew</i></h3>
+<div id="load"> <?php  include 'pictures.php' ?></div>
 
-}
- ?>
- <?php  ?>
 </div></div></div>
 
 </body>
