@@ -86,7 +86,7 @@ body
     <div class="col-lg-6">
         <!-- The file upload form used as target for the file upload widget -->
         
-        <form class="fileupload" action="server/php/index.php" method="POST" enctype="multipart/form-data" onsubmit="refres()">
+        <form class="fileupload" action="server/php/index.php" method="POST" enctype="multipart/form-data" >
             <!-- Redirect browsers with JavaScript disabled to the origin page -->
             <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
             <div class="form-group">

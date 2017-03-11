@@ -57,7 +57,7 @@ include '../connection.php';
       }
 .caption{
   margin-top: -40px;
-  background-color: #005580;
+  background-color: #26a69a;
 }
 
 .caption h2{
@@ -69,7 +69,7 @@ include '../connection.php';
 }
 .header{
 
-  background-image: url("../ind/1.jpg");
+  background-image: url("../ind/pic.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -81,16 +81,20 @@ include '../connection.php';
     @media only screen and (min-width: 770px){
       #
     }
+    .container{
+      padding-left: 15px;
+      padding-right: 15px;
+    }
 
     </style>
   </head>
   
   <body>
   <div class="row" style="background-color: black;">
- <button type="button" class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME </button>
+ <button type="button" class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME</button>
             <div id="logo_mob" align="center" style="display: none;"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="250" src="../year.png" alt="someimg"/></a> </div>
             <div class="logo_desk col l6 m6 center-align" style="display: none;"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="270" src="../sac.png" alt="someimg"/></a> </div>
-            <div class="logo_desk col l6 m6 center-align" style="display: none;"><a href="#"><img height="90" width="250" src="../yearbook.png" alt="someimg"/></a> </div>  
+            <div class="logo_desk col l6 m6 center-align" style="display: none;"><a href="#"><img height="90" width="230" src="../yearbook.png" alt="someimg"/></a> </div>  
             <button type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button> </div>
 
             <div id="modal1" class="modal">
@@ -112,7 +116,7 @@ include '../connection.php';
       <div class="">
 
         <div class="row">
-          <div class="col l6 m6 s6" style="padding: 20px;"><img src="<?php if ($line['pro_pic']) { echo '../'.$line['pro_pic']; } else { echo 'your-shot.jpg'; } ?>"></div>
+          <div class="col l6 m6 s6" style="padding: 20px;"><img class="circle" width="180px"; height= "180px";  src="<?php if ($line['pro_pic']) { echo '../'.$line['pro_pic']; } else { echo 'your-shot.jpg'; } ?>"></div>
           <div class="col l6 m6 s6" style=""><h1 style="font-size: 30px; color: #fff;background-color: black;opacity: 0.6;padding: 10px;"><?php echo $line['name']; ?></h1></div>
 
         </div> 
