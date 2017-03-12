@@ -1,2 +1,5 @@
 plugin/connection.php
+plugin/server/php/index.php
+plugin/uploads
+plugin/server/php/files
 
