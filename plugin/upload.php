@@ -89,7 +89,7 @@ body
             <!-- Redirect browsers with JavaScript disabled to the origin page -->
             <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
             <div class="form-group">
-  <label for="classifiers">Select Category:</label>
+  <label for="classifiers">Select Category: (Max size: 5MB)</label>
   <select class="form-control" name="classifiers" onchange="showcat(this.options[this.selectedIndex].value)">
     <option value="dep">DEPARTMENT PHOTOS</option>
     <option value="hall">HALL PHOTOS</option>
@@ -100,7 +100,7 @@ body
             
             <div class="row fileupload-buttonbar">
                 <div class="col-lg-7">
-                    <!-- The fileinput-button span is used to style the file input field as button -->
+                    <!-- The file input-button span is used to style the file input field as button -->
                     
                     <span class="btn btn-success fileinput-button">
                         <i class="glyphicon glyphicon-plus"></i>
