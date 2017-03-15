@@ -25,7 +25,7 @@
       <nav id="mob_nav" style="display: none; background-color: black;" >
       <div class="nav-wrapper">
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <a href="#!" class="brand-logo"><img width="120" height="50" src="http://localhost/yearbook1/plugin/year.png" alt="someimg"/></a>
+        <a href="#!" class="brand-logo"><img width="120" height="50" src="year.png" alt="someimg"/></a>
         <ul class="side-nav" id="mobile-demo">
         <li><a href="register.php">Home</a></li>
         <li><a href="index.php">Update Erp Profile Picture</a></li>
