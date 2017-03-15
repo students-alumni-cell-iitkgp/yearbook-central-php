@@ -170,7 +170,7 @@ With an assortment of your thoughts and snaps from various experiences through t
 </div>
 <script type="text/javascript">
   // Script for modal
-var back = "<?php echo $views; ?>" ;
+var back = "<?php echo trim($views); ?>" ;
 var back2 = "<?php echo $path; ?>" ;
 $(document).ready(function() {
   $('.modal-trigger').leanModal();
