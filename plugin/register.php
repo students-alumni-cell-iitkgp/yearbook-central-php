@@ -15,6 +15,7 @@ include 'connection.php';
   $path=$line['pro_pic'];
 
  ?>
+ 
 <!DOCTYPE html>
 <html>
     <head>
@@ -70,9 +71,9 @@ include 'connection.php';
     <div class="modal-content center">
       <form action="motosave.php" method="post" enctype="multipart/form-data">
       <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
-        <img src="ind/shot.jpg" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
+        <img src="<?php if (isset($line['pro_pic'])&&!empty($line['pro_pic'])) {	echo $line['pro_pic'];} else { echo 'ind/shot.jpg';} ?>" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
         <div class="input-field col s12 l12 m12">
-          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here" style="text-align: center;color: black;"></textarea>
+          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here" style="text-align: center;color: black;"><?php if (isset($line['view_self'])) {	echo $line['view_self'];}else {echo 'Enter Your Caption Here';} ?></textarea>
         </div>
         <input type="submit" name="save" value="Save" class="waves-effect waves-light btn" style="width: 150px;" id="imgsave">
         </form>
@@ -161,8 +162,8 @@ include 'connection.php';
 With an assortment of your thoughts and snaps from various experiences through the years, the book truly collaborates your time in KGP and is a walk down your memory lane every time you look through it.</p> </div>
     <div class="col l6 s12 card-panel grey lighten-5 z-depth-1" align="center" style="height: 400px;"><h5>Previous Yearbook</h5> <br>
     <div class="row">
-        <div class="col l6 s6"><img src="img/year16.jpg" width="100%" alt=""/></div>
-        <div class="col l6 s6"> <img src="img/year2015.jpg" width="100%"  alt=""/></div>
+        <div class="col l6 s6"><img src="ind/year16.jpg" width="100%" alt=""/></div>
+        <div class="col l6 s6"> <img src="ind/year2015.jpg" width="100%"  alt=""/></div>
     </div>
     </div>
 
