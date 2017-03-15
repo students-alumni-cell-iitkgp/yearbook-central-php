@@ -1,7 +1,27 @@
 
 <?php
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+
+session_start();
+include 'connection.php';
+    if (isset($_SESSION['rollno'])) {
+        
+    }else{
+    echo '<script>alert("You need to Log In");window.location.href="login.php";</script>';
+    }
+
+  $value1=$_SESSION['rollno'];
+  $query1 = "select * from register where rollno = '$value1'"; 
+  $result =  $connection->query($query1); 
+  $line = mysqli_fetch_array($result);
+  if (!$_FILES["fileToUpload"]["name"]) {
+    $target_file=$line['pro_pic'];
+  }else{
+    if ($line['pro_pic']) {
+    unlink($line['pro_pic']);
+    }
+$target_dir = "img_uploads/";
+$name_hash=md5($_SESSION['rollno'])."_".basename($_FILES["fileToUpload"]["name"]);
+$target_file = $target_dir . $name_hash;
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
@@ -14,11 +34,6 @@ if(isset($_POST["submit"])) {
         echo '<script language="javascript">alert("File is not an image ");</script>';
         $uploadOk = 0;
     }
-}
-// Check if file already exists
-if (file_exists($target_file)) {
-    echo '<script language="javascript">alert("Sorry, file already exists.");</script>';
-    $uploadOk = 0;
 }
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
@@ -44,16 +59,7 @@ if ($uploadOk == 0) {
 
     }
 }
-
-?>
-<?php
-session_start();
-include 'connection.php';
-	if (isset($_SESSION['rollno'])) {
-		
-	}else{
-	echo '<script>alert("You need to Log In");window.location.href="login.php";</script>';
-	}
+}
 	$value1=$_SESSION['rollno'];
 	$motto=$_POST['motto'];
 	$query=$connection->query("UPDATE register
