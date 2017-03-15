@@ -166,13 +166,13 @@ include '../connection.php';
         </div>
 
         <div class="col l3 m3 s3 center">
-          <h6 style="font-weight:bolder">Contact No.</h6>
+          <h6 style="font-weight:bolder">Department</h6>
           <h6>
           <?php 
-          if ($line['phone']) {
-          echo $line['phone'];
+          if ($line['department']) {
+          echo $line['department'];
            }else{
-            echo "No Contact No. Provided";
+            echo "No Data";
            }
           ?></h6>
         </div>
