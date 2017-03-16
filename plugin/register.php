@@ -129,7 +129,7 @@ include 'connection.php';
  <h4> <?php echo $line['name'] ?> </h4>
  <h5>"
           <?php 
-          if (trim($line['view_self'])!='NULL') {
+          if (($line['view_self']!='NULL')&&!empty($line['view_self'])) {
           echo $line['view_self'];
            }else{
             echo "Upload your Caption for the Yearbook";
