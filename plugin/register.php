@@ -74,7 +74,7 @@ include 'connection.php';
     <div class="modal-content center">
       <form action="motosave.php" method="post" enctype="multipart/form-data">
       <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
-        <img src="<?php if (isset($line['pro_pic'])&&!empty($line['pro_pic'])) {	echo $line['pro_pic'];} else { echo 'ind/shot.jpg';} ?>" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
+        <img src="<?php if ($line['pro_pic']&&$line['pro_pic']!='NULL') {	echo $line['pro_pic'];} else { echo 'ind/shot.jpg';} ?>" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
         <div class="input-field col s12 l12 m12">
           <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here" style="text-align: center;color: black;" maxlength="50"><?php if (!empty(trim($line['view_self']))) {	echo $line['view_self'];}else {echo 'Enter Your Caption Here';} ?></textarea>
         </div>
@@ -129,7 +129,7 @@ include 'connection.php';
  <h4> <?php echo $line['name'] ?> </h4>
  <h5>"
           <?php 
-          if (!empty(trim($line['view_self']))) {
+          if (($line['view_self']!='NULL')&&!empty($line['view_self'])) {
           echo $line['view_self'];
            }else{
             echo "Upload your Caption for the Yearbook";
