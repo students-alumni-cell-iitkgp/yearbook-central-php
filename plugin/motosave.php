@@ -6,7 +6,7 @@ include 'connection.php';
     if (isset($_SESSION['rollno'])) {
         
     }else{
-    echo '<script>alert("You need to Log In");window.location.href="login.php";</script>';
+    echo '<script>alert("You need to Log In");window.location.href="index.php";</script>';
     }
 
   $value1=$_SESSION['rollno'];
@@ -19,7 +19,7 @@ include 'connection.php';
     if ($line['pro_pic']) {
     unlink($line['pro_pic']);
     }
-$target_dir = "img_uploads/";
+$target_dir = "uploads/";
 $name_hash=md5($_SESSION['rollno'])."_".basename($_FILES["fileToUpload"]["name"]);
 $target_file = $target_dir . $name_hash;
 $uploadOk = 1;
