@@ -44,6 +44,10 @@ include 'connection.php';
 	<link rel="stylesheet" type="text/css" href="animate.css">
 </head>
 <style>
+    @font-face {
+  font-family: 'Century gothic';
+  src: url('font.ttf');
+}
 	body{
 		background-color:#333;
 		color: white;

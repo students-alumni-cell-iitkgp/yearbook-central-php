@@ -30,17 +30,21 @@ include '../connection.php';
    <script>
  $(document).ready(function(){
    if ($(window).width()<770) {
-    (function($){ $('body').addClass('container-fluid');
+    (function($){ $('.body').addClass('container-fluid');
       $('#logo_mob').show();
      
     })(jQuery, undefined); }
-    else{$('body').addClass('container');
+    else{$('.body').addClass('container');
     $('.logo_desk').show();}
     
   });
 </script>
 
     <style type="text/css">
+    @font-face {
+  font-family: 'Century gothic';
+  src: url('font.ttf');
+}
  #modal1{
         overflow: hidden;
       }
@@ -69,49 +73,27 @@ include '../connection.php';
 }
 .header{
 
-  background-image: url("../ind/pic.jpg");
+  background-image: url("2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 @media only screen and (min-width: 1000px) {
     #capt {
-        padding-left: 0px;
-        margin-left: -200px;
+      text-align: right;
+      padding-top: 0;
     }
     @media only screen and (min-width: 770px){
-      #
+      
     }
-    .container{
-      padding-left: 15px;
-      padding-right: 15px;
+    .row{
+      margin: 0 !important;
     }
 
     </style>
   </head>
   
-  <body>
-  <div class="row" style="background-color: black;">
- <button type="button" class="waves-effect waves-light btn" onclick="location.href='../register.php'" style="position: absolute;left: 0;top: 0;">HOME</button>
-            <div id="logo_mob" align="center" style="display: none;"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="250" src="../year.png" alt="someimg"/></a> </div>
-            <div class="logo_desk col l6 m6 center-align" style="display: none;"><a href="http://www.sac.iitkgp.ac.in"><img height="90" width="270" src="../sac.png" alt="someimg"/></a> </div>
-            <div class="logo_desk col l6 m6 center-align" style="display: none;"><a href="#"><img height="90" width="230" src="../yearbook.png" alt="someimg"/></a> </div>  
-            <button type="button" class="waves-effect waves-light btn" style="position: absolute;right: 0;top: 0"onclick="location.href='../index.php'">LOGOUT </button> </div>
-
-            <div id="modal1" class="modal">
-    <div class="modal-content center">
-      <form action="motosave.php" method="post" enctype="multipart/form-data">
-      <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
-        <img src="../ind/shot.jpg" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
-        <div class="input-field col s12 l12 m12">
-          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here (Max 50 characters)" style="text-align: center;color: black;" maxlength="50"></textarea>
-        </div>
-        <input type="submit" name="save" value="Save" class="waves-effect waves-light btn" style="padding-top: 0;width: 150px;"  id="imgsave" >
-        </form>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
-  </div>
+  <body><div class="container-fluid"><?php  include "nav.php" ?><div>
+  <div class="body">
     <div class="header">
       <div class="">
 
@@ -126,7 +108,8 @@ include '../connection.php';
     <div class="caption">
       <div class="">
       <div class="row">
-        <div class="l8 m6 s6 l6 offset-l3">
+      <div class="l6 m6 s6"></div>
+        <div class=" m6 s6 l6">
           <h2 id="capt">
 
           "<?php 
@@ -189,4 +172,5 @@ include '../connection.php';
       }
        ?>
     </div>    
+    </div>
   </body>

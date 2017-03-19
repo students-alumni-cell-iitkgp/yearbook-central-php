@@ -52,6 +52,10 @@ function showfield(name){
     }
     </script>
     <style type="text/css">
+    @font-face {
+  font-family: 'Century gothic';
+  src: url('font.ttf');
+}
 html,body{
     max-width: 100%;
     overflow-x: hidden;
@@ -72,7 +76,7 @@ html,body{
 </style>
 </head>
 <body>
-<?php  include "nav.php" ?>
+<div class="container-fluid"><?php  include "nav.php" ?><div>
   <div class="container animated zoomInDown" style="display: table;">
 
    <div class="row" style="display: table-row;">
