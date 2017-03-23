@@ -32,10 +32,10 @@ if (isset($_SESSION['rollno'])) {
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-noscript.css"></noscript>
     <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
 <style>
- @font-face {
-     font-family:pacifico;
-     src: url('Pacifico.ttf');
- }
+    @font-face {
+  font-family: 'Century gothic';
+  src: url('font.ttf');
+}
 body
 {
   background-color: #333;

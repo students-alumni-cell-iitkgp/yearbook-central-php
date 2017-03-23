@@ -43,6 +43,11 @@ include 'connection.php';
 </script>
 
     <style type="text/css">
+    @font-face {
+  font-family: 'Century gothic';
+  src: url('font.ttf');
+}
+
     @media only screen and (min-width: 770px) {
     .container {
       border-right: 1px #bdbdbd solid; 
@@ -52,6 +57,13 @@ include 'connection.php';
         
     }
 }
+      
+    #textbot>.row{
+      display: flex;
+    }
+    .col{
+      flex: 1;
+    }
     	li{
     		text-align: center !important;
     	}
@@ -66,17 +78,21 @@ include 'connection.php';
       textarea{
         max-height: 50px;
       }
+      body{
+      text-align: justify;
+      font-family: Century gothic;
+      }
           </style>
 	</head>
 	<body>
-
+<div class="container-fluid"><?php  include "nav.php" ?><div>
   <div id="modal1" class="modal">
     <div class="modal-content center">
       <form action="motosave.php" method="post" enctype="multipart/form-data">
       <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
         <img src="<?php if ($line['pro_pic']&&$line['pro_pic']!='NULL') {	echo $line['pro_pic'];} else { echo 'ind/shot.jpg';} ?>" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
         <div class="input-field col s12 l12 m12">
-          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here" style="text-align: center;color: black;" maxlength="50"><?php if (!empty(trim($line['view_self']))) {	echo $line['view_self'];}else {echo 'Enter Your Caption Here';} ?></textarea>
+          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here" style="text-align: center;color: black;" maxlength="50"><?php if (!empty(trim($line['view_self']))&&$line['view_self']!='NULL') {	echo $line['view_self'];}else {echo 'Enter Your Caption Here';} ?></textarea>
         </div>
         <input type="submit" name="save" value="Save" class="waves-effect waves-light btn" style="width: 150px;" id="imgsave">
         </form>
@@ -85,17 +101,6 @@ include 'connection.php';
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
   </div>
-
-<div id="nav" class="row" style="background-color: black; display: none;">
-
-    <div align="left" class="col l1 s2 m2"><a style="margin-top:1.3em" class="waves-effect waves-light btn-large" href="register.php"><i class="material-icons right"></i>Home</a></div>
-    <div  class="col l3 m4 s3 right-align"><a href="http://www.sac.iitkgp.ac.in"><img style="padding-top: 7px;" height="90" width="250" src="sac.png" alt="someimg"/></a></div>
-    <div  class="col l3 m4 s3 right-align"><a href="#"><img height="90" width="200" src="yearbook.png" alt="someimg"/></a></div>
-    <div align="right" class="col l3 m4 s4"><a href="https://erp.iitkgp.ernet.in" style="margin-top:1.3em" class="waves-effect waves-light btn-large">Edit erp Profile pic<i class="material-icons right"></i></a></div>
-    <div class="col l2 m2 s2"><a href="index.php" style="margin-top:1.3em" class="waves-effect waves-light btn-large"><i class="material-icons right"></i>Logout</a></div>
-
-
-</div>
 
       <nav id="mob_nav" style="display: none; background-color: black; color: black;" >
       <div class="nav-wrapper">
@@ -161,13 +166,12 @@ include 'connection.php';
   		<a class='btn' style="width: 100%;height: 100%;font-size: 2px;" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a>
 </div>
 <div class="row">
-<div  class="col s12 l6 card-panel grey lighten-5 z-depth-1" align="center" style="height: 400px;"><h5>Yearbook</h5><p> The yearbook is an opus of memories that you would carry along graduating from the institute. The wonderful years spent in the campus are engraved and expressed via photographs and writeups in this departing souvenir from IIT KGP. 
-With an assortment of your thoughts and snaps from various experiences through the years, the book truly collaborates your time in KGP and is a walk down your memory lane every time you look through it.</p> </div>
-    <div class="col l6 s12 card-panel grey lighten-5 z-depth-1" align="center" style="height: 400px;"><h5>Previous Yearbook</h5> <br>
-    <div class="row">
-        <div class="col l6 s6"><img src="ind/year16.jpg" width="100%" alt=""/></div>
-        <div class="col l6 s6"> <img src="ind/year2015.jpg" width="100%"  alt=""/></div>
-    </div>
+<div  class="col s12 l6 card-panel grey lighten-5 z-depth-1" align="center" style="min-height: 270px;padding: 10px;height: 100%;"><h5>Yearbook</h5><div style="padding-right: 15px;padding-left: 15px;"><p style="text-align: justify;"> The yearbook is an opus of memories that you would carry along graduating from the institute. The wonderful years spent in the campus are engraved and expressed via photographs and writeups in this departing souvenir from IIT KGP. 
+With an assortment of your thoughts and snaps from various experiences through the years, the book truly collaborates your time in KGP and is a walk down your memory lane every time you look through it.</p> </div></div>
+    <div class="col l6 s12 card-panel grey lighten-5 z-depth-1" align="center" style="min-height: 270px;padding: 10px;"><h5>Previous Yearbooks</h5> <br>
+        <div class="col l4 s4"><img src="ind/year16.jpg" width="100%" alt=""/></div>
+        <div class="col l4 s4"> <img src="ind/year2015.jpg" width="100%"  alt=""/></div>
+        <div class="col l4 s4"> <img src="ind/year2014.jpg" width="100%"  alt=""/></div>
     </div>
 
 </div>
