@@ -22,9 +22,11 @@ include 'connection.php';
         <title>YB|Home</title>
     <link rel="icon" href="ind/fav.png" type="image/png" >
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="../js/materialize.min.js"></script>
+  <script type="text/javascript" src="../js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/intro.min.js"></script>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/introjs.min.css"  media="screen,projection"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="stylesheet" type="text/css" href="animate.css">
 
@@ -55,6 +57,15 @@ include 'connection.php';
       padding-right: 23px; 
       padding-left: 23px;
         
+    }
+
+}    
+@media only screen and (max-width: 770px) {
+    #btnn1{
+      display: none;
+    }
+    #btnn2{
+      display: block !important;
     }
 }
       
@@ -102,34 +113,15 @@ include 'connection.php';
     </div>
   </div>
 
-      <nav id="mob_nav" style="display: none; background-color: black; color: black;" >
-      <div class="nav-wrapper">
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <a href="#!" class="brand-logo"><img width="140" height="50" src="year.png" alt="someimg"/></a>
-        <ul class="side-nav" id="mobile-demo">
-        <li><a href="register.php" style="color: black;">Home</a></li>
-        <li class="no-padding">
-          <ul class="collapsible collapsible-accordion">
-            <li>
-              <a class="collapsible-header" style="color: black;">User<i class="mdi-navigation-arrow-drop-down right"></i></a>
-              <div class="collapsible-body">
-                <ul>
-                  <li><a style="color: black;" href="profile/index.php?roll=<?php echo $value1; ?>">My Profile</a></li>
-        <li><a href="details.php?flag=1" style="color: black;">Edit Details</a></li>
-                </ul>
-    </div></li></ul></li>
-        <li><a href="index.php" style="color: black;">Update Erp Profile Pic</a></li>
-        <li><a href="index.php" style="color: black;">Logout</a></li>
-      </ul>
-      </div>
-    </nav>
 
+<button id="btnn1" class="waves-effect waves-light btn" style="float: right;width: 150px;padding: 0 ;margin-right: 20px;" onclick="javascript:introJs().start();">Tutorial<i class="material-icons" >help</i></button>
+<button id="btnn2" class="btn-floating" style="float: right;padding: 0;margin-right: 20px;display: none;" onclick="javascript:introJs().start();" title="Tutorial"><i class="material-icons" >help</i></button>
 
 <div class="container">
 <br/>
 <div align="center" class="row">
 <div class=""><a class="modal-trigger" href="#modal1">
-<img src="<?php if ($line['pro_pic']&&$line['pro_pic']!='NULL') { echo $line['pro_pic']; } else { echo 'ind/your.jpg'; } ?>" class="circle" width="200px" height="200px"> </a>
+<img src="<?php if ($line['pro_pic']&&$line['pro_pic']!='NULL') { echo $line['pro_pic']; } else { echo 'ind/your.jpg'; } ?>" class="circle" width="200px" height="200px" data-step="1" data-intro="Click on image to Upload Profile pic and Caption"> </a>
 </div>
  <h4> <?php echo $line['name'] ?> </h4>
  <h5>"
@@ -146,20 +138,20 @@ include 'connection.php';
 <br/>
 <div align="center" class="row">
   <div class="col l4 m4 s6">
-  <a class='dropdown-button btn' id="user" data-activates='dropdown1' style="display: none; width: 100%;height: 100%;font-size: 2px;">User</a>
+  <a class='dropdown-button btn' id="user" data-activates='dropdown1' style="display: none; width: 100%;height: 100%;font-size: 2px;" data-step="2" data-intro="Visit your Profile and View the Testimonials written about you">User</a>
   <ul id='dropdown1' class='dropdown-content' style="margin-top:55px;">
         <li><a href="profile/index.php?roll=<?php echo $value1; ?>">My Profile</a></li>
         <li><a href="details.php?flag=1">Edit Details</a></li>
   </ul>
    </div>
        <div class="col l4 m4 s6">
-           	<a class='btn' href='search/' style="width: 100%;height: 100%;">Batch Sento</a>
+           	<a class='btn' href='search/' style="width: 100%;height: 100%;" data-step="3" data-intro="Search your friend and write about them">Batch Sento</a>
            </div>
        <div class="col l4 m4 s6">
-           	<a class='btn' href='writeup.php' style="width: 100%;height: 100%;">Write Article</a>
+           	<a class='btn' href='writeup.php' style="width: 100%;height: 100%;" data-step="4" data-intro="Share your interesting memories with us">Write Article</a>
            </div>
        <div class="col l4 m4 s6">
-           	<a class='btn' href='upload.php' style="width: 100%;height: 100%;">Upload Photo</a>
+           	<a class='btn' href='upload.php' style="width: 100%;height: 100%;" data-step="5" data-intro="Upload some Funny photos of you and your friend">Upload Photo</a>
            </div>
 
        <div class="col l4 m4 s6 offset-l4">

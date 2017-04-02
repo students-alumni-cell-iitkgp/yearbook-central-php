@@ -15,12 +15,12 @@ session_destroy();
 </head>
 
 <style>
+ @font-face {
+  font-family: 'Century gothic';
+  src: url('font.ttf');
+}
  	.container-fluid
 	{
-		background-image: url('ind/4.jpg');
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-		height: 100%;
 		position: absolute;
 		top: 0;
 		text-align: center;
@@ -82,6 +82,12 @@ session_destroy();
 	position: absolute;
 	top: 35%;
 }
+a{
+	color: #fff;
+}
+a span {display: none;  color: #fff; background: #000; padding: 5px;margin-bottom: 80px;font-size: 15px;}
+a {position: relative;}
+a:hover span {display: block; text-align: center;z-index: 1000;}
 
 </style>
 <body>
@@ -110,7 +116,7 @@ session_destroy();
 				</div>
 			</div>
 			</form>
-			<p class=" center sub-title main-title" >Contact us at:<br> yearbook2k17.kgp@gmail.com</p>
+			<p class=" center sub-title main-title" >Contact us at:<br> <a href="mailto:yearbook2k17.kgp@gmail.com"> yearbook2k17.kgp@gmail.com<a><i class="material-icons">error_outline</i><span class="tooltip">If you are not graduating this year, but want to write about your friends who are graduating, send us the testimonials via mail at yearbook2k17.kgp@gmail.com</span></a></p>
 
 	</div>
 

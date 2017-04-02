@@ -36,6 +36,8 @@ if (isset($_POST['search'])) {
   <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" type="text/css" href="../animate.css">
+  <script type="text/javascript" src="../js/intro.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="../css/introjs.min.css"  media="screen,projection"/>
   <style type="text/css">
   body,html{
     max-width: 100%;
@@ -57,6 +59,13 @@ if (isset($_POST['search'])) {
     .card,.back{
       background-color: grey;
     }
+      .introjs-tooltiptext{
+        color: black;
+      }
+      .introjs-helperLayer {
+        background-color: grey !important;
+        opacity: 0.3;
+      }
   </style>
   <script>
    $(document).ready(function(){
@@ -78,10 +87,13 @@ if (isset($_POST['search'])) {
 </head>
 <body>
 <div class="container-fluid"><?php  include "nav.php" ?><div>
+
+<button id="btnn1" class="waves-effect waves-light btn" style="float: right;width: 150px;padding: 0 ;margin-right: 20px;" onclick="javascript:introJs().start();">Tutorial<i class="material-icons" >help</i></button>
+<button id="btnn2" class="btn-floating " style="float: right;padding: 0 ;margin-right: 20px;display: none;" onclick="javascript:introJs().start();" title="Tutorial"><i class="material-icons" >help</i></button>
   <div class="container">
 
             <div class="col s12 m6">
-          <div class="card darken-1 animated zoomInDown">
+          <div class="card darken-1 animated zoomInDown" data-step="1" data-intro="Search your friends and write something interesting about them ;p">
             <div class="card-content " style="text-align: center;">
               <span class="card-title ">Yearbook'17</span>
               <h5 style="cursor: default;">"Make the Yearbook yours"</h5>
@@ -95,10 +107,10 @@ if (isset($_POST['search'])) {
   <input type="submit" name="submit" class="waves-effect waves-light btn" style="background-color: #4CB2D4">
 </form>
 </div></div></div>
-<div class="card grey darken-1 center animated zoomInUp" style="overflow-x: hidden;">
+<div class="card grey darken-1 center animated zoomInUp" style="overflow-x: hidden;" data-step="2" data-intro="See friends suggestion here">
 
 <div class="row back" style="">
-<h5>People you may know<div id="reload" style="color: #fff;cursor: pointer;"><i class="material-icons">cached</i></div></h5>
+<h5>People you may know<div id="reload" style="color: #fff;cursor: pointer;" ><i class="material-icons" data-step="3" data-intro="Refresh the suggestion list">cached</i></div></h5>
   <div id="load" class="center row" style="padding-left: 0;">
   <?php 
       include "recommend.php";
