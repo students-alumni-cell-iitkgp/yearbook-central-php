@@ -25,6 +25,8 @@ include 'connection.php';
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="../js/materialize.min.js"></script>
   <link rel="stylesheet" type="text/css" href="animate.css">
+  <script type="text/javascript" src="js/intro.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="css/introjs.min.css"  media="screen,projection"/>
   <script type="text/javascript">
 function showfield(name){
   if(name=='other')document.getElementById('div1').innerHTML='Write your Topic here: <input type="text" name="writeup" />';
@@ -72,12 +74,33 @@ html,body{
 
       table{
         table-layout: fixed !important;
+      }  
+      .introjs-tooltiptext{
+        color: black;
       }
+      .introjs-helperLayer {
+        background-color: #333 !important;
+        opacity: 0.3;
+      }
+@media only screen and (max-width: 770px) {
+    #btnn1{
+      display: none;
+    }
+    #btnn2{
+      display: block !important;
+    }
+}
+     
 </style>
 </head>
 <body>
 <div class="container-fluid"><?php  include "nav.php" ?><div>
-  <div class="container animated zoomInDown" style="display: table;">
+
+
+<button id="btnn1" class="waves-effect waves-light btn" style="float: right;width: 150px;padding: 0 ;margin-right: 20px;" onclick="javascript:introJs().start();">Tutorial<i class="material-icons" >help</i></button>
+<button id="btnn2" class="btn-floating " style="float: right;padding: 0 ;margin-right: 20px;display: none;" onclick="javascript:introJs().start();" title="Tutorial"><i class="material-icons" >help</i></button>
+
+  <div class="container animated zoomInDown" style="display: table;margin-right: 0">
 
    <div class="row" style="display: table-row;">
     
@@ -86,10 +109,10 @@ html,body{
 
     </div>
     </div>
-  <div class="row"><hr>
+  <div class="row" data-step="1" data-intro="Submit your article here"><hr>
   <div class="col l12 s12 m12 center">How have all these years in KGP transformed you? What’s your funniest experience in the campus? Share with us your stories to make it a part of the yearbook that you carry along. Choose the topic below and send us your articles.</div><br><br><hr>
 
-   <form action="writeupconnect.php" method="POST">
+   <form action="writeupconnect.php" method="POST" >
 <div class="col l4 s6 m6 ">
 
   <select name="topic" id="topic" required onchange="showfield(this.options[this.selectedIndex].value)">
@@ -114,7 +137,7 @@ html,body{
     <button type"submit" class="waves-effect waves-light btn" id="submit" required>SUBMIT</button>
   </div>
   </form>
-<div class="row center white" style="margin-top: 20px;color: #333;">
+<div class="row center white" style="margin-top: 20px;color: #333;" data-step="2" data-intro="View/Edit/Delete your article. Click on field to edit">
 <h4 style="color: #707070;padding-top: 20px">Your WriteUp</h4><hr><hr>
 <table class="tbl-qa" style="color: #333;">
       <thead>
@@ -152,6 +175,6 @@ html,body{
 </div>
   </div>
   </div>
-
+</div></div>
 </body>
 </html>
