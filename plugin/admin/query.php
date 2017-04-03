@@ -1,7 +1,7 @@
 <?php   
 session_start();
 include '../connection.php';
-    if (sha1($_SESSION['rollno'])!="d033e22ae348aeb5660fc2140aec35850c4da997") {
+    if (sha1($_SESSION['rollno'])!="7fa0ad2bc14c757bb2e94c5db055d350bfca8663") {
       echo '<script>alert("Authorised Users only");window.location.href="../index.php";</script>';
     }
 
@@ -22,7 +22,7 @@ include '../connection.php';
         <td><?php echo @$list[$_POST['field1']] ?></td>
         <td><?php echo @$list[$_POST['field2']] ?></td>
         <td><?php if ($_POST['field3']=="name") {
-        		echo "<a href='download.php?id=../server/php/files/".@$list[$_POST['field3']]."' >".@$list[$_POST['field3']]."</a>";
+        		echo "<a href='download.php?id=../server/php/uploaded/".@$list[$_POST['field3']]."' >".@$list[$_POST['field3']]."</a>";
             } else {
             	echo @$list[$_POST['field3']];
         } ?>
