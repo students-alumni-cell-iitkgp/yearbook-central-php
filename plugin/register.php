@@ -103,7 +103,8 @@ include 'connection.php';
       <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
         <img src="<?php if ($line['pro_pic']&&$line['pro_pic']!='NULL') {	echo $line['pro_pic'];} else { echo 'ind/shot.jpg';} ?>" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
         <div class="input-field col s12 l12 m12">
-          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here" style="text-align: center;color: black;" maxlength="50"><?php if (!empty(trim($line['view_self']))&&$line['view_self']!='NULL') {	echo $line['view_self'];}else {echo 'Enter Your Caption Here';} ?></textarea>
+          <label for="motto">Caption (Max 50 characters)</label>
+          <textarea name="motto" id="icon_prefix2" required class="materialize-textarea" placeholder="Enter Your Caption Here (Max 50 characters)" style="text-align: center;color: black;" maxlength="50"><?php if (!empty(trim($line['view_self']))&&$line['view_self']!='NULL') {	echo $line['view_self'];}else {echo 'Enter Your Caption Here';} ?></textarea>
         </div>
         <input type="submit" name="save" value="Save" class="waves-effect waves-light btn" style="width: 150px;" id="imgsave">
         </form>
@@ -118,7 +119,7 @@ include 'connection.php';
 <button id="btnn2" class="btn-floating" style="float: right;padding: 0;margin-right: 20px;display: none;" onclick="javascript:introJs().start();" title="Tutorial"><i class="material-icons" >help</i></button>
 
 <div class="container">
-<br/>
+<button class="modal-trigger waves-effect waves-light btn col l5 m12 s12" href="#modal1" style=" padding-top: 0;padding-left: 25px;padding-right: 25px;">Upload Profile Picture and Caption</button>
 <div align="center" class="row">
 <div class=""><a class="modal-trigger" href="#modal1">
 <img src="<?php if ($line['pro_pic']&&$line['pro_pic']!='NULL') { echo $line['pro_pic']; } else { echo 'ind/your.jpg'; } ?>" class="circle" width="200px" height="200px" data-step="1" data-intro="Click on image to Upload Profile pic and Caption"> </a>

@@ -123,6 +123,7 @@ html,body{
       <option value="Life at Kgp">Life at Kgp</option>
       <option value="Illumination">Illumination</option>
       <option value="Hall">Hall</option>
+      <option value="Every Place a Story">Every Place has a Story</option>
       <option value="Other">Other</option>
     </select></div></div>
   <div id="div1"></div>

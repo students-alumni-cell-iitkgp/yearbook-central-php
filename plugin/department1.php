@@ -24,9 +24,9 @@
 					</div>
 					<div class="row">
 						<div class="col l12 m12 s12">
-							<label for="textarea2">Write Here!</label>
+							<label for="textarea2">Write Here! (Max 144 characters)</label>
 
-							<textarea id="textarea2" name="viewf" placeholder="Write Here!" class="materialize-textarea" style="padding-bottom: 0;"></textarea>
+							<textarea id="textarea2" name="viewf" placeholder="Write Here! (Max 144 words)" class="materialize-textarea" style="padding-bottom: 0;"></textarea>
 						</div>
 					</div>
 					<center>
