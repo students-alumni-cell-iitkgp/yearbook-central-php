@@ -61,7 +61,7 @@ if ($uploadOk == 0) {
 }
 }
 	$value1=$_SESSION['rollno'];
-	$motto=$_POST['motto'];
+	$motto=mysqli_real_escape_string($connection,$_POST['motto']);
 	$query=$connection->query("UPDATE register
 	SET view_self='$motto' , pro_pic='$target_file'	WHERE rollno='$value1'");
 	echo '<script type="text/javascript">  window.location.href = "register.php";</script>';
